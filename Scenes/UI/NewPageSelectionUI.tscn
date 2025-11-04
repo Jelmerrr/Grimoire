@@ -63,23 +63,34 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Page 1 Title" type="Label" parent="HBoxPanels/New Page 1 Container/MarginContainer/VBoxContainer"]
+[node name="Page 1 Title" type="RichTextLabel" parent="HBoxPanels/New Page 1 Container/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.8509804, 1, 0.8862745, 1)
-theme_override_fonts/font = ExtResource("1_i0s45")
-theme_override_font_sizes/font_size = 16
-text = "Page 1"
+mouse_filter = 1
+theme_override_constants/line_separation = 4
+theme_override_fonts/normal_font = ExtResource("2_ygatb")
+theme_override_fonts/bold_font = ExtResource("1_i0s45")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "Page Title"
+fit_content = true
+scroll_active = false
 horizontal_alignment = 1
 
-[node name="Page 1 Description" type="Label" parent="HBoxPanels/New Page 1 Container/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(190, 1)
+[node name="Page 1 Description" type="RichTextLabel" parent="HBoxPanels/New Page 1 Container/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.8509804, 1, 0.8862745, 1)
-theme_override_fonts/font = ExtResource("2_ygatb")
-theme_override_font_sizes/font_size = 8
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+mouse_filter = 1
+theme_override_constants/line_separation = 4
+theme_override_fonts/normal_font = ExtResource("2_ygatb")
+theme_override_fonts/bold_font = ExtResource("1_i0s45")
+theme_override_font_sizes/normal_font_size = 8
+theme_override_font_sizes/bold_font_size = 8
+bbcode_enabled = true
+text = "Description aaaaaaaaaaaaaa aaaaaaaaaa"
+fit_content = true
+scroll_active = false
 horizontal_alignment = 1
-autowrap_mode = 2
+meta_underlined = false
 
 [node name="New Page 2 Container" type="PanelContainer" parent="HBoxPanels"]
 custom_minimum_size = Vector2(200, 250)
@@ -97,23 +108,34 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Page 2 Title" type="Label" parent="HBoxPanels/New Page 2 Container/MarginContainer/VBoxContainer"]
+[node name="Page 2 Title" type="RichTextLabel" parent="HBoxPanels/New Page 2 Container/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.8509804, 1, 0.8862745, 1)
-theme_override_fonts/font = ExtResource("1_i0s45")
-theme_override_font_sizes/font_size = 16
-text = "Page 2"
+mouse_filter = 1
+theme_override_constants/line_separation = 4
+theme_override_fonts/normal_font = ExtResource("2_ygatb")
+theme_override_fonts/bold_font = ExtResource("1_i0s45")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "Page Title"
+fit_content = true
+scroll_active = false
 horizontal_alignment = 1
 
-[node name="Page 2 Description" type="Label" parent="HBoxPanels/New Page 2 Container/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(190, 1)
+[node name="Page 2 Description" type="RichTextLabel" parent="HBoxPanels/New Page 2 Container/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.8509804, 1, 0.8862745, 1)
-theme_override_fonts/font = ExtResource("2_ygatb")
-theme_override_font_sizes/font_size = 8
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+mouse_filter = 1
+theme_override_constants/line_separation = 4
+theme_override_fonts/normal_font = ExtResource("2_ygatb")
+theme_override_fonts/bold_font = ExtResource("1_i0s45")
+theme_override_font_sizes/normal_font_size = 8
+theme_override_font_sizes/bold_font_size = 8
+bbcode_enabled = true
+text = "Description aaaaaaaaaaaaaa aaaaaaaaaa"
+fit_content = true
+scroll_active = false
 horizontal_alignment = 1
-autowrap_mode = 2
+meta_underlined = false
 
 [node name="New Page 3 Container" type="PanelContainer" parent="HBoxPanels"]
 custom_minimum_size = Vector2(200, 250)
@@ -131,23 +153,34 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Page 3 Title" type="Label" parent="HBoxPanels/New Page 3 Container/MarginContainer/VBoxContainer"]
+[node name="Page 3 Title" type="RichTextLabel" parent="HBoxPanels/New Page 3 Container/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.8509804, 1, 0.8862745, 1)
-theme_override_fonts/font = ExtResource("1_i0s45")
-theme_override_font_sizes/font_size = 16
-text = "Page 3"
+mouse_filter = 1
+theme_override_constants/line_separation = 4
+theme_override_fonts/normal_font = ExtResource("2_ygatb")
+theme_override_fonts/bold_font = ExtResource("1_i0s45")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "Page Title"
+fit_content = true
+scroll_active = false
 horizontal_alignment = 1
 
-[node name="Page 3 Description" type="Label" parent="HBoxPanels/New Page 3 Container/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(190, 1)
+[node name="Page 3 Description" type="RichTextLabel" parent="HBoxPanels/New Page 3 Container/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.8509804, 1, 0.8862745, 1)
-theme_override_fonts/font = ExtResource("2_ygatb")
-theme_override_font_sizes/font_size = 8
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+mouse_filter = 1
+theme_override_constants/line_separation = 4
+theme_override_fonts/normal_font = ExtResource("2_ygatb")
+theme_override_fonts/bold_font = ExtResource("1_i0s45")
+theme_override_font_sizes/normal_font_size = 8
+theme_override_font_sizes/bold_font_size = 8
+bbcode_enabled = true
+text = "Description aaaaaaaaaaaaaa aaaaaaaaaa"
+fit_content = true
+scroll_active = false
 horizontal_alignment = 1
-autowrap_mode = 2
+meta_underlined = false
 
 [connection signal="mouse_entered" from="HBoxPanels/New Page 1 Container" to="." method="_on_new_page_1_container_mouse_entered"]
 [connection signal="mouse_exited" from="HBoxPanels/New Page 1 Container" to="." method="_on_new_page_1_container_mouse_exited"]
