@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4hvq1tcwi405"]
+
+[ext_resource type="Script" uid="uid://q6317roy712k" path="res://Scripts/Pages/Buffs/StackedDeckFunctionality.gd" id="1_gtc5t"]
+
+[node name="StackedDeckPage" type="Node2D"]
+script = ExtResource("1_gtc5t")

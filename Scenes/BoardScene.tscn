@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdx3eg3w0wwmw"]
+
+[ext_resource type="PackedScene" uid="uid://c8bfyku2dawj0" path="res://Scenes/Player/Grimoire_Scene.tscn" id="1_l56c8"]
+[ext_resource type="PackedScene" uid="uid://c8lkfhngweyr3" path="res://Scenes/Functional/HUD_Scene.tscn" id="2_jf025"]
+[ext_resource type="PackedScene" uid="uid://cwncc32kjvsgy" path="res://Scenes/Functional/NewPageSelectionScene.tscn" id="3_cyht7"]
+[ext_resource type="PackedScene" uid="uid://dniujs4mtuy7t" path="res://Scenes/Enemy/EnemyBoard_scene.tscn" id="4_7heqy"]
+[ext_resource type="PackedScene" uid="uid://ctx3fvkp7wfk8" path="res://Scenes/Player/PlayerCharacter_Scene.tscn" id="4_dwcef"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l56c8"]
+bg_color = Color(0, 0.03529412, 0.14117648, 1)
+
+[node name="BoardScene" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_l56c8")
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="HUD" parent="." instance=ExtResource("2_jf025")]
+
+[node name="Grimoire" parent="." instance=ExtResource("1_l56c8")]
+
+[node name="NewPageSelection" parent="." instance=ExtResource("3_cyht7")]
+
+[node name="EnemyBoardScene" parent="." instance=ExtResource("4_7heqy")]
+
+[node name="Player" parent="." instance=ExtResource("4_dwcef")]
+position = Vector2(0, 150)

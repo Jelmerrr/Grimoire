@@ -1,0 +1,157 @@
+[gd_scene load_steps=5 format=3 uid="uid://ifp20281h6t1"]
+
+[ext_resource type="FontFile" uid="uid://cq6k7a56rmitc" path="res://Assets/UI/Font/PixelOperator8-Bold.ttf" id="1_i0s45"]
+[ext_resource type="Script" uid="uid://dyjutg8pfe3w7" path="res://Scripts/Controllers/NewPageSelectionUIController.gd" id="1_ygatb"]
+[ext_resource type="FontFile" uid="uid://djhpuwc8o5esm" path="res://Assets/UI/Font/PixelOperator8.ttf" id="2_ygatb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fcmo"]
+bg_color = Color(0.015686275, 0.105882354, 0.21960784, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8509804, 1, 0.8862745, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing = false
+
+[node name="NewPageSelectionUI" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -155.0
+offset_bottom = -155.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_ygatb")
+
+[node name="HBoxPanels" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="New Page 1 Container" type="PanelContainer" parent="HBoxPanels"]
+custom_minimum_size = Vector2(200, 250)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6fcmo")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxPanels/New Page 1 Container"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxPanels/New Page 1 Container/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Page 1 Title" type="Label" parent="HBoxPanels/New Page 1 Container/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8509804, 1, 0.8862745, 1)
+theme_override_fonts/font = ExtResource("1_i0s45")
+theme_override_font_sizes/font_size = 16
+text = "Page 1"
+horizontal_alignment = 1
+
+[node name="Page 1 Description" type="Label" parent="HBoxPanels/New Page 1 Container/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(190, 1)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8509804, 1, 0.8862745, 1)
+theme_override_fonts/font = ExtResource("2_ygatb")
+theme_override_font_sizes/font_size = 8
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="New Page 2 Container" type="PanelContainer" parent="HBoxPanels"]
+custom_minimum_size = Vector2(200, 250)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6fcmo")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxPanels/New Page 2 Container"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxPanels/New Page 2 Container/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Page 2 Title" type="Label" parent="HBoxPanels/New Page 2 Container/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8509804, 1, 0.8862745, 1)
+theme_override_fonts/font = ExtResource("1_i0s45")
+theme_override_font_sizes/font_size = 16
+text = "Page 2"
+horizontal_alignment = 1
+
+[node name="Page 2 Description" type="Label" parent="HBoxPanels/New Page 2 Container/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(190, 1)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8509804, 1, 0.8862745, 1)
+theme_override_fonts/font = ExtResource("2_ygatb")
+theme_override_font_sizes/font_size = 8
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="New Page 3 Container" type="PanelContainer" parent="HBoxPanels"]
+custom_minimum_size = Vector2(200, 250)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6fcmo")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxPanels/New Page 3 Container"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxPanels/New Page 3 Container/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Page 3 Title" type="Label" parent="HBoxPanels/New Page 3 Container/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8509804, 1, 0.8862745, 1)
+theme_override_fonts/font = ExtResource("1_i0s45")
+theme_override_font_sizes/font_size = 16
+text = "Page 3"
+horizontal_alignment = 1
+
+[node name="Page 3 Description" type="Label" parent="HBoxPanels/New Page 3 Container/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(190, 1)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8509804, 1, 0.8862745, 1)
+theme_override_fonts/font = ExtResource("2_ygatb")
+theme_override_font_sizes/font_size = 8
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[connection signal="mouse_entered" from="HBoxPanels/New Page 1 Container" to="." method="_on_new_page_1_container_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxPanels/New Page 1 Container" to="." method="_on_new_page_1_container_mouse_exited"]
+[connection signal="mouse_entered" from="HBoxPanels/New Page 2 Container" to="." method="_on_new_page_2_container_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxPanels/New Page 2 Container" to="." method="_on_new_page_2_container_mouse_exited"]
+[connection signal="mouse_entered" from="HBoxPanels/New Page 3 Container" to="." method="_on_new_page_3_container_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxPanels/New Page 3 Container" to="." method="_on_new_page_3_container_mouse_exited"]

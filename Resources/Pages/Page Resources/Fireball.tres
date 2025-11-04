@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PageResource" load_steps=4 format=3 uid="uid://bmvokbotxdoyw"]
+
+[ext_resource type="Script" uid="uid://c17kxgs3gbmof" path="res://Scripts/Pages/Spells/FireballFunctionality.gd" id="1_gm5xm"]
+[ext_resource type="Script" uid="uid://4uqlkofs35db" path="res://Resources/Pages/Res_PageEntry.gd" id="2_cmxxp"]
+[ext_resource type="PackedScene" uid="uid://43caa2wj4jbq" path="res://Scenes/Pages/Spells/FireballPage.tscn" id="2_hdxce"]
+
+[resource]
+script = ExtResource("2_cmxxp")
+InternalName = "Fireball"
+PageFunctionality = ExtResource("1_gm5xm")
+PageScene = ExtResource("2_hdxce")
+UI_NameString = "Fireball"
+UI_DescriptionString = "Shoot a Fireball towards the nearest enemy that deals 10 [color=red][url=fireball]fire[/url][/color] damage."
+metadata/_custom_type_script = "uid://4uqlkofs35db"

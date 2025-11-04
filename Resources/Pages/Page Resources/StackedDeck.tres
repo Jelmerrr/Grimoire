@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PageResource" load_steps=4 format=3 uid="uid://ciaaq3xppcsag"]
+
+[ext_resource type="Script" uid="uid://q6317roy712k" path="res://Scripts/Pages/Buffs/StackedDeckFunctionality.gd" id="1_7m6xm"]
+[ext_resource type="Script" uid="uid://4uqlkofs35db" path="res://Resources/Pages/Res_PageEntry.gd" id="1_4810x"]
+[ext_resource type="PackedScene" uid="uid://d4hvq1tcwi405" path="res://Scenes/Pages/Buffs/StackedDeckPage.tscn" id="2_a1t4p"]
+
+[resource]
+script = ExtResource("1_4810x")
+InternalName = "StackedDeck"
+PageType = 1
+PageFunctionality = ExtResource("1_7m6xm")
+PageScene = ExtResource("2_a1t4p")
+PageTargeting = 2
+UI_NameString = "Stacked Deck"
+UI_DescriptionString = "For each spell page you cast in the current cycle, gain 25% increased damage. This effect is removed upon a Cycle reset. If this page is activated multiple times during a Cycle, take the strongest effect."
+metadata/_custom_type_script = "uid://4uqlkofs35db"

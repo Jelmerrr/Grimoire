@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BaseEnemyResource" load_steps=4 format=3 uid="uid://t8ncgrjjpm32"]
+
+[ext_resource type="Script" uid="uid://cqiyxfo60k6tj" path="res://Resources/Enemy/res_BaseEnemy.gd" id="1_1rl3a"]
+[ext_resource type="Resource" uid="uid://bmvokbotxdoyw" path="res://Resources/Pages/Page Resources/Fireball.tres" id="1_stdut"]
+[ext_resource type="Texture2D" uid="uid://ba284d84evukq" path="res://Assets/Sprites/Placeholder/SatoriPortrait 64x64.png" id="1_t1v52"]
+
+[resource]
+script = ExtResource("1_1rl3a")
+enemyName = "Training Dummy"
+maxHealth = 50.0
+actionSpeed = 2.5
+enemyType = 2
+enemyAttack = ExtResource("1_stdut")
+enemySprite = ExtResource("1_t1v52")
+metadata/_custom_type_script = "uid://cqiyxfo60k6tj"

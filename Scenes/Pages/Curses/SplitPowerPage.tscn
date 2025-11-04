@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl425be24ufto"]
+
+[ext_resource type="Script" uid="uid://pu1ogbhocln7" path="res://Scripts/Pages/Curses/SplitPowerFunctionality.gd" id="1_40ehs"]
+
+[node name="SplitPowerPage" type="Node2D"]
+script = ExtResource("1_40ehs")

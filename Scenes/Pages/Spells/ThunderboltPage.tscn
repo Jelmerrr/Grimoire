@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bratfmct7slu5"]
+
+[ext_resource type="Script" uid="uid://mf6r6c2vbl4j" path="res://Scripts/Pages/Spells/ThunderboltFunctionality.gd" id="1_iw8xw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_llsr1"]
+
+[node name="Thunderbolt" type="Node2D"]
+script = ExtResource("1_iw8xw")
+
+[node name="Life Timer" type="Timer" parent="."]
+wait_time = 0.387
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_llsr1")
+
+[connection signal="timeout" from="Life Timer" to="." method="_on_life_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

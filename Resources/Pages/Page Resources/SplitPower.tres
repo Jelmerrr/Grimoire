@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PageResource" load_steps=4 format=3 uid="uid://bcjhlnij4jbxm"]
+
+[ext_resource type="Script" uid="uid://pu1ogbhocln7" path="res://Scripts/Pages/Curses/SplitPowerFunctionality.gd" id="1_ceo1k"]
+[ext_resource type="Script" uid="uid://4uqlkofs35db" path="res://Resources/Pages/Res_PageEntry.gd" id="1_u27p0"]
+[ext_resource type="PackedScene" uid="uid://dl425be24ufto" path="res://Scenes/Pages/Curses/SplitPowerPage.tscn" id="2_x06pu"]
+
+[resource]
+script = ExtResource("1_u27p0")
+InternalName = "SplitPower"
+PageType = 3
+PageFunctionality = ExtResource("1_ceo1k")
+PageScene = ExtResource("2_x06pu")
+PageTargeting = 2
+UI_NameString = "Split Power"
+UI_DescriptionString = "The next spell page you cast deals half damage. Once you have cast 1 spell page, the next spell page you cast deals triple damage. You cannot have multiple instances of this curse active at the same time."
+metadata/_custom_type_script = "uid://4uqlkofs35db"

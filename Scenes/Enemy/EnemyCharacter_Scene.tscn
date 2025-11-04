@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkl1uw8420f1t"]
+
+[ext_resource type="Script" uid="uid://3msqq7qfm88a" path="res://Scripts/Controllers/EnemyController.gd" id="1_6wvlp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1bvg6"]
+radius = 37.01351
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6wvlp"]
+bg_color = Color(0.07450981, 0.007843138, 0.03137255, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bvg6"]
+bg_color = Color(0.8352941, 0.23529412, 0.41568628, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="EnemyBody" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 16
+script = ExtResource("1_6wvlp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1bvg6")
+
+[node name="ActionTimer" type="Timer" parent="."]
+
+[node name="Health Bar" type="ProgressBar" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_6wvlp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1bvg6")
+show_percentage = false
+
+[connection signal="timeout" from="ActionTimer" to="." method="_on_action_timer_timeout"]

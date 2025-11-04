@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://b05sxg6iw2sfr"]
+
+[ext_resource type="Script" uid="uid://eqx00y3306ar" path="res://Scripts/Controllers/HUDUIController.gd" id="1_eq6xp"]
+[ext_resource type="FontFile" uid="uid://djhpuwc8o5esm" path="res://Assets/UI/Font/PixelOperator8.ttf" id="2_v7imw"]
+
+[node name="HUD_UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_eq6xp")
+
+[node name="Start Combat Button" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -111.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_v7imw")
+theme_override_font_sizes/font_size = 32
+text = "Start Combat"
+
+[node name="Stop Combat" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+offset_right = 328.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_v7imw")
+theme_override_font_sizes/font_size = 32
+text = "Stop Combat"
+
+[connection signal="pressed" from="Start Combat Button" to="." method="_on_start_combat_button_pressed"]
+[connection signal="pressed" from="Stop Combat" to="." method="_on_stop_combat_pressed"]

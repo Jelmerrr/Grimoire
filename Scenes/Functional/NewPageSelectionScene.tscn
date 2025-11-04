@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwncc32kjvsgy"]
+
+[ext_resource type="Script" uid="uid://d8lvspwabbpn" path="res://Scripts/Controllers/NewPageSelectionController.gd" id="1_itxqv"]
+[ext_resource type="PackedScene" uid="uid://ifp20281h6t1" path="res://Scenes/UI/NewPageSelectionUI.tscn" id="1_ogkpm"]
+
+[node name="NewPageSelection" type="Node2D"]
+script = ExtResource("1_itxqv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="NewPageSelectionUI" parent="CanvasLayer" instance=ExtResource("1_ogkpm")]
+visible = false

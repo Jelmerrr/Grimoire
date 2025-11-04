@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://fp6fmtoejnlq"]
+
+[ext_resource type="Script" uid="uid://hp0bovwpq0su" path="res://Scripts/Pages/Buffs/FiredUpFunctionality.gd" id="1_5kho5"]
+
+[node name="FiredUpPage" type="Node2D"]
+script = ExtResource("1_5kho5")
