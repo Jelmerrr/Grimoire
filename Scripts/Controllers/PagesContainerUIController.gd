@@ -30,17 +30,11 @@ func _on_gui_input(event: InputEvent) -> void:
 	if !UtilsGlobalVariables.inCombat:
 		if event.is_action_pressed("click"):
 			dragging_node = self.duplicate()
-			#dragging_node.disconnect("gui_input", dragging_node, "_on_Control_gui_input")
 			dragging_node.set_script(null)
 			vbox.get_parent().add_child(dragging_node)
 			dragging_node.position = global_position
 			drag_offset = get_global_mouse_position().x - global_position.x + scrollContainer.global_position.x
-			#var new_style = panel.get_stylebox("panel").duplicate()
-			#new_style.shadow_color.a = 0.3
-			#new_style.shadow_size = 8
-			#new_style.shadow_offset = Vector2(3,3)
 			var dragging_panel = dragging_node.get_node("CanvasGroup").get_node("PanelContainer") #PanelContainer
-			#dragging_panel.add_stylebox_override("panel", new_style)
 			dragging_panel.position.x = -4
 			panel.hide()
 			set_process_input(true)
@@ -77,4 +71,7 @@ func Set_shader_WidthParam(value: float):
 	canvas_group.material.set_shader_parameter("width", value)
 
 func _on_page_description_meta_hover_started(meta: Variant) -> void:
-	print(meta)
+	SignalBus.ShowTooltip.emit(meta)
+
+func _on_page_description_meta_hover_ended(meta: Variant) -> void:
+	SignalBus.HideTooltip.emit(meta)

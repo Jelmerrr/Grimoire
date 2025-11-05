@@ -14,3 +14,6 @@ signal Selected_New_Page()
 
 signal Ask_EnemyPos()
 signal Ask_PlayerPos()
+
+signal ShowTooltip(tooltipType: String)
+signal HideTooltip(tooltipType: String)

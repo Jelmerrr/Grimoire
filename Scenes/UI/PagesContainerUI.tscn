@@ -15,7 +15,7 @@ shader_parameter/inside = true
 shader_parameter/add_margins = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ptmhp"]
-bg_color = Color(0, 0, 0, 0.5882353)
+bg_color = Color(0, 0, 0, 0.78431374)
 border_color = Color(0.8, 0.8, 0.8, 0)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
@@ -84,4 +84,5 @@ horizontal_alignment = 1
 meta_underlined = false
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="meta_hover_ended" from="CanvasGroup/PanelContainer/MarginContainer/VBoxContainer/Page description" to="." method="_on_page_description_meta_hover_ended"]
 [connection signal="meta_hover_started" from="CanvasGroup/PanelContainer/MarginContainer/VBoxContainer/Page description" to="." method="_on_page_description_meta_hover_started"]

@@ -9,8 +9,8 @@ var pageAlignment: UtilsGlobalEnums.alignment
 func _ready() -> void:
 	SignalBus.Stop_Combat.connect(onCombatEnd)
 	var subtractor: float = UtilsGlobalVariables.PlayerCastSpeed * 0.05
-	if UtilsGlobalVariables.PlayerCastSpeed - subtractor <= 0.005:
-		UtilsGlobalVariables.PlayerCastSpeed = 0.005
+	if UtilsGlobalVariables.PlayerCastSpeed - subtractor <= 0.01: #Casting speed cap
+		UtilsGlobalVariables.PlayerCastSpeed = 0.01
 	else:
 		UtilsGlobalVariables.PlayerCastSpeed = UtilsGlobalVariables.PlayerCastSpeed - subtractor
 

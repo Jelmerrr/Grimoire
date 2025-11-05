@@ -10,5 +10,5 @@ InternalName = "Fireball"
 PageFunctionality = ExtResource("1_gm5xm")
 PageScene = ExtResource("2_hdxce")
 UI_NameString = "Fireball"
-UI_DescriptionString = "Shoot a Fireball towards the nearest enemy that deals 10 [color=red][url=fire]fire[/url][/color] damage."
+UI_DescriptionString = "Shoot a Fireball towards the nearest enemy that deals 10 [color=red][url=Fire]fire[/url][/color] damage."
 metadata/_custom_type_script = "uid://4uqlkofs35db"

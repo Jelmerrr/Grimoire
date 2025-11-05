@@ -184,7 +184,13 @@ meta_underlined = false
 
 [connection signal="mouse_entered" from="HBoxPanels/New Page 1 Container" to="." method="_on_new_page_1_container_mouse_entered"]
 [connection signal="mouse_exited" from="HBoxPanels/New Page 1 Container" to="." method="_on_new_page_1_container_mouse_exited"]
+[connection signal="meta_hover_ended" from="HBoxPanels/New Page 1 Container/MarginContainer/VBoxContainer/Page 1 Description" to="." method="_on_page_1_description_meta_hover_ended"]
+[connection signal="meta_hover_started" from="HBoxPanels/New Page 1 Container/MarginContainer/VBoxContainer/Page 1 Description" to="." method="_on_page_1_description_meta_hover_started"]
 [connection signal="mouse_entered" from="HBoxPanels/New Page 2 Container" to="." method="_on_new_page_2_container_mouse_entered"]
 [connection signal="mouse_exited" from="HBoxPanels/New Page 2 Container" to="." method="_on_new_page_2_container_mouse_exited"]
+[connection signal="meta_hover_ended" from="HBoxPanels/New Page 2 Container/MarginContainer/VBoxContainer/Page 2 Description" to="." method="_on_page_2_description_meta_hover_ended"]
+[connection signal="meta_hover_started" from="HBoxPanels/New Page 2 Container/MarginContainer/VBoxContainer/Page 2 Description" to="." method="_on_page_2_description_meta_hover_started"]
 [connection signal="mouse_entered" from="HBoxPanels/New Page 3 Container" to="." method="_on_new_page_3_container_mouse_entered"]
 [connection signal="mouse_exited" from="HBoxPanels/New Page 3 Container" to="." method="_on_new_page_3_container_mouse_exited"]
+[connection signal="meta_hover_ended" from="HBoxPanels/New Page 3 Container/MarginContainer/VBoxContainer/Page 3 Description" to="." method="_on_page_3_description_meta_hover_ended"]
+[connection signal="meta_hover_started" from="HBoxPanels/New Page 3 Container/MarginContainer/VBoxContainer/Page 3 Description" to="." method="_on_page_3_description_meta_hover_started"]

@@ -12,5 +12,5 @@ PageFunctionality = ExtResource("1_so02i")
 PageScene = ExtResource("2_w0aco")
 PageTargeting = 2
 UI_NameString = "Fired Up"
-UI_DescriptionString = "Increase your current cast speed by 5%. This effect can stack and persists untill the end of combat."
+UI_DescriptionString = "Increase your current [color=d9ffe2][url=CastSpeed]cast speed[/url][/color] by 5%. This effect can stack and persists untill the end of [color=d9ffe2][url=Combat]combat[/url][/color]."
 metadata/_custom_type_script = "uid://4uqlkofs35db"

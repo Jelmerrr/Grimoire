@@ -12,5 +12,5 @@ PageFunctionality = ExtResource("1_7m6xm")
 PageScene = ExtResource("2_a1t4p")
 PageTargeting = 2
 UI_NameString = "Stacked Deck"
-UI_DescriptionString = "For each spell page you cast in the current cycle, gain 25% increased damage. This effect is removed upon a Cycle reset. If this page is activated multiple times during a Cycle, take the strongest effect."
+UI_DescriptionString = "For each [color=d9ffe2][url=SpellPage]Spell Page[/url][/color] you cast in the current [color=d9ffe2][url=Cycle]cycle[/url][/color], gain a 25% [color=d9ffe2][url=DamageMultiplier]increased damage[/url][/color]. This [color=d9ffe2][url=BuffPage]buff[/url][/color] is removed upon a [color=d9ffe2][url=CycleReset]cycle reset[/url][/color]. If this [color=d9ffe2][url=Page]page[/url][/color] is activated multiple times during a [color=d9ffe2][url=Cycle]cycle[/url][/color], take the strongest effect."
 metadata/_custom_type_script = "uid://4uqlkofs35db"

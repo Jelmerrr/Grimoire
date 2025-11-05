@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdx3eg3w0wwmw"]
+[gd_scene load_steps=8 format=3 uid="uid://bdx3eg3w0wwmw"]
 
 [ext_resource type="PackedScene" uid="uid://c8bfyku2dawj0" path="res://Scenes/Player/Grimoire_Scene.tscn" id="1_l56c8"]
 [ext_resource type="PackedScene" uid="uid://c8lkfhngweyr3" path="res://Scenes/Functional/HUD_Scene.tscn" id="2_jf025"]
 [ext_resource type="PackedScene" uid="uid://cwncc32kjvsgy" path="res://Scenes/Functional/NewPageSelectionScene.tscn" id="3_cyht7"]
 [ext_resource type="PackedScene" uid="uid://dniujs4mtuy7t" path="res://Scenes/Enemy/EnemyBoard_scene.tscn" id="4_7heqy"]
 [ext_resource type="PackedScene" uid="uid://ctx3fvkp7wfk8" path="res://Scenes/Player/PlayerCharacter_Scene.tscn" id="4_dwcef"]
+[ext_resource type="PackedScene" uid="uid://dp3mj1iacqrte" path="res://Scenes/Functional/TooltipScene.tscn" id="6_thgti"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l56c8"]
 bg_color = Color(0, 0.03529412, 0.14117648, 1)
@@ -33,3 +34,5 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("4_dwcef")]
 position = Vector2(0, 150)
+
+[node name="TooltipScene" parent="." instance=ExtResource("6_thgti")]

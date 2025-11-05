@@ -98,3 +98,29 @@ func _on_new_page_3_container_mouse_entered() -> void:
 func _on_new_page_3_container_mouse_exited() -> void:
 	new_page_3_container.scale = Vector2(1.0, 1.0)
 	page3selected = false
+
+
+func _on_page_1_description_meta_hover_ended(meta: Variant) -> void:
+	SignalBus.HideTooltip.emit(meta)
+
+
+
+func _on_page_1_description_meta_hover_started(meta: Variant) -> void:
+	SignalBus.ShowTooltip.emit(meta)
+
+
+func _on_page_2_description_meta_hover_ended(meta: Variant) -> void:
+		SignalBus.HideTooltip.emit(meta)
+
+
+
+func _on_page_2_description_meta_hover_started(meta: Variant) -> void:
+	SignalBus.ShowTooltip.emit(meta)
+
+
+func _on_page_3_description_meta_hover_ended(meta: Variant) -> void:
+	SignalBus.HideTooltip.emit(meta)
+
+
+func _on_page_3_description_meta_hover_started(meta: Variant) -> void:
+	SignalBus.ShowTooltip.emit(meta)

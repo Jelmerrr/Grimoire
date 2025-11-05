@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp3mj1iacqrte"]
+
+[ext_resource type="Script" uid="uid://qsbc11g78xir" path="res://Scripts/Controllers/TooltipController.gd" id="1_rcg7w"]
+
+[node name="TooltipScene" type="Node2D"]
+script = ExtResource("1_rcg7w")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

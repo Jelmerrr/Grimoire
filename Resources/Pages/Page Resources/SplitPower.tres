@@ -12,5 +12,5 @@ PageFunctionality = ExtResource("1_ceo1k")
 PageScene = ExtResource("2_x06pu")
 PageTargeting = 2
 UI_NameString = "Split Power"
-UI_DescriptionString = "The next spell page you cast deals half damage. Once you have cast 1 spell page, the next spell page you cast deals triple damage. You cannot have multiple instances of this curse active at the same time."
+UI_DescriptionString = "The next [color=d9ffe2][url=SpellPage]spell page[/url][/color] you cast deals [color=d9ffe2][url=DamageMultiplier]half damage[/url][/color]. [color=d9ffe2][url=CurseCondition]Condition:[/url][/color] once you have cast 1 [color=d9ffe2][url=SpellPage]spell page[/url][/color], the next [color=d9ffe2][url=SpellPage]spell page[/url][/color] you cast deals [color=d9ffe2][url=DamageMultiplier]triple damage[/url][/color]. You cannot have multiple instances of this [color=d9ffe2][url=CursePage]curse[/url][/color] active at the same time."
 metadata/_custom_type_script = "uid://4uqlkofs35db"
