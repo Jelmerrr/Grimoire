@@ -29,17 +29,17 @@ var tooltipDict = {
 		},
 	"SpellPage": {
 		"Title": "Spell Page", 
-		"Description": "A spell page is 1 of 5 unique types of pages. \r\rOnce casted you deal damage according to which spell page you cast.", 
+		"Description": "A spell page is 1 of 5 unique types of pages. \r\rOnce cast you deal damage according to which spell page you cast.", 
 		"Icon": "res://Assets/Icons/fire-icon.png"
 		},
 	"BuffPage": {
 		"Title": "Buff Page", 
-		"Description": "A buff page is 1 of 5 unique types of pages. \r\rOnce casted gain a temporary effect that lasts for a specific amount of casts.", 
+		"Description": "A buff page is 1 of 5 unique types of pages. \r\rOnce cast gain a temporary effect that lasts for a specific amount of casts.", 
 		"Icon": "res://Assets/Icons/fire-icon.png"
 		},
 	"CursePage": {
 		"Title": "Curse Page", 
-		"Description": "A curse page is 1 of 5 unique types of pages. \r\rOnce casted gain a debuff and a condition, once the condition is fullfilled, the debuff is removed and you gain a powerful temporary buff.", 
+		"Description": "A curse page is 1 of 5 unique types of pages. \r\rOnce cast gain a debuff and a condition, once the condition is fullfilled, the debuff is removed and you gain a powerful temporary buff.", 
 		"Icon": "res://Assets/Icons/fire-icon.png"
 		},
 	"Cycle": {
