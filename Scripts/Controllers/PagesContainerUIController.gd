@@ -1,6 +1,7 @@
 extends Control
 
 var dragging_node = null
+var dragging_panel = null
 var drag_offset = 0.0
 var threshold = 200
 
@@ -29,29 +30,43 @@ func UpdateText() -> void:
 func _on_gui_input(event: InputEvent) -> void:
 	if !UtilsGlobalVariables.inCombat:
 		if event.is_action_pressed("click"):
+			#Create a temporary node that can move independantly of the scroll container.
 			dragging_node = self.duplicate()
 			dragging_node.set_script(null)
 			vbox.get_parent().add_child(dragging_node)
-			dragging_node.position = global_position
+			
+			#Initial node positioning.
 			drag_offset = get_global_mouse_position().x - global_position.x + scrollContainer.global_position.x
-			var dragging_panel = dragging_node.get_node("CanvasGroup").get_node("PanelContainer") #PanelContainer
-			dragging_panel.position.x = -4
+			dragging_node.position.x = get_global_mouse_position().x - drag_offset + scrollContainer.scroll_horizontal
+			dragging_panel = dragging_node.get_node("CanvasGroup").get_node("PanelContainer") #PanelContainer
+			dragging_panel.position.x = dragging_node.position.x
+			
+			#Temporarily hide the "real" panel.
 			panel.hide()
 			set_process_input(true)
 
 func _input(event):
 	if event is InputEventMouseMotion or event is InputEventScreenDrag:
+		#Update panel positioning according to mouse movement.
+		dragging_panel.position.x = 0 #Reset position offset when mouse inputs are detected
 		dragging_node.position.x = get_global_mouse_position().x - drag_offset + scrollContainer.scroll_horizontal
+		
+		#Handle ordering within the scroll container.
 		if dragging_node.global_position.x < global_position.x - threshold: #dragging up past threshold
 			if self.get_index() > 0:
 				vbox.move_child(self, self.get_index() -1)
 		elif dragging_node.global_position.x > global_position.x + threshold: #dragging up past threshold
 			if self.get_index() < vbox.get_child_count() -1:
 				vbox.move_child(self, self.get_index() +1)
+	
+	#Once dragging input is released.
 	if event.is_action_released("click"):
+		#Reveal original panel and remove the temporary node.
 		panel.show()
 		dragging_node.queue_free()
 		set_process_input(false)
+		
+		#Update grimoire page ordering.
 		var newpages = vbox.get_children()
 		var newgrimoire: Array[PageResource]
 		for page in newpages:
