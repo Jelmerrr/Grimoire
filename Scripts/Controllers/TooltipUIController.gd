@@ -5,6 +5,7 @@ extends PanelContainer
 
 var opacity_tween: Tween = null
 var tooltipType: String
+var offset: Vector2 = Vector2(0,0)
 
 var tooltipDict = {
 	"Fire": {
@@ -79,10 +80,20 @@ func _ready() -> void:
 	global_position = get_global_mouse_position()
 	showTooltip(tooltipType)
 	SignalBus.HideTooltip.connect(hideTooltip)
+	offsetCalc()
+	global_position = get_global_mouse_position() + offset
 
 func _input(event: InputEvent) -> void:
 	if visible and event is InputEventMouseMotion:
-		global_position = get_global_mouse_position()
+		global_position = get_global_mouse_position() + offset
+
+func offsetCalc() -> void:
+	var tooltipPos: Vector2i
+	tooltipPos = get_global_transform().origin + self.get_minimum_size()
+	if DisplayServer.screen_get_size().x - tooltipPos.x <= 0:
+		offset.x = DisplayServer.screen_get_size().x - tooltipPos.x
+	elif DisplayServer.screen_get_size().y - tooltipPos.y <= 0:
+		offset.y = DisplayServer.screen_get_size().y - tooltipPos.y
 
 func showTooltip(tooltipTypeRef: String) -> void:
 	updateText(tooltipTypeRef)
