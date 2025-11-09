@@ -30,7 +30,7 @@ func UpdateText() -> void:
 func _on_gui_input(event: InputEvent) -> void:
 	if !UtilsGlobalVariables.inCombat:
 		if event.is_action_pressed("click"):
-			#Create a temporary node that can move independantly of the scroll container.
+			#Create a temporary node that can move freely.
 			dragging_node = self.duplicate()
 			dragging_node.set_script(null)
 			vbox.get_parent().add_child(dragging_node)
