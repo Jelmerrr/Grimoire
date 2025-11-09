@@ -15,7 +15,7 @@ var spawnPos: Vector2 = Vector2(0, -360)
 func _ready() -> void:
 	SignalBus.Start_Combat.connect(WakeUp)
 	SignalBus.Stop_Combat.connect(Sleep)       #Placeholder scaling below, remove later.
-	currentHealth = enemyResource.maxHealth * (0.5 * UtilsGlobalVariables.currentEnemyLevel)
+	currentHealth = enemyResource.maxHealth * (0.25 * UtilsGlobalVariables.currentEnemyLevel)
 	sprite_2d.texture = enemyResource.enemySprite
 	health_bar.max_value = currentHealth
 	health_bar.value = currentHealth
