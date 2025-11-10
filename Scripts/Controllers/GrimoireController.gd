@@ -12,8 +12,8 @@ func _ready() -> void:
 	SignalBus.Start_Combat.connect(Start_Combat)
 	SignalBus.Stop_Combat.connect(Stop_Combat)
 	SignalBus.Update_Grimoire.connect(Update_Grimoire)
-	SignalBus.Add_Page.emit(preload("uid://fsehssw35cdq"))
 	SignalBus.Add_Page.emit(preload("uid://bmvokbotxdoyw"))
+	SignalBus.Add_Page.emit(preload("uid://fsehssw35cdq"))
 
 func Add_Page(Page: PageResource) -> void:
 	grim.Pages.append(Page)

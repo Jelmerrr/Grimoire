@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1ombrhb13r6s"]
+[gd_scene load_steps=7 format=3 uid="uid://d1ombrhb13r6s"]
 
 [ext_resource type="Script" uid="uid://cwgkve0txudle" path="res://Scripts/Controllers/GrimoireUIController.gd" id="1_wiae1"]
 [ext_resource type="FontFile" uid="uid://cq6k7a56rmitc" path="res://Assets/UI/Font/PixelOperator8-Bold.ttf" id="2_32588"]
 [ext_resource type="Theme" uid="uid://7l18ui63kjji" path="res://Assets/UI/Themes/Grimoire_UI_Theme.tres" id="2_tnkrs"]
 [ext_resource type="Script" uid="uid://dtuo1bniqd1n4" path="res://Scripts/Controllers/PageOrderUIController.gd" id="3_32588"]
+[ext_resource type="Theme" uid="uid://dqkdlfwsoxe0w" path="res://Assets/UI/Themes/ScrollContainer_UI_Theme.tres" id="4_lny7x"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_yp6ly"]
 color = Color(1, 0.50980395, 0.45490196, 1)
@@ -65,6 +66,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_yp6ly")
 [node name="PageScrollContainer" type="ScrollContainer" parent="PanelContainer/AspectRatioContainer/MarginContainer/PageVBox"]
 custom_minimum_size = Vector2(750, 250)
 layout_mode = 2
+theme = ExtResource("4_lny7x")
 script = ExtResource("3_32588")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/AspectRatioContainer/MarginContainer/PageVBox/PageScrollContainer"]

@@ -9,7 +9,7 @@ texture_margin_top = 16.0
 texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 region_rect = Rect2(288, 40, 48, 48)
-modulate_color = Color(0.23137255, 0.25490198, 0.32156864, 1)
+modulate_color = Color(0, 0, 0, 0.78431374)
 
 [resource]
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_y0une")

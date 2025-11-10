@@ -1,0 +1,101 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://dqkdlfwsoxe0w"]
+
+[ext_resource type="Texture2D" uid="uid://cfdww6jaxwkmg" path="res://Assets/UI/Borders/fantasy-ui-borders.svg" id="1_a7ktu"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_apf81"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i4wca"]
+texture = ExtResource("1_a7ktu")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(550, 424, 48, 48)
+modulate_color = Color(0.30980393, 0.3529412, 0.39215687, 1)
+draw_center = false
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_orcnq"]
+texture = ExtResource("1_a7ktu")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(550, 424, 48, 48)
+draw_center = false
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_toicx"]
+texture = ExtResource("1_a7ktu")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(550, 424, 48, 48)
+draw_center = false
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a7ktu"]
+texture = ExtResource("1_a7ktu")
+texture_margin_left = 1.0
+texture_margin_top = 7.0
+texture_margin_right = 2.1167827
+texture_margin_bottom = 4.0563574
+region_rect = Rect2(825, 709, 91, 9)
+modulate_color = Color(0.46666667, 0.53333336, 0.54901963, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5h2ll"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_orcnq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_toicx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_apf81"]
+texture = ExtResource("1_a7ktu")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(825, 709, 91, 9)
+
+[resource]
+HScrollBar/icons/decrement = SubResource("ImageTexture_apf81")
+HScrollBar/icons/decrement_highlight = SubResource("ImageTexture_apf81")
+HScrollBar/icons/decrement_pressed = SubResource("ImageTexture_apf81")
+HScrollBar/icons/increment = SubResource("ImageTexture_apf81")
+HScrollBar/icons/increment_highlight = SubResource("ImageTexture_apf81")
+HScrollBar/icons/increment_pressed = SubResource("ImageTexture_apf81")
+HScrollBar/styles/grabber = SubResource("StyleBoxTexture_i4wca")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_orcnq")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_toicx")
+HScrollBar/styles/scroll = SubResource("StyleBoxTexture_a7ktu")
+HScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_5h2ll")
+ScrollContainer/styles/focus = SubResource("StyleBoxEmpty_orcnq")
+ScrollContainer/styles/panel = SubResource("StyleBoxEmpty_toicx")
+VScrollBar/icons/decrement = SubResource("ImageTexture_apf81")
+VScrollBar/icons/decrement_highlight = SubResource("ImageTexture_apf81")
+VScrollBar/icons/decrement_pressed = SubResource("ImageTexture_apf81")
+VScrollBar/icons/increment = SubResource("ImageTexture_apf81")
+VScrollBar/icons/increment_highlight = SubResource("ImageTexture_apf81")
+VScrollBar/icons/increment_pressed = SubResource("ImageTexture_apf81")
+VScrollBar/styles/grabber = null
+VScrollBar/styles/grabber_highlight = null
+VScrollBar/styles/grabber_pressed = null
+VScrollBar/styles/scroll = SubResource("StyleBoxTexture_apf81")
+VScrollBar/styles/scroll_focus = null
