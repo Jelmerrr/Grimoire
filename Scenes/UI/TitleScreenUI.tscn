@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvj3odxc8ao67"]
+
+[ext_resource type="Script" uid="uid://cq1knrmyjhhv1" path="res://Scripts/Controllers/TitleScreenUIController.gd" id="1_2r66c"]
+[ext_resource type="Theme" uid="uid://yabf6oiw1re0" path="res://Assets/UI/Themes/TitleScreen_Button_UI_Theme.tres" id="1_fu1qb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fu1qb"]
+
+[node name="TitleScreenUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2r66c")
+
+[node name="MenuButtonContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -178.0
+offset_right = 178.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopScreenFiller" type="Panel" parent="MenuButtonContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_fu1qb")
+
+[node name="MenuButtonVbox" type="VBoxContainer" parent="MenuButtonContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+
+[node name="StartGame_Button" type="Button" parent="MenuButtonContainer/MenuButtonVbox"]
+layout_mode = 2
+theme = ExtResource("1_fu1qb")
+text = "Start Game"
+
+[node name="Options_Button" type="Button" parent="MenuButtonContainer/MenuButtonVbox"]
+layout_mode = 2
+theme = ExtResource("1_fu1qb")
+text = "Options"
+
+[node name="Library_Button" type="Button" parent="MenuButtonContainer/MenuButtonVbox"]
+layout_mode = 2
+theme = ExtResource("1_fu1qb")
+text = "Library"
+
+[node name="Achievements_Button" type="Button" parent="MenuButtonContainer/MenuButtonVbox"]
+layout_mode = 2
+theme = ExtResource("1_fu1qb")
+text = "Achievements"
+
+[node name="QuitGame_Button" type="Button" parent="MenuButtonContainer/MenuButtonVbox"]
+layout_mode = 2
+theme = ExtResource("1_fu1qb")
+text = "Quit Game"
+
+[connection signal="pressed" from="MenuButtonContainer/MenuButtonVbox/StartGame_Button" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="MenuButtonContainer/MenuButtonVbox/Options_Button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MenuButtonContainer/MenuButtonVbox/Library_Button" to="." method="_on_library_button_pressed"]
+[connection signal="pressed" from="MenuButtonContainer/MenuButtonVbox/Achievements_Button" to="." method="_on_achievements_button_pressed"]
+[connection signal="pressed" from="MenuButtonContainer/MenuButtonVbox/QuitGame_Button" to="." method="_on_quit_game_button_pressed"]
