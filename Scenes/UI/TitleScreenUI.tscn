@@ -1,9 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvj3odxc8ao67"]
+[gd_scene load_steps=3 format=3 uid="uid://dvj3odxc8ao67"]
 
 [ext_resource type="Script" uid="uid://cq1knrmyjhhv1" path="res://Scripts/Controllers/TitleScreenUIController.gd" id="1_2r66c"]
 [ext_resource type="Theme" uid="uid://yabf6oiw1re0" path="res://Assets/UI/Themes/TitleScreen_Button_UI_Theme.tres" id="1_fu1qb"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fu1qb"]
 
 [node name="TitleScreenUI" type="Control"]
 layout_mode = 3
@@ -25,10 +23,9 @@ offset_right = 178.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TopScreenFiller" type="Panel" parent="MenuButtonContainer"]
+[node name="GameTitleVbox" type="VBoxContainer" parent="MenuButtonContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxEmpty_fu1qb")
 
 [node name="MenuButtonVbox" type="VBoxContainer" parent="MenuButtonContainer"]
 layout_mode = 2

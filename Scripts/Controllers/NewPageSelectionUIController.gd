@@ -19,6 +19,7 @@ var page2resource: PageResource
 var page3resource: PageResource
 
 var available_pages: Array[PageResource] = []
+var size_tween: Tween = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -53,7 +54,10 @@ func load_pages() -> void:
 		available_pages.append(ResourceLoader.load("res://Resources/Pages/Page Resources/"+file))
 
 func select_page() -> PageResource:
-	return available_pages[UtilsRngHandler.rng.randi_range(0, available_pages.size() - 1)]
+	var rngResult = UtilsRngHandler.rng.randi_range(0, available_pages.size() - 1)
+	var pageResult = available_pages[rngResult]
+	available_pages.remove_at(rngResult)
+	return pageResult
 
 func generate_page1() -> void:
 	var selected_page = select_page()
@@ -74,53 +78,56 @@ func generate_page3() -> void:
 	page_3_description.text = selected_page.UI_DescriptionString
 
 func _on_new_page_1_container_mouse_entered() -> void:
-	new_page_1_container.scale = Vector2(1.2, 1.2)
+	#new_page_1_container.scale = Vector2(1.2, 1.2)
+	SizeTween(Vector2(1.1,1.1), new_page_1_container)
 	page1selected = true
 
 func _on_new_page_1_container_mouse_exited() -> void:
-	new_page_1_container.scale = Vector2(1.0, 1.0)
+	#new_page_1_container.scale = Vector2(1.0, 1.0)
+	SizeTween(Vector2(1.0,1.0), new_page_1_container)
 	page1selected = false
 
-
 func _on_new_page_2_container_mouse_entered() -> void:
-	new_page_2_container.scale = Vector2(1.2, 1.2)
+	#new_page_2_container.scale = Vector2(1.2, 1.2)
+	SizeTween(Vector2(1.1,1.1), new_page_2_container)
 	page2selected = true
 
 func _on_new_page_2_container_mouse_exited() -> void:
-	new_page_2_container.scale = Vector2(1.0, 1.0)
+	#new_page_2_container.scale = Vector2(1.0, 1.0)
+	SizeTween(Vector2(1.0,1.0), new_page_2_container)
 	page2selected = false
 
-
 func _on_new_page_3_container_mouse_entered() -> void:
-	new_page_3_container.scale = Vector2(1.2, 1.2)
+	#new_page_3_container.scale = Vector2(1.2, 1.2)
+	SizeTween(Vector2(1.1,1.1), new_page_3_container)
 	page3selected = true
 
 func _on_new_page_3_container_mouse_exited() -> void:
-	new_page_3_container.scale = Vector2(1.0, 1.0)
+	#new_page_3_container.scale = Vector2(1.0, 1.0)
+	SizeTween(Vector2(1.0,1.0), new_page_3_container)
 	page3selected = false
 
+
+func SizeTween(to: Vector2, container: PanelContainer):
+	#if size_tween: size_tween.kill()
+	size_tween = get_tree().create_tween()
+	size_tween.tween_property(container, "scale", to, 0.1)
+	return size_tween
 
 func _on_page_1_description_meta_hover_ended(meta: Variant) -> void:
 	SignalBus.HideTooltip.emit(meta)
 
-
-
 func _on_page_1_description_meta_hover_started(meta: Variant) -> void:
 	SignalBus.ShowTooltip.emit(meta)
-
 
 func _on_page_2_description_meta_hover_ended(meta: Variant) -> void:
 		SignalBus.HideTooltip.emit(meta)
 
-
-
 func _on_page_2_description_meta_hover_started(meta: Variant) -> void:
 	SignalBus.ShowTooltip.emit(meta)
 
-
 func _on_page_3_description_meta_hover_ended(meta: Variant) -> void:
 	SignalBus.HideTooltip.emit(meta)
-
 
 func _on_page_3_description_meta_hover_started(meta: Variant) -> void:
 	SignalBus.ShowTooltip.emit(meta)
