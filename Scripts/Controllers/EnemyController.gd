@@ -10,6 +10,8 @@ var spawnPos: Vector2 = Vector2(0, -360)
 
 @onready var health_bar: ProgressBar = $"Health Bar"
 
+const DAMAGE_NUMBER_UI = preload("uid://cfkn2u7gp546x")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -44,6 +46,12 @@ func Get_Damaged(BaseDamage):
 	var damage = UtilsGlobalFunctions.DamageCalc(BaseDamage)
 	currentHealth -= damage
 	health_bar.value -= damage
+	
+	var damageInstance = DAMAGE_NUMBER_UI.instantiate()
+	damageInstance.damageDealt = damage
+	damageInstance.pos = global_position + Vector2(0,-100)
+	self.get_parent().get_parent().add_child.call_deferred(damageInstance)
+	
 	
 	if currentHealth <= 0:
 		queue_free()
