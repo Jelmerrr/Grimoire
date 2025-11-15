@@ -5,10 +5,12 @@ var spawnPos : Vector2 = Vector2(0, 150)
 var spawnRot : float
 var zdex : int
 var damage : int = 10
-var speed : int = 500
+var speed : float = 250
 var destination: Vector2 = Vector2(0, -600)
 var direction: Vector2
 var pageAlignment: UtilsGlobalEnums.alignment
+
+var speed_tween: Tween = null
 
 @onready var area_2d: Area2D = $Area2D
 
@@ -18,6 +20,7 @@ func _ready() -> void:
 	global_rotation = spawnRot
 	direction = global_position.direction_to(destination)
 	SignalBus.Stop_Combat.connect(onCombatEnd)
+	tween_speed(1000)
 	
 	if pageAlignment == UtilsGlobalEnums.alignment.Player:
 		set_collision_layer_value(5, true)
@@ -42,6 +45,13 @@ func _physics_process(_delta: float) -> void:
 		collisionBody.get_collider().Get_Damaged(damage)
 		queue_free()
 
+
+func tween_speed(to: float):
+	if speed_tween: speed_tween.kill()
+	speed_tween = get_tree().create_tween()
+	speed_tween.set_ease(Tween.EASE_IN)
+	speed_tween.set_trans(Tween.TRANS_QUINT)
+	speed_tween.tween_property(self, "speed", to, 0.55)
 
 func _on_life_timer_timeout() -> void:
 	queue_free()
