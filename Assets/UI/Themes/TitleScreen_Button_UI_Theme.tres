@@ -18,7 +18,7 @@ texture_margin_top = 12.0
 texture_margin_right = 12.0
 texture_margin_bottom = 12.0
 region_rect = Rect2(860, 164, 48, 48)
-modulate_color = Color(0.46666667, 0.53333336, 0.54901963, 1)
+modulate_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
 draw_center = false
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l1nx6"]
@@ -36,20 +36,21 @@ content_margin_top = 12.0
 content_margin_right = 12.0
 content_margin_bottom = 12.0
 texture = ExtResource("2_ir5du")
-texture_margin_left = 12.0
-texture_margin_top = 12.0
-texture_margin_right = 12.0
-texture_margin_bottom = 12.0
+texture_margin_left = 13.0
+texture_margin_top = 13.0
+texture_margin_right = 13.0
+texture_margin_bottom = 13.0
 region_rect = Rect2(350, 424, 48, 48)
+modulate_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
 
 [resource]
-Button/colors/font_color = Color(0.9490196, 0.9490196, 0.9490196, 1)
+Button/colors/font_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
 Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
-Button/colors/font_focus_color = Color(0.9490196, 0.9490196, 0.9490196, 1)
-Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
-Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
+Button/colors/font_hover_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
+Button/colors/font_hover_pressed_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
-Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
 Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
 Button/colors/icon_focus_color = Color(1, 1, 1, 1)
 Button/colors/icon_hover_color = Color(1, 1, 1, 1)

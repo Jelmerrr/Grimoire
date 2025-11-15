@@ -50,6 +50,7 @@ theme_override_constants/separation = 10
 [node name="Page 1 Title" type="RichTextLabel" parent="HBoxPanels/New Page 1 Container/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
+theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
 theme_override_constants/line_separation = 4
 theme_override_fonts/normal_font = ExtResource("2_ygatb")
 theme_override_fonts/bold_font = ExtResource("1_i0s45")
@@ -64,6 +65,7 @@ horizontal_alignment = 1
 [node name="Page 1 Description" type="RichTextLabel" parent="HBoxPanels/New Page 1 Container/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
+theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
 theme_override_constants/line_separation = 4
 theme_override_fonts/normal_font = ExtResource("2_ygatb")
 theme_override_fonts/bold_font = ExtResource("1_i0s45")
@@ -91,6 +93,7 @@ theme_override_constants/separation = 10
 [node name="Page 2 Title" type="RichTextLabel" parent="HBoxPanels/New Page 2 Container/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
+theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
 theme_override_constants/line_separation = 4
 theme_override_fonts/normal_font = ExtResource("2_ygatb")
 theme_override_fonts/bold_font = ExtResource("1_i0s45")
@@ -105,6 +108,7 @@ horizontal_alignment = 1
 [node name="Page 2 Description" type="RichTextLabel" parent="HBoxPanels/New Page 2 Container/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
+theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
 theme_override_constants/line_separation = 4
 theme_override_fonts/normal_font = ExtResource("2_ygatb")
 theme_override_fonts/bold_font = ExtResource("1_i0s45")
@@ -132,6 +136,7 @@ theme_override_constants/separation = 10
 [node name="Page 3 Title" type="RichTextLabel" parent="HBoxPanels/New Page 3 Container/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
+theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
 theme_override_constants/line_separation = 4
 theme_override_fonts/normal_font = ExtResource("2_ygatb")
 theme_override_fonts/bold_font = ExtResource("1_i0s45")
@@ -146,6 +151,7 @@ horizontal_alignment = 1
 [node name="Page 3 Description" type="RichTextLabel" parent="HBoxPanels/New Page 3 Container/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
+theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
 theme_override_constants/line_separation = 4
 theme_override_fonts/normal_font = ExtResource("2_ygatb")
 theme_override_fonts/bold_font = ExtResource("1_i0s45")

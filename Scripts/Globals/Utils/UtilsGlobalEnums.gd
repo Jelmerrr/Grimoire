@@ -25,3 +25,9 @@ enum alignment{
 	Player, 
 	Enemy,
 }
+
+enum gameState{
+	Planning,
+	Combat,
+	Rewarding,
+}

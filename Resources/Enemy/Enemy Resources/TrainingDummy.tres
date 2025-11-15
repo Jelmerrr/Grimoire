@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_1rl3a")
 enemyName = "Training Dummy"
-maxHealth = 50.0
+maxHealth = 25.0
 actionSpeed = 2.5
 enemyType = 2
 enemyAttack = ExtResource("1_stdut")

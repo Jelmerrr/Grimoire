@@ -116,4 +116,5 @@ func tween_opactiy(to: float):
 	if opacity_tween: opacity_tween.kill()
 	opacity_tween = get_tree().create_tween()
 	opacity_tween.tween_property(self, "modulate:a", to, 0.3)
+	opacity_tween.set_ease(Tween.EASE_IN_OUT)
 	return opacity_tween

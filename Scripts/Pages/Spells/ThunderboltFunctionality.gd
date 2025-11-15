@@ -17,7 +17,7 @@ func _ready() -> void:
 		area_2d.set_collision_layer_value(4, true)
 
 func _draw() -> void:
-	draw_polyline(get_points(), Color("d9ffe2"), 8.0, false)
+	draw_polyline(get_points(), Color("bac7c7"), 8.0, false)
 
 func _on_life_timer_timeout() -> void:
 	queue_free()

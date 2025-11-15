@@ -111,7 +111,9 @@ func _on_new_page_3_container_mouse_exited() -> void:
 func SizeTween(to: Vector2, container: PanelContainer):
 	#if size_tween: size_tween.kill()
 	size_tween = get_tree().create_tween()
-	size_tween.tween_property(container, "scale", to, 0.1)
+	size_tween.set_ease(Tween.EASE_IN_OUT)
+	size_tween.set_trans(Tween.TRANS_ELASTIC)
+	size_tween.tween_property(container, "scale", to, 0.3)
 	return size_tween
 
 func _on_page_1_description_meta_hover_ended(meta: Variant) -> void:

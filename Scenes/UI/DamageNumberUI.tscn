@@ -18,6 +18,7 @@ script = ExtResource("1_5yue0")
 layout_mode = 0
 offset_right = 286.0
 offset_bottom = 40.0
+theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
 theme_override_fonts/normal_font = ExtResource("2_qtxw5")
 theme_override_fonts/bold_font = ExtResource("3_ahyxh")
 theme_override_font_sizes/normal_font_size = 32

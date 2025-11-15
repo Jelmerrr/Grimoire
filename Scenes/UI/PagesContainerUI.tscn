@@ -45,6 +45,7 @@ theme_override_constants/separation = 10
 [node name="Page title" type="RichTextLabel" parent="CanvasGroup/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
+theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
 theme_override_constants/line_separation = 4
 theme_override_fonts/normal_font = ExtResource("2_4431p")
 theme_override_fonts/bold_font = ExtResource("1_1m8es")
@@ -59,6 +60,7 @@ horizontal_alignment = 1
 [node name="Page description" type="RichTextLabel" parent="CanvasGroup/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
+theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
 theme_override_constants/line_separation = 4
 theme_override_fonts/normal_font = ExtResource("2_4431p")
 theme_override_fonts/bold_font = ExtResource("1_1m8es")

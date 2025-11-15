@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ctx3fvkp7wfk8"]
 
 [ext_resource type="Script" uid="uid://d1fyj3yv6ifnk" path="res://Scripts/Controllers/PlayerController.gd" id="1_chfnm"]
-[ext_resource type="Texture2D" uid="uid://dcv1ox0iah7gy" path="res://Assets/Sprites/Placeholder/PlayerSpritePlaceholder.png" id="1_urr6d"]
+[ext_resource type="Texture2D" uid="uid://caqt3kl2d5qo1" path="res://Assets/Sprites/Placeholder/PatchouliPortrait 64x64.png" id="2_chfnm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yr52o"]
 radius = 37.529987
@@ -29,9 +29,7 @@ collision_mask = 32
 script = ExtResource("1_chfnm")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(-2, 0)
-scale = Vector2(4, 4)
-texture = ExtResource("1_urr6d")
+texture = ExtResource("2_chfnm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(0.5, -0.5)
@@ -52,9 +50,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -48.0
-offset_top = -63.0
+offset_top = -48.0
 offset_right = 48.0
-offset_bottom = -55.0
+offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_chfnm")

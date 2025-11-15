@@ -21,6 +21,7 @@ theme_override_constants/separation = 10
 [node name="Tooltip Title" type="RichTextLabel" parent="VBoxContainer"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
 theme_override_fonts/normal_font = ExtResource("1_uad81")
 theme_override_fonts/bold_font = ExtResource("2_lputd")
 bbcode_enabled = true
@@ -30,6 +31,7 @@ fit_content = true
 [node name="Tooltip Description" type="RichTextLabel" parent="VBoxContainer"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
 theme_override_constants/line_separation = 5
 theme_override_fonts/normal_font = ExtResource("1_uad81")
 theme_override_fonts/bold_font = ExtResource("2_lputd")

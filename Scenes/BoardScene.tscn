@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdx3eg3w0wwmw"]
+[gd_scene load_steps=9 format=3 uid="uid://bdx3eg3w0wwmw"]
 
+[ext_resource type="Texture2D" uid="uid://32vx1ugjojly" path="res://Assets/Sprites/Placeholder/Treehell part 1 (transparent).png" id="1_kvo35"]
 [ext_resource type="PackedScene" uid="uid://c8bfyku2dawj0" path="res://Scenes/Player/Grimoire_Scene.tscn" id="1_l56c8"]
 [ext_resource type="PackedScene" uid="uid://c8lkfhngweyr3" path="res://Scenes/Functional/HUD_Scene.tscn" id="2_jf025"]
 [ext_resource type="PackedScene" uid="uid://cwncc32kjvsgy" path="res://Scenes/Functional/NewPageSelectionScene.tscn" id="3_cyht7"]
@@ -13,18 +14,102 @@ bg_color = Color(0.08235294, 0.05490196, 0.0627451, 1)
 [node name="BoardScene" type="Node2D"]
 
 [node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -960.0
 offset_top = -540.0
 offset_right = 960.0
 offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_l56c8")
-metadata/_edit_use_anchors_ = true
+
+[node name="Trees ^w^" type="Node2D" parent="."]
+
+[node name="TreehellPart1" type="Sprite2D" parent="Trees ^w^"]
+position = Vector2(-844, 468)
+scale = Vector2(2, 2)
+texture = ExtResource("1_kvo35")
+
+[node name="TreehellPart2" type="Sprite2D" parent="Trees ^w^"]
+position = Vector2(-748, 438)
+scale = Vector2(2, 2)
+texture = ExtResource("1_kvo35")
+
+[node name="TreehellPart5" type="Sprite2D" parent="Trees ^w^"]
+position = Vector2(-636, 432)
+scale = Vector2(2, 2)
+texture = ExtResource("1_kvo35")
+
+[node name="TreehellPart6" type="Sprite2D" parent="Trees ^w^"]
+position = Vector2(-558, 464)
+scale = Vector2(2, 2)
+texture = ExtResource("1_kvo35")
+
+[node name="TreehellPart12" type="Sprite2D" parent="Trees ^w^"]
+position = Vector2(-504, 436)
+scale = Vector2(2, 2)
+texture = ExtResource("1_kvo35")
+
+[node name="TreehellPart14" type="Sprite2D" parent="Trees ^w^"]
+position = Vector2(-504, 436)
+scale = Vector2(2, 2)
+texture = ExtResource("1_kvo35")
+
+[node name="TreehellPart16" type="Sprite2D" parent="Trees ^w^"]
+position = Vector2(650, 480)
+scale = Vector2(2, 2)
+texture = ExtResource("1_kvo35")
+
+[node name="TreehellPart19" type="Sprite2D" parent="Trees ^w^"]
+position = Vector2(860, 474)
+scale = Vector2(2, 2)
+texture = ExtResource("1_kvo35")
+
+[node name="TreehellPart20" type="Sprite2D" parent="Trees ^w^"]
+position = Vector2(932, 444)
+scale = Vector2(2, 2)
+texture = ExtResource("1_kvo35")
+
+[node name="TreehellPart17" type="Sprite2D" parent="Trees ^w^"]
+position = Vector2(702, 460)
+scale = Vector2(2, 2)
+texture = ExtResource("1_kvo35")
+
+[node name="TreehellPart18" type="Sprite2D" parent="Trees ^w^"]
+position = Vector2(790, 488)
+scale = Vector2(2, 2)
+texture = ExtResource("1_kvo35")
+
+[node name="TreehellPart13" type="Sprite2D" parent="Trees ^w^"]
+position = Vector2(464, 474)
+scale = Vector2(2, 2)
+texture = ExtResource("1_kvo35")
+
+[node name="TreehellPart15" type="Sprite2D" parent="Trees ^w^"]
+position = Vector2(568, 462)
+scale = Vector2(2, 2)
+texture = ExtResource("1_kvo35")
+
+[node name="TreehellPart3" type="Sprite2D" parent="Trees ^w^"]
+position = Vector2(-705, 482)
+scale = Vector2(2, 2)
+texture = ExtResource("1_kvo35")
+
+[node name="TreehellPart4" type="Sprite2D" parent="Trees ^w^"]
+position = Vector2(-902, 488)
+scale = Vector2(2, 2)
+texture = ExtResource("1_kvo35")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="HUD" parent="." instance=ExtResource("2_jf025")]
+position = Vector2(-344, -237)
 
 [node name="Grimoire" parent="." instance=ExtResource("1_l56c8")]
 

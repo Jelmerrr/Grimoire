@@ -17,7 +17,7 @@ const DAMAGE_NUMBER_UI = preload("uid://cfkn2u7gp546x")
 func _ready() -> void:
 	SignalBus.Start_Combat.connect(WakeUp)
 	SignalBus.Stop_Combat.connect(Sleep)       #Placeholder scaling below, remove later.
-	currentHealth = enemyResource.maxHealth * (0.25 * UtilsGlobalVariables.currentEnemyLevel)
+	currentHealth = enemyResource.maxHealth + (25 * UtilsGlobalVariables.currentEnemyLevel)
 	sprite_2d.texture = enemyResource.enemySprite
 	health_bar.max_value = currentHealth
 	health_bar.value = currentHealth
