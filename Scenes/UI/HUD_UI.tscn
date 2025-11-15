@@ -25,14 +25,15 @@ offset_left = -230.0
 offset_top = -130.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 100
 
 [node name="Start Combat Button" type="Button" parent="MarginContainer"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("2_wo3fl")
 theme_override_fonts/font = ExtResource("2_v7imw")
 theme_override_font_sizes/font_size = 32

@@ -7,19 +7,11 @@
 radius = 37.529987
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chfnm"]
-bg_color = Color(0.07450981, 0.007843138, 0.03137255, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
+bg_color = Color(0.15294118, 0.1254902, 0.1882353, 1)
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jh8iq"]
-bg_color = Color(0.8352941, 0.23529412, 0.41568628, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
+bg_color = Color(0.46666667, 0.53333336, 0.54901963, 1)
 
 [node name="Player" type="Node2D"]
 

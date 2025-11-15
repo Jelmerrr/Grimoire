@@ -904,7 +904,7 @@ texture_margin_left = 15.0
 texture_margin_top = 15.0
 texture_margin_right = 15.0
 texture_margin_bottom = 15.0
-region_rect = Rect2(164, 424, 48, 48)
+region_rect = Rect2(164, 164, 48, 48)
 modulate_color = Color(0.46666667, 0.53333336, 0.54901963, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iwk7e"]
@@ -913,7 +913,7 @@ texture_margin_left = 15.0
 texture_margin_top = 15.0
 texture_margin_right = 15.0
 texture_margin_bottom = 15.0
-region_rect = Rect2(674, 164, 48, 48)
+region_rect = Rect2(164, 164, 48, 48)
 modulate_color = Color(0.30980393, 0.3529412, 0.39215687, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_itn4c"]
