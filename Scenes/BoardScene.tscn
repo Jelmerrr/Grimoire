@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bdx3eg3w0wwmw"]
+[gd_scene load_steps=10 format=3 uid="uid://bdx3eg3w0wwmw"]
 
+[ext_resource type="Texture2D" uid="uid://cln2tsk8l1cv0" path="res://Assets/Sprites/Placeholder/Treehell part 2 (transparent).png" id="1_e56e7"]
 [ext_resource type="Texture2D" uid="uid://32vx1ugjojly" path="res://Assets/Sprites/Placeholder/Treehell part 1 (transparent).png" id="1_kvo35"]
 [ext_resource type="PackedScene" uid="uid://c8bfyku2dawj0" path="res://Scenes/Player/Grimoire_Scene.tscn" id="1_l56c8"]
 [ext_resource type="PackedScene" uid="uid://c8lkfhngweyr3" path="res://Scenes/Functional/HUD_Scene.tscn" id="2_jf025"]
@@ -30,6 +31,26 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_l56c8")
 
 [node name="Trees ^w^" type="Node2D" parent="."]
+
+[node name="TreehellPart2(transparent)4" type="Sprite2D" parent="Trees ^w^"]
+position = Vector2(-748, 252)
+scale = Vector2(2, 2)
+texture = ExtResource("1_e56e7")
+
+[node name="TreehellPart2(transparent)2" type="Sprite2D" parent="Trees ^w^"]
+position = Vector2(-667, 365)
+scale = Vector2(2, 2)
+texture = ExtResource("1_e56e7")
+
+[node name="TreehellPart2(transparent)3" type="Sprite2D" parent="Trees ^w^"]
+position = Vector2(-863, 289)
+scale = Vector2(2, 2)
+texture = ExtResource("1_e56e7")
+
+[node name="TreehellPart2(transparent)" type="Sprite2D" parent="Trees ^w^"]
+position = Vector2(-836, 378)
+scale = Vector2(2, 2)
+texture = ExtResource("1_e56e7")
 
 [node name="TreehellPart1" type="Sprite2D" parent="Trees ^w^"]
 position = Vector2(-844, 468)
