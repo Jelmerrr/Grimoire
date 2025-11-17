@@ -3,17 +3,17 @@ extends Node
 var tooltipDict = {
 	"Fire": {
 		"Title": "Fire", 
-		"Description": "When an enemy is hit by 2 elemental damage instances, unique effects happen. \r\rFire + Fire = Burst. \r(Deal 150% of hit damage in an area) \r\r Fire + Lightning = Scorch. \r(Deal 10% of the targets max health every second for 3 seconds) \r\r Fire + Cold = Brittle. \r(The target takes 25% more damage for 5 seconds)", 
+		"Description": "When an enemy is hit by 2 elemental damage instances, unique effects occur. \r\rFire + Fire = Burst. \r(Deal 75% of hit damage in an area around the original target) \r\r Fire + Lightning = Scorch. \r(Deal 10% of the targets max health every second for 3 seconds) \r\r Fire + Cold = Brittle. \r(The target takes 25% more damage for 5 seconds)", 
 		"Icon": "res://Assets/Icons/fire-icon.png"
 		},
 	"Lightning": {
 		"Title": "Lightning", 
-		"Description": "When an enemy is hit by 2 elemental damage instances, unique effects happen.", 
+		"Description": "When an enemy is hit by 2 elemental damage instances, unique effects occur.", 
 		"Icon": "res://Assets/Icons/fire-icon.png"
 		},
 	"Cold": {
 		"Title": "Cold", 
-		"Description": "When an enemy is hit by 2 elemental damage instances, unique effects happen.", 
+		"Description": "When an enemy is hit by 2 elemental damage instances, unique effects occur.", 
 		"Icon": "res://Assets/Icons/fire-icon.png"
 		},
 	"Page": {
