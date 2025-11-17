@@ -12,4 +12,7 @@ PageScene = ExtResource("2_hj6w2")
 PageTargeting = 1
 UI_NameString = "Thunderbolt"
 UI_DescriptionString = "Shoot a thunderbolt to a random enemy dealing 15 [color=aqua][url=Lightning]Lightning[/url][/color] damage."
+Weighting = 100
+TailoredWeighting = 100
+PageTags = Array[int]([0, 6])
 metadata/_custom_type_script = "uid://4uqlkofs35db"

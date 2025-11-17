@@ -11,3 +11,8 @@ class_name PageResource
 
 @export var UI_NameString: String
 @export var UI_DescriptionString: String
+
+@export var Weighting: int
+@export var TailoredWeighting: int
+
+@export var PageTags: Array[UtilsGlobalEnums.pageTags]

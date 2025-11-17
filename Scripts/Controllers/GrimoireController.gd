@@ -33,6 +33,7 @@ func Cast_Page(Page: PageResource) -> void:
 	elif UtilsGlobalVariables.enemyPositions.size() == 0:
 		SignalBus.Stop_Combat.emit()
 		SignalBus.Get_New_Page.emit()
+		UtilsGlobalVariables.currentGameState = UtilsGlobalEnums.gameState.Rewarding
 	if Page.PageType == UtilsGlobalEnums.pageTypes.Spell:
 		UtilsGlobalVariables.SpellPagesCastInCycleCount += 1
 

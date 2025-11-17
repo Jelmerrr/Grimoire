@@ -13,4 +13,7 @@ PageScene = ExtResource("2_x06pu")
 PageTargeting = 2
 UI_NameString = "Split Power"
 UI_DescriptionString = "The next [color=77888c][url=SpellPage]spell page[/url][/color] you cast deals [color=77888c][url=DamageMultiplier]half damage[/url][/color]. [color=77888c][url=CurseCondition]Condition:[/url][/color] once you have cast 1 [color=77888c][url=SpellPage]spell page[/url][/color], the next [color=77888c][url=SpellPage]spell page[/url][/color] you cast deals [color=77888c][url=DamageMultiplier]triple damage[/url][/color]. You cannot have multiple instances of this [color=77888c][url=CursePage]curse[/url][/color] active at the same time."
+Weighting = 100
+TailoredWeighting = 100
+PageTags = Array[int]([2])
 metadata/_custom_type_script = "uid://4uqlkofs35db"

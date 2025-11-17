@@ -13,6 +13,6 @@ var StackedDeckDamageMultiplier: float = 1
 
 var SpellPagesCastInCycleCount: int = 0
 
-var currentEnemyLevel: int = -1 #Mostly used as placeholder until proper progression mechanics
+var currentEnemyLevel: int = 0 #Mostly used as placeholder until proper progression mechanics
 
 var currentGameState: UtilsGlobalEnums.gameState

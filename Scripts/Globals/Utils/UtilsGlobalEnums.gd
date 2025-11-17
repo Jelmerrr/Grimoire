@@ -31,3 +31,16 @@ enum gameState{
 	Combat,
 	Rewarding,
 }
+
+enum pageTags{
+	Spell,
+	Buff,
+	Curse,
+	Conjure,
+	Occult,
+	Fire,
+	Lightning,
+	Cold,
+	Speed,
+	
+}

@@ -54,9 +54,19 @@ func load_pages() -> void:
 		available_pages.append(ResourceLoader.load("res://Resources/Pages/Page Resources/"+file))
 
 func select_page() -> PageResource:
-	var rngResult = UtilsRngHandler.rng.randi_range(0, available_pages.size() - 1)
-	var pageResult = available_pages[rngResult]
-	available_pages.remove_at(rngResult)
+	var totalWeight: int = 0
+	var pageResult: PageResource
+	var pageCount: int = 0
+	for page in available_pages:
+		totalWeight += page.TailoredWeighting #Get total weight of all pages
+	var rngResult = UtilsRngHandler.rng.randi_range(1, totalWeight) #Pick result
+	for page in available_pages: #Cycles between each page
+		rngResult -= page.TailoredWeighting #Subtracting the page's weighting from the result
+		if rngResult <= 0 || rngResult == 0: #Once we reach 0 or lower
+			pageResult = page #The page will be picked
+			break #End de for loop early once page is picked
+		pageCount += 1 #Incremental counter to keep track of which page is selected
+	available_pages.remove_at(pageCount) #Remove selected page to avoid duplicates
 	return pageResult
 
 func generate_page1() -> void:

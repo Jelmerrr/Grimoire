@@ -21,7 +21,7 @@ func _ready() -> void:
 	sprite_2d.texture = enemyResource.enemySprite
 	health_bar.max_value = currentHealth
 	health_bar.value = currentHealth
-	WakeUp()
+	#WakeUp()
 
 func WakeUp() -> void:
 	#Function gets called on combat start for each active enemy.

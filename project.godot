@@ -23,6 +23,7 @@ UtilsRngHandler="*res://Scripts/Globals/Utils/UtilsRNG_Handler.gd"
 UtilsGlobalVariables="*res://Scripts/Globals/Utils/UtilsGlobalVariables.gd"
 UtilsGlobalFunctions="*res://Scripts/Globals/Utils/UtilsGlobalFunctions.gd"
 UtilsSceneManager="*res://Scripts/Globals/Utils/UtilsSceneManager.gd"
+UtilsGlobalDictionaries="*res://Scripts/Globals/Utils/UtilsGlobalDictionaries.gd"
 
 [display]
 

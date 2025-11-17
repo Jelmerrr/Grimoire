@@ -6,7 +6,7 @@ const TRAINING_DUMMY = preload("uid://t8ncgrjjpm32")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	SignalBus.Start_Combat.connect(SpawnEnemies)
+	SignalBus.Start_Planning_Phase.connect(SpawnEnemies)
 	SignalBus.Stop_Combat.connect(ClearEnemies)
 	SignalBus.Ask_EnemyPos.connect(AskPos)
 	#SpawnEnemies()

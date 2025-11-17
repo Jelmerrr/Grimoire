@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdx3eg3w0wwmw"]
+[gd_scene load_steps=11 format=3 uid="uid://bdx3eg3w0wwmw"]
 
 [ext_resource type="Texture2D" uid="uid://cln2tsk8l1cv0" path="res://Assets/Sprites/Placeholder/Treehell part 2 (transparent).png" id="1_e56e7"]
 [ext_resource type="Texture2D" uid="uid://32vx1ugjojly" path="res://Assets/Sprites/Placeholder/Treehell part 1 (transparent).png" id="1_kvo35"]
 [ext_resource type="PackedScene" uid="uid://c8bfyku2dawj0" path="res://Scenes/Player/Grimoire_Scene.tscn" id="1_l56c8"]
+[ext_resource type="Script" uid="uid://bjt5ktm0evgsv" path="res://Scripts/Controllers/BoardSceneController.gd" id="1_xnhc1"]
 [ext_resource type="PackedScene" uid="uid://c8lkfhngweyr3" path="res://Scenes/Functional/HUD_Scene.tscn" id="2_jf025"]
 [ext_resource type="PackedScene" uid="uid://cwncc32kjvsgy" path="res://Scenes/Functional/NewPageSelectionScene.tscn" id="3_cyht7"]
 [ext_resource type="PackedScene" uid="uid://dniujs4mtuy7t" path="res://Scenes/Enemy/EnemyBoard_scene.tscn" id="4_7heqy"]
@@ -13,6 +14,7 @@
 bg_color = Color(0.08235294, 0.05490196, 0.0627451, 1)
 
 [node name="BoardScene" type="Node2D"]
+script = ExtResource("1_xnhc1")
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 8
@@ -125,6 +127,10 @@ texture = ExtResource("1_kvo35")
 [node name="TreehellPart4" type="Sprite2D" parent="Trees ^w^"]
 position = Vector2(-902, 488)
 scale = Vector2(2, 2)
+texture = ExtResource("1_kvo35")
+
+[node name="TreehellPart7" type="Sprite2D" parent="Trees ^w^"]
+position = Vector2(610, -168)
 texture = ExtResource("1_kvo35")
 
 [node name="Camera2D" type="Camera2D" parent="."]
