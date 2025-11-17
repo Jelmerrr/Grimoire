@@ -44,6 +44,7 @@ func _input(event: InputEvent) -> void:
 
 func initialize_pages() -> void:
 	load_pages()
+	tailor_weightings()
 	generate_page1()
 	generate_page2()
 	generate_page3()
@@ -52,6 +53,21 @@ func load_pages() -> void:
 	available_pages.clear()
 	for file in DirAccess.get_files_at("res://Resources/Pages/Page Resources/"):
 		available_pages.append(ResourceLoader.load("res://Resources/Pages/Page Resources/"+file))
+
+func tailor_weightings() -> void:
+	#Used to recalculate tailoring whenever called
+	var totalTags: Array[UtilsGlobalEnums.pageTags]
+	totalTags.clear() #Ensure array is empty on start
+	for page in available_pages: #Reset all tailoring before recalculating
+		page.TailoredWeighting = page.Weighting
+	for page in UtilsGlobalVariables.playerGrimoire.Pages: #Get pages in Grimoire
+		for tag in page.PageTags: 
+			totalTags.append(tag) #Store all tags in temporary array
+	#(Code below probably really unoptimized, should be looked at to be improved)
+	for tag in totalTags: #For each tag, add additional weighting if a page has that tag
+		for page in available_pages: 
+			if page.PageTags.has(tag):
+				page.TailoredWeighting += 10
 
 func select_page() -> PageResource:
 	var totalWeight: int = 0

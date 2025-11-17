@@ -1,12 +1,10 @@
 extends Node
 
-var grim: GrimoireResource
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	grim = GrimoireResource.new()
-	grim.CastSpeed = 1.0
-	UtilsGlobalVariables.BasePlayerCastSpeed = grim.CastSpeed
+	UtilsGlobalVariables.playerGrimoire = GrimoireResource.new()
+	UtilsGlobalVariables.playerGrimoire.CastSpeed = 1.0
+	UtilsGlobalVariables.BasePlayerCastSpeed = UtilsGlobalVariables.playerGrimoire.CastSpeed
 	SignalBus.Add_Page.connect(Add_Page)
 	SignalBus.Remove_Page.connect(Remove_Page)
 	SignalBus.Start_Combat.connect(Start_Combat)
@@ -16,10 +14,10 @@ func _ready() -> void:
 	SignalBus.Add_Page.emit(preload("uid://fsehssw35cdq"))
 
 func Add_Page(Page: PageResource) -> void:
-	grim.Pages.append(Page)
+	UtilsGlobalVariables.playerGrimoire.Pages.append(Page)
 
 func Remove_Page(location: int) -> void:
-	grim.Pages.remove_at(location)
+	UtilsGlobalVariables.playerGrimoire.Pages.remove_at(location)
 
 func Cast_Page(Page: PageResource) -> void:
 	SignalBus.Ask_EnemyPos.emit()
@@ -66,7 +64,7 @@ func Targeting_Logic(targetType: UtilsGlobalEnums.pageTargeting) -> Vector2:
 	return result
 
 func Cycle_Pages() -> void:
-	for item in grim.Pages:
+	for item in UtilsGlobalVariables.playerGrimoire.Pages:
 		if UtilsGlobalVariables.inCombat:
 			Cast_Page(item)
 			await get_tree().create_timer(UtilsGlobalVariables.PlayerCastSpeed).timeout
@@ -92,6 +90,6 @@ func Stop_Combat() -> void:
 		UtilsGlobalVariables.inCombat = false
 
 func Update_Grimoire(updatedGrimoire: Array[PageResource]):
-	grim.Pages.clear()
+	UtilsGlobalVariables.playerGrimoire.Pages.clear()
 	for page in updatedGrimoire:
-		grim.Pages.append(page)
+		UtilsGlobalVariables.playerGrimoire.Pages.append(page)

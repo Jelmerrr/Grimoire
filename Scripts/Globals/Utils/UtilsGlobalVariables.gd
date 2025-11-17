@@ -3,6 +3,8 @@ extends Node
 var enemyPositions: Array[Vector2]
 var playerPosition: Vector2
 
+var playerGrimoire: GrimoireResource
+
 var inCombat: bool
 
 var PlayerCastSpeed: float = 1 #Time in Seconds
