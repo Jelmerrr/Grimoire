@@ -7,9 +7,10 @@
 [resource]
 script = ExtResource("1_1rl3a")
 enemyName = "Training Dummy"
-maxHealth = 25.0
+baseHealth = 25.0
 actionSpeed = 2.5
 enemyType = 2
 enemyAttack = ExtResource("1_stdut")
 enemySprite = ExtResource("1_t1v52")
+hpPerLevel = 10
 metadata/_custom_type_script = "uid://cqiyxfo60k6tj"

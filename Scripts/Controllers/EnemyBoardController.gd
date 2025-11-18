@@ -12,14 +12,15 @@ func _ready() -> void:
 	#SpawnEnemies()
 
 func SpawnEnemies() -> void:
-	InstanceEnemy(TRAINING_DUMMY, Vector2(150,-200))
-	InstanceEnemy(TRAINING_DUMMY, Vector2(-150,-350))
+	InstanceEnemy(TRAINING_DUMMY, UtilsGlobalVariables.currentEnemyLevel, Vector2(150,-200))
+	InstanceEnemy(TRAINING_DUMMY, UtilsGlobalVariables.currentEnemyLevel, Vector2(-150,-350))
 	if UtilsGlobalVariables.currentEnemyLevel >= 5:
-		InstanceEnemy(TRAINING_DUMMY, Vector2(-250,-100))
+		InstanceEnemy(TRAINING_DUMMY, UtilsGlobalVariables.currentEnemyLevel, Vector2(-250,-100))
 
-func InstanceEnemy(enemyResource:BaseEnemyResource, spawnPos: Vector2) -> void:
+func InstanceEnemy(enemyResource:BaseEnemyResource, level: int, spawnPos: Vector2) -> void:
 	var instance = ENEMY_CHARACTER_SCENE.instantiate()
 	instance.global_position = spawnPos
+	instance.level = level
 	instance.enemyResource = enemyResource
 	add_child.call_deferred(instance)
 

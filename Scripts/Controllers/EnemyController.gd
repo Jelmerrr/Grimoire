@@ -4,6 +4,7 @@ extends Node2D
 
 var currentHealth
 var spawnPos: Vector2 = Vector2(0, -360)
+var level: int = 1
 
 @onready var action_timer: Timer = $ActionTimer
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -16,8 +17,8 @@ const DAMAGE_NUMBER_UI = preload("uid://cfkn2u7gp546x")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalBus.Start_Combat.connect(WakeUp)
-	SignalBus.Stop_Combat.connect(Sleep)       #Placeholder scaling below, remove later.
-	currentHealth = enemyResource.maxHealth + (25 * UtilsGlobalVariables.currentEnemyLevel)
+	SignalBus.Stop_Combat.connect(Sleep)       
+	currentHealth = enemyResource.baseHealth + (enemyResource.hpPerLevel * level)
 	sprite_2d.texture = enemyResource.enemySprite
 	health_bar.max_value = currentHealth
 	health_bar.value = currentHealth
