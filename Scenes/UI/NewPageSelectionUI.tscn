@@ -7,47 +7,64 @@
 
 [node name="NewPageSelectionUI" type="Control"]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_top = -155.0
-offset_bottom = -155.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_ygatb")
 
-[node name="HBoxPanels" type="HBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 13
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+anchor_bottom = 1.0
+offset_left = -340.0
+offset_right = 340.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 40
+
+[node name="TopMargin" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
+theme_override_fonts/normal_font = ExtResource("2_ygatb")
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "Choose a reward
+"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxPanels" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 40
 alignment = 1
 
-[node name="New Page 1 Container" type="PanelContainer" parent="HBoxPanels"]
+[node name="New Page 1 Container" type="PanelContainer" parent="VBoxContainer/HBoxPanels"]
 custom_minimum_size = Vector2(200, 250)
 layout_mode = 2
 theme = ExtResource("2_ri3wk")
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxPanels/New Page 1 Container"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxPanels/New Page 1 Container"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxPanels/New Page 1 Container/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxPanels/New Page 1 Container/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Page 1 Title" type="RichTextLabel" parent="HBoxPanels/New Page 1 Container/MarginContainer/VBoxContainer"]
+[node name="Page 1 Title" type="RichTextLabel" parent="VBoxContainer/HBoxPanels/New Page 1 Container/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
@@ -62,7 +79,7 @@ fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 
-[node name="Page 1 Description" type="RichTextLabel" parent="HBoxPanels/New Page 1 Container/MarginContainer/VBoxContainer"]
+[node name="Page 1 Description" type="RichTextLabel" parent="VBoxContainer/HBoxPanels/New Page 1 Container/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
@@ -78,19 +95,19 @@ scroll_active = false
 horizontal_alignment = 1
 meta_underlined = false
 
-[node name="New Page 2 Container" type="PanelContainer" parent="HBoxPanels"]
+[node name="New Page 2 Container" type="PanelContainer" parent="VBoxContainer/HBoxPanels"]
 custom_minimum_size = Vector2(200, 250)
 layout_mode = 2
 theme = ExtResource("2_ri3wk")
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxPanels/New Page 2 Container"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxPanels/New Page 2 Container"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxPanels/New Page 2 Container/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxPanels/New Page 2 Container/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Page 2 Title" type="RichTextLabel" parent="HBoxPanels/New Page 2 Container/MarginContainer/VBoxContainer"]
+[node name="Page 2 Title" type="RichTextLabel" parent="VBoxContainer/HBoxPanels/New Page 2 Container/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
@@ -105,7 +122,7 @@ fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 
-[node name="Page 2 Description" type="RichTextLabel" parent="HBoxPanels/New Page 2 Container/MarginContainer/VBoxContainer"]
+[node name="Page 2 Description" type="RichTextLabel" parent="VBoxContainer/HBoxPanels/New Page 2 Container/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
@@ -121,19 +138,19 @@ scroll_active = false
 horizontal_alignment = 1
 meta_underlined = false
 
-[node name="New Page 3 Container" type="PanelContainer" parent="HBoxPanels"]
+[node name="New Page 3 Container" type="PanelContainer" parent="VBoxContainer/HBoxPanels"]
 custom_minimum_size = Vector2(200, 250)
 layout_mode = 2
 theme = ExtResource("2_ri3wk")
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxPanels/New Page 3 Container"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxPanels/New Page 3 Container"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxPanels/New Page 3 Container/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxPanels/New Page 3 Container/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Page 3 Title" type="RichTextLabel" parent="HBoxPanels/New Page 3 Container/MarginContainer/VBoxContainer"]
+[node name="Page 3 Title" type="RichTextLabel" parent="VBoxContainer/HBoxPanels/New Page 3 Container/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
@@ -148,7 +165,7 @@ fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 
-[node name="Page 3 Description" type="RichTextLabel" parent="HBoxPanels/New Page 3 Container/MarginContainer/VBoxContainer"]
+[node name="Page 3 Description" type="RichTextLabel" parent="VBoxContainer/HBoxPanels/New Page 3 Container/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
@@ -164,15 +181,19 @@ scroll_active = false
 horizontal_alignment = 1
 meta_underlined = false
 
-[connection signal="mouse_entered" from="HBoxPanels/New Page 1 Container" to="." method="_on_new_page_1_container_mouse_entered"]
-[connection signal="mouse_exited" from="HBoxPanels/New Page 1 Container" to="." method="_on_new_page_1_container_mouse_exited"]
-[connection signal="meta_hover_ended" from="HBoxPanels/New Page 1 Container/MarginContainer/VBoxContainer/Page 1 Description" to="." method="_on_page_1_description_meta_hover_ended"]
-[connection signal="meta_hover_started" from="HBoxPanels/New Page 1 Container/MarginContainer/VBoxContainer/Page 1 Description" to="." method="_on_page_1_description_meta_hover_started"]
-[connection signal="mouse_entered" from="HBoxPanels/New Page 2 Container" to="." method="_on_new_page_2_container_mouse_entered"]
-[connection signal="mouse_exited" from="HBoxPanels/New Page 2 Container" to="." method="_on_new_page_2_container_mouse_exited"]
-[connection signal="meta_hover_ended" from="HBoxPanels/New Page 2 Container/MarginContainer/VBoxContainer/Page 2 Description" to="." method="_on_page_2_description_meta_hover_ended"]
-[connection signal="meta_hover_started" from="HBoxPanels/New Page 2 Container/MarginContainer/VBoxContainer/Page 2 Description" to="." method="_on_page_2_description_meta_hover_started"]
-[connection signal="mouse_entered" from="HBoxPanels/New Page 3 Container" to="." method="_on_new_page_3_container_mouse_entered"]
-[connection signal="mouse_exited" from="HBoxPanels/New Page 3 Container" to="." method="_on_new_page_3_container_mouse_exited"]
-[connection signal="meta_hover_ended" from="HBoxPanels/New Page 3 Container/MarginContainer/VBoxContainer/Page 3 Description" to="." method="_on_page_3_description_meta_hover_ended"]
-[connection signal="meta_hover_started" from="HBoxPanels/New Page 3 Container/MarginContainer/VBoxContainer/Page 3 Description" to="." method="_on_page_3_description_meta_hover_started"]
+[node name="BottomMargin" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="mouse_entered" from="VBoxContainer/HBoxPanels/New Page 1 Container" to="." method="_on_new_page_1_container_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/HBoxPanels/New Page 1 Container" to="." method="_on_new_page_1_container_mouse_exited"]
+[connection signal="meta_hover_ended" from="VBoxContainer/HBoxPanels/New Page 1 Container/MarginContainer/VBoxContainer/Page 1 Description" to="." method="_on_page_1_description_meta_hover_ended"]
+[connection signal="meta_hover_started" from="VBoxContainer/HBoxPanels/New Page 1 Container/MarginContainer/VBoxContainer/Page 1 Description" to="." method="_on_page_1_description_meta_hover_started"]
+[connection signal="mouse_entered" from="VBoxContainer/HBoxPanels/New Page 2 Container" to="." method="_on_new_page_2_container_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/HBoxPanels/New Page 2 Container" to="." method="_on_new_page_2_container_mouse_exited"]
+[connection signal="meta_hover_ended" from="VBoxContainer/HBoxPanels/New Page 2 Container/MarginContainer/VBoxContainer/Page 2 Description" to="." method="_on_page_2_description_meta_hover_ended"]
+[connection signal="meta_hover_started" from="VBoxContainer/HBoxPanels/New Page 2 Container/MarginContainer/VBoxContainer/Page 2 Description" to="." method="_on_page_2_description_meta_hover_started"]
+[connection signal="mouse_entered" from="VBoxContainer/HBoxPanels/New Page 3 Container" to="." method="_on_new_page_3_container_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/HBoxPanels/New Page 3 Container" to="." method="_on_new_page_3_container_mouse_exited"]
+[connection signal="meta_hover_ended" from="VBoxContainer/HBoxPanels/New Page 3 Container/MarginContainer/VBoxContainer/Page 3 Description" to="." method="_on_page_3_description_meta_hover_ended"]
+[connection signal="meta_hover_started" from="VBoxContainer/HBoxPanels/New Page 3 Container/MarginContainer/VBoxContainer/Page 3 Description" to="." method="_on_page_3_description_meta_hover_started"]

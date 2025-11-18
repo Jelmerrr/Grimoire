@@ -1,14 +1,14 @@
 extends Control
 
-@onready var page_1_title: RichTextLabel = $"HBoxPanels/New Page 1 Container/MarginContainer/VBoxContainer/Page 1 Title"
-@onready var page_1_description: RichTextLabel = $"HBoxPanels/New Page 1 Container/MarginContainer/VBoxContainer/Page 1 Description"
-@onready var page_2_title: RichTextLabel = $"HBoxPanels/New Page 2 Container/MarginContainer/VBoxContainer/Page 2 Title"
-@onready var page_2_description: RichTextLabel = $"HBoxPanels/New Page 2 Container/MarginContainer/VBoxContainer/Page 2 Description"
-@onready var page_3_title: RichTextLabel = $"HBoxPanels/New Page 3 Container/MarginContainer/VBoxContainer/Page 3 Title"
-@onready var page_3_description: RichTextLabel = $"HBoxPanels/New Page 3 Container/MarginContainer/VBoxContainer/Page 3 Description"
-@onready var new_page_1_container: PanelContainer = $"HBoxPanels/New Page 1 Container"
-@onready var new_page_2_container: PanelContainer = $"HBoxPanels/New Page 2 Container"
-@onready var new_page_3_container: PanelContainer = $"HBoxPanels/New Page 3 Container"
+@onready var page_1_title: RichTextLabel = $"VBoxContainer/HBoxPanels/New Page 1 Container/MarginContainer/VBoxContainer/Page 1 Title"
+@onready var page_1_description: RichTextLabel = $"VBoxContainer/HBoxPanels/New Page 1 Container/MarginContainer/VBoxContainer/Page 1 Description"
+@onready var page_2_title: RichTextLabel = $"VBoxContainer/HBoxPanels/New Page 2 Container/MarginContainer/VBoxContainer/Page 2 Title"
+@onready var page_2_description: RichTextLabel = $"VBoxContainer/HBoxPanels/New Page 2 Container/MarginContainer/VBoxContainer/Page 2 Description"
+@onready var page_3_title: RichTextLabel = $"VBoxContainer/HBoxPanels/New Page 3 Container/MarginContainer/VBoxContainer/Page 3 Title"
+@onready var page_3_description: RichTextLabel = $"VBoxContainer/HBoxPanels/New Page 3 Container/MarginContainer/VBoxContainer/Page 3 Description"
+@onready var new_page_1_container: PanelContainer = $"VBoxContainer/HBoxPanels/New Page 1 Container"
+@onready var new_page_2_container: PanelContainer = $"VBoxContainer/HBoxPanels/New Page 2 Container"
+@onready var new_page_3_container: PanelContainer = $"VBoxContainer/HBoxPanels/New Page 3 Container"
 
 var page1selected: bool = false
 var page2selected: bool = false
