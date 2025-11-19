@@ -5,6 +5,7 @@ extends Node2D
 var currentHealth
 var spawnPos: Vector2 = Vector2(0, -360)
 var level: int = 1
+var awake: bool = false
 
 @onready var action_timer: Timer = $ActionTimer
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -27,11 +28,13 @@ func _ready() -> void:
 func WakeUp() -> void:
 	#Function gets called on combat start for each active enemy.
 	action_timer.wait_time = enemyResource.actionSpeed
+	awake = true
 	action_timer.start()
 
 func Sleep() -> void:
 	#Failsafe to disable enemies should one still exist on combat end.
 	action_timer.stop()
+	awake = false
 	#queue_free() This should be enabled after debuging and round spawning logic is done.
 
 func _on_action_timer_timeout() -> void:
@@ -42,6 +45,20 @@ func _on_action_timer_timeout() -> void:
 			instance.spawnPos = global_position
 			instance.pageAlignment = UtilsGlobalEnums.alignment.Enemy
 			add_child.call_deferred(instance)
+
+func Cycle_Pages() -> void:
+	for item in UtilsGlobalVariables.playerGrimoire.Pages:
+		if UtilsGlobalVariables.inCombat:
+			Cast_Page(item)
+			await get_tree().create_timer(enemyResource.enemyGrimoire.CastSpeed).timeout
+		else:
+			break
+	if UtilsGlobalVariables.inCombat:
+		Restart_Cycle()
+
+func Restart_Cycle() -> void:
+	await get_tree().create_timer(enemyResource.enemyGrimoire.CastSpeed).timeout
+	Cycle_Pages()
 
 func Get_Damaged(BaseDamage):
 	var damage = UtilsGlobalFunctions.DamageCalc(BaseDamage)
