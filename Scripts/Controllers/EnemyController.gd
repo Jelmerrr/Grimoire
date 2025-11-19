@@ -38,16 +38,6 @@ func Sleep() -> void:
 	awake = false
 	#queue_free() This should be enabled after debuging and round spawning logic is done.
 
-func _on_action_timer_timeout() -> void:
-	if enemyResource.enemyAttack != null:
-			#var instance = enemyResource.enemyAttack.PageScene.instantiate()
-			#SignalBus.Ask_PlayerPos.emit()
-			#instance.destination = UtilsGlobalVariables.playerPosition
-			#instance.spawnPos = global_position
-			#instance.pageAlignment = UtilsGlobalEnums.alignment.Enemy
-			#add_child.call_deferred(instance)
-			pass
-
 func Cycle_Pages() -> void:
 	for page in enemyResource.enemyGrimoire.Pages:
 		if awake:
