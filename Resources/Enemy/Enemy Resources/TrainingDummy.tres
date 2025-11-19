@@ -9,7 +9,7 @@
 [sub_resource type="Resource" id="Resource_7gtu3"]
 script = ExtResource("3_hjtwb")
 Pages = Array[ExtResource("2_8obyg")]([ExtResource("1_stdut")])
-CastSpeed = 2.5
+CastSpeed = 2.0
 metadata/_custom_type_script = "uid://djtj3q8sol68n"
 
 [resource]

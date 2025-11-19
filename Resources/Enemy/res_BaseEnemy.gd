@@ -5,7 +5,6 @@ class_name  BaseEnemyResource
 @export var enemyName: String 
 @export var baseHealth: float
 @export var movementSpeed: float
-@export var attackSpeed: float
 @export var actionSpeed: float
 @export var enemyType: UtilsGlobalEnums.enemyAttackTypes
 @export var enemyAttack: PageResource

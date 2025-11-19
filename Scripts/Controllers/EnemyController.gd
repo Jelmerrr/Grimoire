@@ -29,6 +29,7 @@ func WakeUp() -> void:
 	#Function gets called on combat start for each active enemy.
 	action_timer.wait_time = enemyResource.actionSpeed
 	awake = true
+	Restart_Cycle()
 	action_timer.start()
 
 func Sleep() -> void:
@@ -39,22 +40,31 @@ func Sleep() -> void:
 
 func _on_action_timer_timeout() -> void:
 	if enemyResource.enemyAttack != null:
-			var instance = enemyResource.enemyAttack.PageScene.instantiate()
-			SignalBus.Ask_PlayerPos.emit()
-			instance.destination = UtilsGlobalVariables.playerPosition
-			instance.spawnPos = global_position
-			instance.pageAlignment = UtilsGlobalEnums.alignment.Enemy
-			add_child.call_deferred(instance)
+			#var instance = enemyResource.enemyAttack.PageScene.instantiate()
+			#SignalBus.Ask_PlayerPos.emit()
+			#instance.destination = UtilsGlobalVariables.playerPosition
+			#instance.spawnPos = global_position
+			#instance.pageAlignment = UtilsGlobalEnums.alignment.Enemy
+			#add_child.call_deferred(instance)
+			pass
 
 func Cycle_Pages() -> void:
-	for item in UtilsGlobalVariables.playerGrimoire.Pages:
-		if UtilsGlobalVariables.inCombat:
-			Cast_Page(item)
+	for page in enemyResource.enemyGrimoire.Pages:
+		if awake:
+			Cast_Page(page)
 			await get_tree().create_timer(enemyResource.enemyGrimoire.CastSpeed).timeout
 		else:
 			break
-	if UtilsGlobalVariables.inCombat:
+	if awake:
 		Restart_Cycle()
+
+func Cast_Page(page: PageResource) -> void:
+	var instance = page.PageScene.instantiate()
+	SignalBus.Ask_PlayerPos.emit()
+	instance.destination = UtilsGlobalVariables.playerPosition
+	instance.spawnPos = global_position
+	instance.pageAlignment = UtilsGlobalEnums.alignment.Enemy
+	add_child.call_deferred(instance)
 
 func Restart_Cycle() -> void:
 	await get_tree().create_timer(enemyResource.enemyGrimoire.CastSpeed).timeout
