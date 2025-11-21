@@ -44,3 +44,9 @@ enum pageTags{
 	Speed,
 	
 }
+
+enum lastElementalHitBy{
+	Fire,
+	Lightning,
+	Cold,
+}

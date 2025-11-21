@@ -7,6 +7,8 @@ var damage : int = 15
 
 var pageAlignment: UtilsGlobalEnums.alignment
 
+var pageTags: Array[UtilsGlobalEnums.pageTags]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	area_2d.position = destination
@@ -38,4 +40,4 @@ func get_points() -> Array[Vector2]:
 	return points
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	body.Get_Damaged(damage)
+	body.Get_Damaged(self)

@@ -9,6 +9,7 @@ var speed : float = 250
 var destination: Vector2 = Vector2(0, -600)
 var direction: Vector2
 var pageAlignment: UtilsGlobalEnums.alignment
+var pageTags: Array[UtilsGlobalEnums.pageTags]
 
 var speed_tween: Tween = null
 
@@ -42,7 +43,7 @@ func _physics_process(_delta: float) -> void:
 	
 	var collisionBody = get_last_slide_collision()
 	if collisionBody != null:
-		collisionBody.get_collider().Get_Damaged(damage)
+		collisionBody.get_collider().Get_Damaged(self)
 		queue_free()
 
 

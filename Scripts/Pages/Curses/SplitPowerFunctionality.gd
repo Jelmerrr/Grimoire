@@ -8,6 +8,7 @@ var preCurseMultiplierSetup
 
 var destination: Vector2 = Vector2(0, -600) #Needs to be here for targeting shenanigans
 var spawnPos : Vector2 = Vector2(0, 150)
+var pageTags: Array[UtilsGlobalEnums.pageTags]
 
 var pageAlignment: UtilsGlobalEnums.alignment
 

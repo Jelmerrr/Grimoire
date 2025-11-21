@@ -26,6 +26,7 @@ func Cast_Page(Page: PageResource) -> void:
 			var instance = Page.PageScene.instantiate()
 			instance.destination = Targeting_Logic(Page.PageTargeting)
 			instance.pageAlignment = UtilsGlobalEnums.alignment.Player
+			instance.pageTags = Page.PageTags
 			SignalBus.PageCasted.emit(Page.PageType)
 			add_child.call_deferred(instance)
 	elif UtilsGlobalVariables.enemyPositions.size() == 0:

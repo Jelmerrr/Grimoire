@@ -7,6 +7,8 @@ var spawnPos: Vector2 = Vector2(0, -360)
 var level: int = 1
 var awake: bool = false
 
+var lastElementalTag: UtilsGlobalEnums.pageTags
+
 @onready var action_timer: Timer = $ActionTimer
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
@@ -60,8 +62,9 @@ func Restart_Cycle() -> void:
 	await get_tree().create_timer(enemyResource.enemyGrimoire.CastSpeed).timeout
 	Cycle_Pages()
 
-func Get_Damaged(BaseDamage):
-	var damage = UtilsGlobalFunctions.DamageCalc(BaseDamage)
+func Get_Damaged(projectileHit):
+	var baseDamage = projectileHit.damage
+	var damage = UtilsGlobalFunctions.DamageCalc(baseDamage)
 	currentHealth -= damage
 	health_bar.value -= damage
 	
@@ -70,6 +73,24 @@ func Get_Damaged(BaseDamage):
 	damageInstance.pos = global_position + Vector2(0,-100)
 	self.get_parent().get_parent().add_child.call_deferred(damageInstance)
 	
-	
 	if currentHealth <= 0:
 		queue_free()
+	elif projectileHit.pageTags != null:
+		var tags: Array[UtilsGlobalEnums.pageTags] = projectileHit.pageTags
+		if lastElementalTag == null:
+			#Fire check
+			if tags.has(UtilsGlobalEnums.pageTags.Spell) && tags.has(UtilsGlobalEnums.pageTags.Fire):
+				lastElementalTag = UtilsGlobalEnums.pageTags.Fire
+			#Lightning check
+			if tags.has(UtilsGlobalEnums.pageTags.Spell) && tags.has(UtilsGlobalEnums.pageTags.Lightning):
+				lastElementalTag = UtilsGlobalEnums.pageTags.Fire
+			#Cold check
+			if tags.has(UtilsGlobalEnums.pageTags.Spell) && tags.has(UtilsGlobalEnums.pageTags.Cold):
+				lastElementalTag = UtilsGlobalEnums.pageTags.Fire
+		elif lastElementalTag != null:
+			if lastElementalTag == UtilsGlobalEnums.pageTags.Fire:
+				pass
+			if lastElementalTag == UtilsGlobalEnums.pageTags.Lightning:
+				pass
+			if lastElementalTag == UtilsGlobalEnums.pageTags.Cold:
+				pass
