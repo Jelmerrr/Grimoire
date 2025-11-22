@@ -7,7 +7,7 @@ var spawnPos: Vector2 = Vector2(0, -360)
 var level: int = 1
 var awake: bool = false
 
-var lastElementalTag: UtilsGlobalEnums.pageTags
+var lastElementalTag = null
 
 @onready var action_timer: Timer = $ActionTimer
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -75,7 +75,8 @@ func Get_Damaged(projectileHit):
 	
 	if currentHealth <= 0:
 		queue_free()
-	elif projectileHit.pageTags != null:
+	
+	if projectileHit.pageTags != null:
 		var tags: Array[UtilsGlobalEnums.pageTags] = projectileHit.pageTags
 		if lastElementalTag == null:
 			#Fire check
@@ -83,14 +84,53 @@ func Get_Damaged(projectileHit):
 				lastElementalTag = UtilsGlobalEnums.pageTags.Fire
 			#Lightning check
 			if tags.has(UtilsGlobalEnums.pageTags.Spell) && tags.has(UtilsGlobalEnums.pageTags.Lightning):
-				lastElementalTag = UtilsGlobalEnums.pageTags.Fire
+				lastElementalTag = UtilsGlobalEnums.pageTags.Lightning
 			#Cold check
 			if tags.has(UtilsGlobalEnums.pageTags.Spell) && tags.has(UtilsGlobalEnums.pageTags.Cold):
-				lastElementalTag = UtilsGlobalEnums.pageTags.Fire
+				lastElementalTag = UtilsGlobalEnums.pageTags.Cold
+		
 		elif lastElementalTag != null:
+			#Fire + 1
 			if lastElementalTag == UtilsGlobalEnums.pageTags.Fire:
-				pass
-			if lastElementalTag == UtilsGlobalEnums.pageTags.Lightning:
-				pass
-			if lastElementalTag == UtilsGlobalEnums.pageTags.Cold:
-				pass
+				#Fire + Fire = Burst
+				if tags.has(UtilsGlobalEnums.pageTags.Spell) && tags.has(UtilsGlobalEnums.pageTags.Fire):
+					print("Burst")
+					lastElementalTag = null
+				#Fire + Lightning = Scorch
+				if tags.has(UtilsGlobalEnums.pageTags.Spell) && tags.has(UtilsGlobalEnums.pageTags.Lightning):
+					print("Scorch")
+					lastElementalTag = null
+				#Fire + Cold = Brittle
+				if tags.has(UtilsGlobalEnums.pageTags.Spell) && tags.has(UtilsGlobalEnums.pageTags.Cold):
+					print("Brittle")
+					lastElementalTag = null
+			
+			#Lightning + 1
+			elif lastElementalTag == UtilsGlobalEnums.pageTags.Lightning:
+				#Lightning + Fire = Scorch
+				if tags.has(UtilsGlobalEnums.pageTags.Spell) && tags.has(UtilsGlobalEnums.pageTags.Fire):
+					print("Scorch")
+					lastElementalTag = null
+				#Lightning + Lightning = Conduct
+				if tags.has(UtilsGlobalEnums.pageTags.Spell) && tags.has(UtilsGlobalEnums.pageTags.Lightning):
+					print("Conduct")
+					lastElementalTag = null
+				#Lightning + Cold = Shock
+				if tags.has(UtilsGlobalEnums.pageTags.Spell) && tags.has(UtilsGlobalEnums.pageTags.Cold):
+					print("Shock")
+					lastElementalTag = null
+			
+			#Cold + 1
+			elif lastElementalTag == UtilsGlobalEnums.pageTags.Cold:
+				#Cold + Fire = Brittle
+				if tags.has(UtilsGlobalEnums.pageTags.Spell) && tags.has(UtilsGlobalEnums.pageTags.Fire):
+					print("Brittle")
+					lastElementalTag = null
+				#Cold + Lightning = Shock
+				if tags.has(UtilsGlobalEnums.pageTags.Spell) && tags.has(UtilsGlobalEnums.pageTags.Lightning):
+					print("Shock")
+					lastElementalTag = null
+				#Cold + Cold = Freeze
+				if tags.has(UtilsGlobalEnums.pageTags.Spell) && tags.has(UtilsGlobalEnums.pageTags.Cold):
+					print("Freeze")
+					lastElementalTag = null

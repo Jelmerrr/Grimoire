@@ -10,8 +10,9 @@ func _ready() -> void:
 func UpdatePlayerPos() -> void:
 	UtilsGlobalVariables.playerPosition = global_position
 
-func Get_Damaged(BaseDamage):
-	print(BaseDamage)
+func Get_Damaged(enemySpell):
+	pass
+	#print(BaseDamage)
 	#var damage = UtilsGlobalFunctions.DamageCalc(BaseDamage)
 	#currentHealth -= damage
 	#health_bar.value -= damage
