@@ -25,7 +25,6 @@ func _ready() -> void:
 	sprite_2d.texture = enemyResource.enemySprite
 	health_bar.max_value = currentHealth
 	health_bar.value = currentHealth
-	#WakeUp()
 
 func WakeUp() -> void:
 	#Function gets called on combat start for each active enemy.
@@ -36,11 +35,14 @@ func WakeUp() -> void:
 
 func Sleep() -> void:
 	#Failsafe to disable enemies should one still exist on combat end.
+	#This should realistically never trigger, if it does, some shit went down.
 	action_timer.stop()
 	awake = false
-	#queue_free() This should be enabled after debuging and round spawning logic is done.
+	queue_free()
 
 func Cycle_Pages() -> void:
+	#Grimoire cycle logic.
+	#TODO: Dynamic action speed and decision tree stuff.
 	for page in enemyResource.enemyGrimoire.Pages:
 		if awake:
 			Cast_Page(page)
@@ -51,34 +53,45 @@ func Cycle_Pages() -> void:
 		Restart_Cycle()
 
 func Cast_Page(page: PageResource) -> void:
+	#Instaniate page and add it as a child object.
 	var instance = page.PageScene.instantiate()
 	SignalBus.Ask_PlayerPos.emit()
 	instance.destination = UtilsGlobalVariables.playerPosition
 	instance.spawnPos = global_position
 	instance.pageAlignment = UtilsGlobalEnums.alignment.Enemy
-	add_child.call_deferred(instance)
+	#Calling parent twice to ensure persistance should enemy die.
+	self.get_parent().get_parent().add_child.call_deferred(instance)
 
 func Restart_Cycle() -> void:
+	#Loops back to the beginning after the last page of a cycle is cast.
 	await get_tree().create_timer(enemyResource.enemyGrimoire.CastSpeed).timeout
 	Cycle_Pages()
 
 func Get_Damaged(projectileHit):
+	#Damage calculations for enemies.
+	
+	#Apply damage multipliers to base damage of the projectile.
 	var baseDamage = projectileHit.damage
 	var damage = UtilsGlobalFunctions.DamageCalc(baseDamage)
+	
+	#Adjust HP values.
 	currentHealth -= damage
 	health_bar.value -= damage
 	
+	#Instaniate damage number UI.
 	var damageInstance = DAMAGE_NUMBER_UI.instantiate()
 	damageInstance.damageDealt = damage
-	damageInstance.pos = global_position + Vector2(0,-100)
+	damageInstance.pos = global_position + Vector2(0,-100) #The vector should recieve a random offset based on sprite size but for now I am lazy.
+	#Calling parent twice to ensure persistance should enemy die.
 	self.get_parent().get_parent().add_child.call_deferred(damageInstance)
 	
+	#If HP is below 0 or = 0, remove enemy from scene.
 	if currentHealth <= 0:
 		queue_free()
 	
+	#Big switch statement that handles the elemental synergies system.
 	if projectileHit.pageTags != null:
 		var tags: Array[UtilsGlobalEnums.pageTags] = projectileHit.pageTags
-		
 		match lastElementalTag:
 			UtilsGlobalEnums.pageTags.Fire:
 				match tags:
