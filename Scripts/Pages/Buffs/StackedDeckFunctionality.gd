@@ -12,16 +12,12 @@ var multiplier: float = 0
 func _ready() -> void:
 	SignalBus.CyclePages.connect(ResetOnCycle)
 	SignalBus.Stop_Combat.connect(onCombatEnd)
-	#UtilsGlobalVariables.StackedDeckDamageMultiplier = 1
 	multiplier = multiplier + (25 * UtilsGlobalVariables.SpellPagesCastInCycleCount)
-	#UtilsGlobalVariables.StackedDeckDamageMultiplier = multiplier
 	UtilsGlobalDictionaries.damageModifiersDict.increasedSpellDamage.Current = UtilsGlobalDictionaries.damageModifiersDict.increasedSpellDamage.Current + multiplier
 
 func ResetOnCycle() -> void:
-	#UtilsGlobalVariables.StackedDeckDamageMultiplier = 1
 	UtilsGlobalDictionaries.damageModifiersDict.increasedSpellDamage.Current = UtilsGlobalDictionaries.damageModifiersDict.increasedSpellDamage.Current - multiplier
 	queue_free()
 
 func onCombatEnd() -> void:
-	#UtilsGlobalVariables.StackedDeckDamageMultiplier = 1
 	queue_free()

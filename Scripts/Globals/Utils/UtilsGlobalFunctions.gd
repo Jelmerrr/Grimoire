@@ -7,11 +7,11 @@ func DamageCalc(BaseDamage: float) -> float:
 	var totalDamage: float
 	#Set Damage to Base
 	totalDamage = BaseDamage
-	print(BaseDamage)
+	#print(BaseDamage)
 	for multiplier in UtilsGlobalDictionaries.damageModifiersDict:
-		print(multiplier + str(UtilsGlobalDictionaries.damageModifiersDict[multiplier].Current))
+		#print(multiplier + str(UtilsGlobalDictionaries.damageModifiersDict[multiplier].Current))
 		totalDamage = totalDamage * (UtilsGlobalDictionaries.damageModifiersDict[multiplier].Current / 100)
-	print(totalDamage)
+	#print(totalDamage)
 	return totalDamage
 
 func ResetDamageMultipliers() -> void:

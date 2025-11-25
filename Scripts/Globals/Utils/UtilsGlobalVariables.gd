@@ -10,8 +10,6 @@ var inCombat: bool
 var PlayerCastSpeed: float = 1 #Time in Seconds
 var BasePlayerCastSpeed: float = 1 #Time in Seconds
 
-var SplitPowerDamageMultiplier: float = 1
-var StackedDeckDamageMultiplier: float = 1
 
 var SpellPagesCastInCycleCount: int = 0
 
