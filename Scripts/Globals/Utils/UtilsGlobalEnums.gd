@@ -42,7 +42,8 @@ enum pageTags{
 	Lightning,
 	Cold,
 	Speed,
-	
+	AreaOfEffect,
+	DamageOverTime,
 }
 
 enum lastElementalHitBy{

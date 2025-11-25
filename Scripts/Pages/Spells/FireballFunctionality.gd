@@ -29,7 +29,7 @@ func _ready() -> void:
 		area_2d.set_collision_layer_value(5, true)
 		set_collision_mask_value(3, true)
 		area_2d.set_collision_mask_value(3, true)
-		totalDamage = UtilsGlobalFunctions.DamageCalc(damage)
+		totalDamage = UtilsGlobalFunctions.DamageCalc(damage, pageTags)
 	if pageAlignment == UtilsGlobalEnums.alignment.Enemy:
 		set_collision_layer_value(6, true)
 		area_2d.set_collision_layer_value(6, true)

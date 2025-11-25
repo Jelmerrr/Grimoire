@@ -16,7 +16,7 @@ func _ready() -> void:
 	SignalBus.Stop_Combat.connect(onCombatEnd)
 	if pageAlignment == UtilsGlobalEnums.alignment.Player:
 		area_2d.set_collision_layer_value(2, true)
-		totalDamage = UtilsGlobalFunctions.DamageCalc(damage)
+		totalDamage = UtilsGlobalFunctions.DamageCalc(damage, pageTags)
 	elif pageAlignment == UtilsGlobalEnums.alignment.Enemy:
 		area_2d.set_collision_layer_value(4, true)
 

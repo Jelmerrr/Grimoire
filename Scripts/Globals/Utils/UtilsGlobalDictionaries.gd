@@ -69,11 +69,11 @@ var tooltipDict = {
 }
 
 var damageModifiersDict = { #In percentile
-	"increasedDamage": {"Base": 100, "Current": 100},
-	"increasedSpellDamage": {"Base": 100, "Current": 100},
-	"increasedLightningDamage": {"Base": 100, "Current": 100},
-	"increasedFireDamage": {"Base": 100, "Current": 100},
-	"increasedColdDamage": {"Base": 100, "Current": 100},
-	"increasedDamageOverTime": {"Base": 100, "Current": 100},
-	"increasedAreaDamage": {"Base": 100, "Current": 100},
+	"increasedDamage": {"Base": 100, "Current": 100, "Tag": "Global"},
+	"increasedSpellDamage": {"Base": 100, "Current": 100, "Tag": "Spell"},
+	"increasedLightningDamage": {"Base": 100, "Current": 100, "Tag": "Lightning"},
+	"increasedFireDamage": {"Base": 100, "Current": 100, "Tag": "Fire"},
+	"increasedColdDamage": {"Base": 100, "Current": 100, "Tag": "Cold"},
+	"increasedDamageOverTime": {"Base": 100, "Current": 100, "Tag": "AreaOfEffect"},
+	"increasedAreaDamage": {"Base": 100, "Current": 100, "Tag": "DamageOverTime"},
 }
