@@ -71,8 +71,7 @@ func Get_Damaged(projectileHit):
 	#Damage calculations for enemies.
 	
 	#Apply damage multipliers to base damage of the projectile.
-	var baseDamage = projectileHit.damage
-	var damage = UtilsGlobalFunctions.DamageCalc(baseDamage)
+	var damage = projectileHit.totalDamage
 	
 	#Adjust HP values.
 	currentHealth -= damage

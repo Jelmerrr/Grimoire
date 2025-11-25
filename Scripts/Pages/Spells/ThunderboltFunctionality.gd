@@ -3,6 +3,7 @@ extends Node2D
 var destination: Vector2 = Vector2(0, -600)
 var spawnPos : Vector2 = Vector2(0, 150)
 var damage : int = 15
+var totalDamage = damage
 @onready var area_2d: Area2D = $Area2D
 
 var pageAlignment: UtilsGlobalEnums.alignment
@@ -15,6 +16,7 @@ func _ready() -> void:
 	SignalBus.Stop_Combat.connect(onCombatEnd)
 	if pageAlignment == UtilsGlobalEnums.alignment.Player:
 		area_2d.set_collision_layer_value(2, true)
+		totalDamage = UtilsGlobalFunctions.DamageCalc(damage)
 	elif pageAlignment == UtilsGlobalEnums.alignment.Enemy:
 		area_2d.set_collision_layer_value(4, true)
 

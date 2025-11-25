@@ -12,6 +12,8 @@ var pageTags: Array[UtilsGlobalEnums.pageTags]
 
 var pageAlignment: UtilsGlobalEnums.alignment
 
+var multiplier: float = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalBus.PageCasted.connect(countPage)
@@ -19,20 +21,27 @@ func _ready() -> void:
 	InitializeCurse()
 
 func InitializeCurse() -> void:
-	UtilsGlobalVariables.SplitPowerDamageMultiplier = 0.5
+	multiplier = -50
+	UtilsGlobalDictionaries.damageModifiersDict.increasedDamage.Current = UtilsGlobalDictionaries.damageModifiersDict.increasedDamage.Current + multiplier
+	#UtilsGlobalVariables.SplitPowerDamageMultiplier = 0.5
 
 func countPage(pageType: UtilsGlobalEnums.pageTypes):
 	if debuffDuration <= 0 && hasCurseConditionBeenFulfilled == false:
 		hasCurseConditionBeenFulfilled = true
-		UtilsGlobalVariables.SplitPowerDamageMultiplier = 3.0
+		#UtilsGlobalVariables.SplitPowerDamageMultiplier = 3.0
+		UtilsGlobalDictionaries.damageModifiersDict.increasedDamage.Current = UtilsGlobalDictionaries.damageModifiersDict.increasedDamage.Current - multiplier
+		multiplier = 300
+		UtilsGlobalDictionaries.damageModifiersDict.increasedDamage.Current = UtilsGlobalDictionaries.damageModifiersDict.increasedDamage.Current + multiplier
 	if pageType == UtilsGlobalEnums.pageTypes.Spell && hasCurseConditionBeenFulfilled == false:
 		debuffDuration = debuffDuration - 1
 	if buffDuration <= 0:
-		UtilsGlobalVariables.SplitPowerDamageMultiplier = 1.0
+		#UtilsGlobalVariables.SplitPowerDamageMultiplier = 1.0
+		UtilsGlobalDictionaries.damageModifiersDict.increasedDamage.Current = UtilsGlobalDictionaries.damageModifiersDict.increasedDamage.Current - multiplier
 		queue_free()
 	if pageType == UtilsGlobalEnums.pageTypes.Spell && hasCurseConditionBeenFulfilled == true:
 		buffDuration = buffDuration - 1
 
 func onCombatEnd() -> void:
-	UtilsGlobalVariables.SplitPowerDamageMultiplier = 1.0
+	#UtilsGlobalVariables.SplitPowerDamageMultiplier = 1.0
+	#UtilsGlobalDictionaries.damageModifiersDict.increasedDamage.Current = UtilsGlobalDictionaries.damageModifiersDict.increasedDamage.Current - multiplier
 	queue_free()

@@ -5,6 +5,7 @@ var spawnPos : Vector2 = Vector2(0, 150)
 var spawnRot : float
 var zdex : int
 var damage : int = 10
+var totalDamage = damage
 var speed : float = 250
 var destination: Vector2 = Vector2(0, -600)
 var direction: Vector2
@@ -28,6 +29,7 @@ func _ready() -> void:
 		area_2d.set_collision_layer_value(5, true)
 		set_collision_mask_value(3, true)
 		area_2d.set_collision_mask_value(3, true)
+		totalDamage = UtilsGlobalFunctions.DamageCalc(damage)
 	if pageAlignment == UtilsGlobalEnums.alignment.Enemy:
 		set_collision_layer_value(6, true)
 		area_2d.set_collision_layer_value(6, true)

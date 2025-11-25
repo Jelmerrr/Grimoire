@@ -48,7 +48,7 @@ var tooltipDict = {
 		},
 	"DamageMultiplier": {
 		"Title": "Damage Multipliers", 
-		"Description": "Damage multipliers interact with each other in different ways depending on their sources, unless stated otherwise in the page itself. \r\rDamage multipliers originating from the same source, stack additively. \r\rDamage multipliers originating from different sources, stack multiplicatively.", 
+		"Description": "Damage multipliers interact with each other in different ways depending on their type, unless stated otherwise on the page itself. \r\rDamage multipliers that are of the same type, stack additively. \r\rDamage multipliers that are different types, stack multiplicatively.", 
 		"Icon": "res://Assets/Icons/fire-icon.png"
 		},
 	"CastSpeed": {
