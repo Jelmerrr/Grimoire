@@ -67,3 +67,13 @@ var tooltipDict = {
 		"Icon": "res://Assets/Icons/fire-icon.png"
 		},
 }
+
+var damageModifiersDict = { #In percentile
+	"increasedDamage": {"Base": 100, "Current": 100},
+	"increasedSpellDamage": {"Base": 100, "Current": 100},
+	"increasedLightningDamage": {"Base": 100, "Current": 100},
+	"increasedFireDamage": {"Base": 100, "Current": 100},
+	"increasedColdDamage": {"Base": 100, "Current": 100},
+	"increasedDamageOverTime": {"Base": 100, "Current": 100},
+	"increasedAreaDamage": {"Base": 100, "Current": 100},
+}
