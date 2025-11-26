@@ -45,7 +45,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("1_e56e7")
 
 [node name="TreehellPart2(transparent)3" type="Sprite2D" parent="Trees ^w^"]
-position = Vector2(-863, 289)
+position = Vector2(-324, 6)
 scale = Vector2(2, 2)
 texture = ExtResource("1_e56e7")
 

@@ -1,15 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://8afj2opdu48e"]
+[gd_scene load_steps=9 format=3 uid="uid://8afj2opdu48e"]
 
 [ext_resource type="Theme" uid="uid://dqixgcsr3m1l0" path="res://Assets/UI/Themes/Tooltip_UI_Theme.tres" id="1_r8dxi"]
 [ext_resource type="Script" uid="uid://ck8f0806rhito" path="res://Scripts/Controllers/EnemyTooltipUIController.gd" id="2_eu5os"]
 [ext_resource type="FontFile" uid="uid://djhpuwc8o5esm" path="res://Assets/UI/Font/PixelOperator8.ttf" id="2_r8dxi"]
 [ext_resource type="FontFile" uid="uid://cq6k7a56rmitc" path="res://Assets/UI/Font/PixelOperator8-Bold.ttf" id="3_eu5os"]
+[ext_resource type="PackedScene" uid="uid://x6jym32jp0b1" path="res://Scenes/UI/PagesContainerUI.tscn" id="5_eu5os"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r8dxi"]
 bg_color = Color(0.15294118, 0.1254902, 0.1882353, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eu5os"]
 bg_color = Color(0.46666667, 0.53333336, 0.54901963, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_tvccl"]
+color = Color(0.7294118, 0.78039217, 0.78039217, 1)
+grow_begin = 5.0
+grow_end = 5.0
 
 [node name="EnemyTooltipContainer" type="PanelContainer"]
 offset_right = 40.0
@@ -19,7 +25,7 @@ script = ExtResource("2_eu5os")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
-theme_override_constants/separation = 4
+theme_override_constants/separation = 8
 alignment = 1
 
 [node name="EnemyNameLabel" type="RichTextLabel" parent="VBoxContainer"]
@@ -30,6 +36,8 @@ bbcode_enabled = true
 text = "[b]Enemy Name[/b]"
 fit_content = true
 autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HpBar" type="ProgressBar" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
@@ -57,3 +65,10 @@ scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_tvccl")
+
+[node name="PageContainer" parent="VBoxContainer" instance=ExtResource("5_eu5os")]
+layout_mode = 2

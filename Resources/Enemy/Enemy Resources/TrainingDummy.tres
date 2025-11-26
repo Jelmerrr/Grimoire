@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cqiyxfo60k6tj" path="res://Resources/Enemy/res_BaseEnemy.gd" id="1_1rl3a"]
 [ext_resource type="Resource" uid="uid://bmvokbotxdoyw" path="res://Resources/Pages/Page Resources/Fireball.tres" id="1_stdut"]
-[ext_resource type="Texture2D" uid="uid://ba284d84evukq" path="res://Assets/Sprites/Placeholder/SatoriPortrait 64x64.png" id="1_t1v52"]
 [ext_resource type="Script" uid="uid://4uqlkofs35db" path="res://Resources/Pages/Res_PageEntry.gd" id="2_8obyg"]
 [ext_resource type="Script" uid="uid://djtj3q8sol68n" path="res://Resources/Grimoire/Res_Grimoire.gd" id="3_hjtwb"]
+[ext_resource type="Texture2D" uid="uid://dt0v4effr0mc" path="res://Assets/Sprites/Placeholder/PlayerSprite 32x32 Transparent.png" id="4_8obyg"]
 
 [sub_resource type="Resource" id="Resource_7gtu3"]
 script = ExtResource("3_hjtwb")
@@ -19,7 +19,7 @@ baseHealth = 25.0
 actionSpeed = 2.5
 enemyType = 2
 enemyAttack = ExtResource("1_stdut")
-enemySprite = ExtResource("1_t1v52")
+enemySprite = ExtResource("4_8obyg")
 hpPerLevel = 10
 enemyGrimoire = SubResource("Resource_7gtu3")
 metadata/_custom_type_script = "uid://cqiyxfo60k6tj"
