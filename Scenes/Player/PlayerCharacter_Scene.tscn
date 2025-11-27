@@ -1,7 +1,44 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctx3fvkp7wfk8"]
+[gd_scene load_steps=12 format=3 uid="uid://ctx3fvkp7wfk8"]
 
 [ext_resource type="Script" uid="uid://d1fyj3yv6ifnk" path="res://Scripts/Controllers/PlayerController.gd" id="1_chfnm"]
 [ext_resource type="Texture2D" uid="uid://dt0v4effr0mc" path="res://Assets/Sprites/Placeholder/PlayerSprite 32x32 Transparent.png" id="2_chfnm"]
+[ext_resource type="Texture2D" uid="uid://c1tuix5q8664t" path="res://Assets/Sprites/Placeholder/PlayerSprite 32x32 Transparent Floatinggg-Sheet.png" id="2_jh8iq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6gyp"]
+atlas = ExtResource("2_jh8iq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6d03g"]
+atlas = ExtResource("2_jh8iq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbkhy"]
+atlas = ExtResource("2_jh8iq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kufv8"]
+atlas = ExtResource("2_jh8iq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ipcv7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6gyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6d03g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbkhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kufv8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yr52o"]
 radius = 37.529987
@@ -20,7 +57,13 @@ collision_layer = 2
 collision_mask = 32
 script = ExtResource("1_chfnm")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ipcv7")
+frame_progress = 0.6188661
+
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+visible = false
 scale = Vector2(2, 2)
 texture = ExtResource("2_chfnm")
 
