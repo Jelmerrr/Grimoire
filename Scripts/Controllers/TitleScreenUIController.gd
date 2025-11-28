@@ -1,6 +1,7 @@
 extends Control
 
 func _on_start_game_button_pressed() -> void:
+	AudioControllerScene.fade_out(AudioControllerScene.music_player)
 	UtilsSceneManager.switch_scene(UtilsSceneManager.BOARD_SCENE)
 
 

@@ -13,7 +13,7 @@ config_version=5
 config/name="Grimoire"
 run/main_scene="uid://vl7uj8cdqhru"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://dt0v4effr0mc"
 
 [autoload]
 
@@ -24,6 +24,7 @@ UtilsGlobalVariables="*res://Scripts/Globals/Utils/UtilsGlobalVariables.gd"
 UtilsGlobalFunctions="*res://Scripts/Globals/Utils/UtilsGlobalFunctions.gd"
 UtilsSceneManager="*res://Scripts/Globals/Utils/UtilsSceneManager.gd"
 UtilsGlobalDictionaries="*res://Scripts/Globals/Utils/UtilsGlobalDictionaries.gd"
+AudioControllerScene="*res://Scenes/Functional/AudioControllerScene.tscn"
 
 [display]
 
