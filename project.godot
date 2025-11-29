@@ -25,6 +25,7 @@ UtilsGlobalFunctions="*res://Scripts/Globals/Utils/UtilsGlobalFunctions.gd"
 UtilsSceneManager="*res://Scripts/Globals/Utils/UtilsSceneManager.gd"
 UtilsGlobalDictionaries="*res://Scripts/Globals/Utils/UtilsGlobalDictionaries.gd"
 AudioControllerScene="*res://Scenes/Functional/AudioControllerScene.tscn"
+SceneTransitionControllerScene="*res://Scenes/Functional/SceneTransitionControllerScene.tscn"
 
 [display]
 

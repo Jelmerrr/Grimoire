@@ -1,5 +1,9 @@
 extends Control
 
+#Placeholder untill I make a proper Splash screen
+func _ready() -> void:
+	SceneTransitionControllerScene.transition("Fade_In")
+
 func _on_start_game_button_pressed() -> void:
 	AudioControllerScene.fade_out(AudioControllerScene.music_player)
 	UtilsSceneManager.switch_scene(UtilsSceneManager.BOARD_SCENE)
@@ -18,4 +22,7 @@ func _on_achievements_button_pressed() -> void:
 
 
 func _on_quit_game_button_pressed() -> void:
+	AudioControllerScene.fade_out(AudioControllerScene.music_player)
+	SceneTransitionControllerScene.transition("Fade_Out")
+	await SceneTransitionControllerScene.animation_player.animation_finished
 	get_tree().quit()
