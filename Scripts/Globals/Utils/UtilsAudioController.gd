@@ -18,11 +18,11 @@ func playMusic() -> void:
 
 func fade_in(audioPlayer: AudioStreamPlayer):
 	audioPlayer.volume_db = -100
-	volume_tween(audioPlayer, -12, 1)
+	volume_tween(audioPlayer, -12, 0.5)
 
 func fade_out(audioPlayer: AudioStreamPlayer):
 	audioPlayer.volume_db = -12
-	await volume_tween(audioPlayer, -100, 1).finished
+	await volume_tween(audioPlayer, -100, 0.5).finished
 	audioPlayer.stop()
 
 func volume_tween(audioPlayer: AudioStreamPlayer, to: float, duration: float):

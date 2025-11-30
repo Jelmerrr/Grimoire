@@ -1,14 +1,99 @@
-[gd_scene load_steps=3 format=3 uid="uid://bratfmct7slu5"]
+[gd_scene load_steps=16 format=3 uid="uid://bratfmct7slu5"]
 
 [ext_resource type="Script" uid="uid://mf6r6c2vbl4j" path="res://Scripts/Pages/Spells/ThunderboltFunctionality.gd" id="1_iw8xw"]
+[ext_resource type="Texture2D" uid="uid://dilvoc2j6bxxs" path="res://Assets/Sprites/PageVFX/ThunderboltPageVFXSpriteSheet.png" id="2_xgpsk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_llsr1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwecm"]
+atlas = ExtResource("2_xgpsk")
+region = Rect2(0, 0, 64, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5el1w"]
+atlas = ExtResource("2_xgpsk")
+region = Rect2(64, 0, 64, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lv0u3"]
+atlas = ExtResource("2_xgpsk")
+region = Rect2(128, 0, 64, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gux2n"]
+atlas = ExtResource("2_xgpsk")
+region = Rect2(192, 0, 64, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6q6er"]
+atlas = ExtResource("2_xgpsk")
+region = Rect2(256, 0, 64, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdkge"]
+atlas = ExtResource("2_xgpsk")
+region = Rect2(320, 0, 64, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uqbi"]
+atlas = ExtResource("2_xgpsk")
+region = Rect2(384, 0, 64, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oodwt"]
+atlas = ExtResource("2_xgpsk")
+region = Rect2(448, 0, 64, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuda1"]
+atlas = ExtResource("2_xgpsk")
+region = Rect2(512, 0, 64, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6whi"]
+atlas = ExtResource("2_xgpsk")
+region = Rect2(576, 0, 64, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmcyu"]
+atlas = ExtResource("2_xgpsk")
+region = Rect2(640, 0, 64, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f31uw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwecm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5el1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lv0u3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gux2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6q6er")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdkge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uqbi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oodwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuda1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6whi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmcyu")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="Thunderbolt" type="Node2D"]
 script = ExtResource("1_iw8xw")
 
 [node name="Life Timer" type="Timer" parent="."]
-wait_time = 0.387
 autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -17,6 +102,14 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_llsr1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 5
+position = Vector2(0, -80)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_f31uw")
+frame = 10
+frame_progress = 1.0
 
 [connection signal="timeout" from="Life Timer" to="." method="_on_life_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
