@@ -23,27 +23,11 @@ func _ready() -> void:
 	elif pageAlignment == UtilsGlobalEnums.alignment.Enemy:
 		area_2d.set_collision_layer_value(4, true)
 
-func _draw() -> void:
-	pass
-	#draw_polyline(get_points(), Color("bac7c7"), 8.0, false)
-
 func _on_life_timer_timeout() -> void:
 	queue_free()
 
 func onCombatEnd() -> void:
 	queue_free()
-
-func get_points() -> Array[Vector2]:
-	var points: Array[Vector2]
-	var rng = RandomNumberGenerator.new()
-	points.append(spawnPos)
-	for i:float in range(9):
-		var frame: float =  ((i + 1) / 10)
-		var interpolation = spawnPos.lerp(destination, frame)
-		interpolation = Vector2(interpolation.x + rng.randf_range(-40, 40), interpolation.y + rng.randf_range(-40, 40),)
-		points.append(interpolation)
-	points.append(destination)
-	return points
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	body.Get_Damaged(self)
