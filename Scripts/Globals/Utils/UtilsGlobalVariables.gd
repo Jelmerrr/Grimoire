@@ -12,6 +12,7 @@ var BasePlayerCastSpeed: float = 1 #Time in Seconds
 
 
 var SpellPagesCastInCycleCount: int = 0
+var FiredUpStacks: int = 0
 
 var currentEnemyLevel: int = 0 #Mostly used as placeholder until proper progression mechanics
 
