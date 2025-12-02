@@ -14,6 +14,7 @@ var pageTags: Array[UtilsGlobalEnums.pageTags]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#area_2d.position = destination
+	AudioControllerScene.playSFX(preload("uid://b4xtgwes6v5id"))
 	position = destination
 	animated_sprite_2d.play()
 	SignalBus.Stop_Combat.connect(onCombatEnd)

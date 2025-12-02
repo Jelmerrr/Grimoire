@@ -4,6 +4,7 @@ extends Node2D
 @onready var sfx_channels: Node2D = $SFXChannels
 
 @onready var music_player: AudioStreamPlayer = $MusicChannels/MusicPlayer
+const SFX_PLAYER_SCENE = preload("uid://230tx3cvi3dn")
 
 var fade_tween: Tween = null
 
@@ -15,6 +16,12 @@ func playMusic() -> void:
 	if !music_player.playing:
 		fade_in(music_player)
 		music_player.play()
+
+func playSFX(AudioFile: AudioStreamWAV) -> void:
+	var instance = SFX_PLAYER_SCENE.instantiate()
+	instance.audioStream = AudioFile
+	instance.volume = UtilsGlobalVariables.globalSFXLevel
+	sfx_channels.add_child.call_deferred(instance)
 
 func fade_in(audioPlayer: AudioStreamPlayer):
 	audioPlayer.volume_db = -100

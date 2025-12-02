@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ctx3fvkp7wfk8"]
+[gd_scene load_steps=13 format=3 uid="uid://ctx3fvkp7wfk8"]
 
 [ext_resource type="Script" uid="uid://d1fyj3yv6ifnk" path="res://Scripts/Controllers/PlayerController.gd" id="1_chfnm"]
 [ext_resource type="Texture2D" uid="uid://dt0v4effr0mc" path="res://Assets/Sprites/Placeholder/PlayerSprite 32x32 Transparent.png" id="2_chfnm"]
@@ -40,6 +40,8 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jh8iq"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_yr52o"]
 radius = 37.529987
 
@@ -60,10 +62,14 @@ script = ExtResource("1_chfnm")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ipcv7")
-frame_progress = 0.6188661
+frame = 1
+frame_progress = 0.86063576
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 visible = false
+material = SubResource("ShaderMaterial_jh8iq")
+position = Vector2(90, 0)
+rotation = -1.3002703
 scale = Vector2(2, 2)
 texture = ExtResource("2_chfnm")
 

@@ -16,3 +16,6 @@ var SpellPagesCastInCycleCount: int = 0
 var currentEnemyLevel: int = 0 #Mostly used as placeholder until proper progression mechanics
 
 var currentGameState: UtilsGlobalEnums.gameState
+
+var globalMusicLevel: float = -12
+var globalSFXLevel: float = -24
