@@ -16,11 +16,15 @@ var multiplier: float = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	SignalBus.PageCasted.connect(countPage)
-	SignalBus.Stop_Combat.connect(onCombatEnd)
-	InitializeCurse()
+	if UtilsGlobalVariables.IsSplitPowerActive == true:
+		queue_free()
+	else:
+		SignalBus.PageCasted.connect(countPage)
+		SignalBus.Stop_Combat.connect(onCombatEnd)
+		InitializeCurse()
 
 func InitializeCurse() -> void:
+	UtilsGlobalVariables.IsSplitPowerActive = true
 	multiplier = -50
 	UtilsGlobalDictionaries.damageModifiersDict.increasedDamage.Current = UtilsGlobalDictionaries.damageModifiersDict.increasedDamage.Current + multiplier
 
@@ -34,9 +38,11 @@ func countPage(pageType: UtilsGlobalEnums.pageTypes):
 		debuffDuration = debuffDuration - 1
 	if buffDuration <= 0:
 		UtilsGlobalDictionaries.damageModifiersDict.increasedDamage.Current = UtilsGlobalDictionaries.damageModifiersDict.increasedDamage.Current - multiplier
+		UtilsGlobalVariables.IsSplitPowerActive = false
 		queue_free()
 	if pageType == UtilsGlobalEnums.pageTypes.Spell && hasCurseConditionBeenFulfilled == true:
 		buffDuration = buffDuration - 1
 
 func onCombatEnd() -> void:
+	UtilsGlobalVariables.IsSplitPowerActive = false
 	queue_free()
