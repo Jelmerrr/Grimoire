@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://bratfmct7slu5"]
 
 [ext_resource type="Script" uid="uid://mf6r6c2vbl4j" path="res://Scripts/Pages/Spells/ThunderboltFunctionality.gd" id="1_iw8xw"]
-[ext_resource type="Texture2D" uid="uid://dilvoc2j6bxxs" path="res://Assets/Sprites/PageVFX/ThunderboltPageVFXSpriteSheet.png" id="2_xgpsk"]
+[ext_resource type="Texture2D" uid="uid://dilvoc2j6bxxs" path="res://Assets/Sprites/PageVFX/Thunderbolt/ThunderboltPageVFXSpriteSheet.png" id="2_xgpsk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_llsr1"]
 
@@ -108,8 +108,6 @@ z_index = 5
 position = Vector2(0, -80)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_f31uw")
-frame = 10
-frame_progress = 1.0
 
 [connection signal="timeout" from="Life Timer" to="." method="_on_life_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
