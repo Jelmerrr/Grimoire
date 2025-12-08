@@ -44,6 +44,7 @@ enum pageTags{
 	Speed,
 	AreaOfEffect,
 	DamageOverTime,
+	Defense,
 }
 
 enum lastElementalHitBy{

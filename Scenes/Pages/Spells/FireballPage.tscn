@@ -1,13 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://43caa2wj4jbq"]
+[gd_scene load_steps=19 format=3 uid="uid://43caa2wj4jbq"]
 
 [ext_resource type="Script" uid="uid://c17kxgs3gbmof" path="res://Scripts/Pages/Spells/FireballFunctionality.gd" id="1_x357h"]
 [ext_resource type="Texture2D" uid="uid://cl0ighemb16qy" path="res://Assets/Sprites/Placeholder/FireballSpritePlaceholder.png" id="2_7nort"]
-[ext_resource type="Shader" uid="uid://fqc5bafp3t8o" path="res://Shaders/FastRotSprite.gdshader" id="2_rfw04"]
 [ext_resource type="Texture2D" uid="uid://8lgh2mxcltc2" path="res://Assets/Sprites/PageVFX/Fireball/FireballPageExplosionVFXSpriteSheet.png" id="4_gw2ht"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gw2ht"]
-shader = ExtResource("2_rfw04")
-shader_parameter/pixel_scale = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2uc81"]
 atlas = ExtResource("4_gw2ht")
@@ -117,7 +112,6 @@ collision_mask = 0
 script = ExtResource("1_x357h")
 
 [node name="FireballSprite" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_gw2ht")
 texture = ExtResource("2_7nort")
 
 [node name="ExplosionVFX" type="AnimatedSprite2D" parent="."]

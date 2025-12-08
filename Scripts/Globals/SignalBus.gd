@@ -19,3 +19,5 @@ signal ShowTooltip(tooltipType: String)
 signal HideTooltip(tooltipType: String)
 
 signal Start_Planning_Phase()
+
+signal AddPlayerHealth(value: int)

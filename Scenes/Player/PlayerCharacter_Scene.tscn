@@ -62,8 +62,7 @@ script = ExtResource("1_chfnm")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ipcv7")
-frame = 1
-frame_progress = 0.86063576
+frame_progress = 0.5477156
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 visible = false

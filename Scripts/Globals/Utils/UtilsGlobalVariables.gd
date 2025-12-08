@@ -12,6 +12,7 @@ var currentGameState: UtilsGlobalEnums.gameState
 #Player stat variables
 var PlayerCastSpeed: float = 1 #Time in Seconds
 var BasePlayerCastSpeed: float = 1 #Time in Seconds
+var BasePlayerHealth: int = 100
 
 #Page specific variables
 var SpellPagesCastInCycleCount: int = 0

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctj5nvxbe8b27"]
+
+[ext_resource type="Script" uid="uid://ci3kprq4ojomv" path="res://Scripts/Pages/Buffs/HealthPotionFunctionality.gd" id="1_yrx8s"]
+
+[node name="HealthPotionPage" type="Node2D"]
+script = ExtResource("1_yrx8s")
