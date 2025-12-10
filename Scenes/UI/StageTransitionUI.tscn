@@ -1,0 +1,177 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8pvu2vwxalpg"]
+
+[ext_resource type="Theme" uid="uid://xhnxie8u8ncj" path="res://Assets/UI/Themes/StageTransitionTheme.tres" id="1_uucvn"]
+[ext_resource type="FontFile" uid="uid://djhpuwc8o5esm" path="res://Assets/UI/Font/PixelOperator8.ttf" id="2_mybvx"]
+[ext_resource type="FontFile" uid="uid://cq6k7a56rmitc" path="res://Assets/UI/Font/PixelOperator8-Bold.ttf" id="3_j6m7e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7lia3"]
+
+[sub_resource type="Gradient" id="Gradient_8b4j5"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.78431374, 0, 0, 0, 0.78431374, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tax3s"]
+gradient = SubResource("Gradient_8b4j5")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8y2gs"]
+
+[node name="StageTransitionUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Negative Space" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_7lia3")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_tax3s")
+
+[node name="Control" type="Control" parent="VBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -10.0
+offset_right = 128.0
+offset_bottom = 10.0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/TextureRect/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_right = 128.0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+theme = ExtResource("1_uucvn")
+
+[node name="PanelContainer3" type="PanelContainer" parent="VBoxContainer/TextureRect/Control"]
+layout_mode = 1
+offset_top = 8.0
+offset_right = 128.0
+offset_bottom = 16.0
+scale = Vector2(1, -1)
+mouse_filter = 2
+theme = ExtResource("1_uucvn")
+
+[node name="Control2" type="Control" parent="VBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -10.0
+offset_right = 128.0
+offset_bottom = 10.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(-1, 1)
+mouse_filter = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/TextureRect/Control2"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_right = 128.0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+theme = ExtResource("1_uucvn")
+
+[node name="PanelContainer3" type="PanelContainer" parent="VBoxContainer/TextureRect/Control2"]
+layout_mode = 1
+offset_top = 8.0
+offset_right = 128.0
+offset_bottom = 16.0
+scale = Vector2(1, -1)
+mouse_filter = 2
+theme = ExtResource("1_uucvn")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="NegativeSpace 1" type="PanelContainer" parent="VBoxContainer/TextureRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8y2gs")
+
+[node name="TextMargin" type="PanelContainer" parent="VBoxContainer/TextureRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8y2gs")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TextureRect/HBoxContainer/TextMargin"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/TextureRect/HBoxContainer/TextMargin/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/line_separation = 12
+theme_override_constants/paragraph_separation = 12
+theme_override_fonts/normal_font = ExtResource("2_mybvx")
+theme_override_fonts/bold_font = ExtResource("3_j6m7e")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "[b]Current Stage[/b]
+1-2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NegativeSpace 2" type="PanelContainer" parent="VBoxContainer/TextureRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8y2gs")
+
+[node name="Negative Space 2" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_7lia3")

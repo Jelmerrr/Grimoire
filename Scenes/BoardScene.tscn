@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdx3eg3w0wwmw"]
+[gd_scene load_steps=12 format=3 uid="uid://bdx3eg3w0wwmw"]
 
 [ext_resource type="Texture2D" uid="uid://cln2tsk8l1cv0" path="res://Assets/Sprites/Placeholder/Treehell part 2 (transparent).png" id="1_e56e7"]
 [ext_resource type="Texture2D" uid="uid://32vx1ugjojly" path="res://Assets/Sprites/Placeholder/Treehell part 1 (transparent).png" id="1_kvo35"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dniujs4mtuy7t" path="res://Scenes/Enemy/EnemyBoard_scene.tscn" id="4_7heqy"]
 [ext_resource type="PackedScene" uid="uid://ctx3fvkp7wfk8" path="res://Scenes/Player/PlayerCharacter_Scene.tscn" id="4_dwcef"]
 [ext_resource type="PackedScene" uid="uid://dp3mj1iacqrte" path="res://Scenes/Functional/TooltipScene.tscn" id="6_thgti"]
+[ext_resource type="PackedScene" uid="uid://c2pyro7jdsq6h" path="res://Scenes/Functional/StageTransitionHUDScene.tscn" id="10_5v2nm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l56c8"]
 bg_color = Color(0.08235294, 0.05490196, 0.0627451, 1)
@@ -148,3 +149,5 @@ position = Vector2(-344, -237)
 position = Vector2(0, 150)
 
 [node name="TooltipScene" parent="." instance=ExtResource("6_thgti")]
+
+[node name="StageTransition" parent="." instance=ExtResource("10_5v2nm")]

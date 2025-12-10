@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://xhnxie8u8ncj"]
+
+[ext_resource type="Texture2D" uid="uid://cfdww6jaxwkmg" path="res://Assets/UI/Borders/fantasy-ui-borders.svg" id="1_u5oo1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mclhg"]
+texture = ExtResource("1_u5oo1")
+texture_margin_left = 34.87775
+texture_margin_top = 7.561161
+texture_margin_right = 29.494026
+region_rect = Rect2(825, 680, 91, 6)
+modulate_color = Color(1, 1, 1, 0.78431374)
+
+[resource]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_mclhg")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2pyro7jdsq6h"]
+
+[ext_resource type="PackedScene" uid="uid://b8pvu2vwxalpg" path="res://Scenes/UI/StageTransitionUI.tscn" id="1_3u6ad"]
+
+[node name="StageTransition" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StageTransitionUI" parent="CanvasLayer" instance=ExtResource("1_3u6ad")]

@@ -25,6 +25,7 @@ offset_left = -340.0
 offset_right = 340.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/separation = 40
 
 [node name="TopMargin" type="VBoxContainer" parent="VBoxContainer"]
