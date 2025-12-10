@@ -34,8 +34,4 @@ func Change_Health(value: int) -> void:
 	health_bar.value = clampi(int(health_bar.value) + value, 0, UtilsGlobalVariables.BasePlayerHealth)
 	print(health_bar.value)
 	if current_health == 0:
-		print("Lost combat")
-		SignalBus.Stop_Combat.emit()
-		UtilsGlobalVariables.currentEnemyLevel -= 1
-		UtilsGlobalVariables.currentGameState = UtilsGlobalEnums.gameState.Planning
-		SignalBus.Start_Planning_Phase.emit()
+		UtilsGlobalFunctions.RoundDefeat()

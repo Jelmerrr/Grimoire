@@ -30,9 +30,7 @@ func Cast_Page(Page: PageResource) -> void:
 			SignalBus.PageCasted.emit(Page.PageType)
 			add_child.call_deferred(instance)
 	elif UtilsGlobalVariables.enemyPositions.size() == 0:
-		SignalBus.Stop_Combat.emit()
-		SignalBus.Get_New_Page.emit()
-		UtilsGlobalVariables.currentGameState = UtilsGlobalEnums.gameState.Rewarding
+		UtilsGlobalFunctions.RoundVictory()
 	if Page.PageType == UtilsGlobalEnums.pageTypes.Spell:
 		UtilsGlobalVariables.SpellPagesCastInCycleCount += 1
 
@@ -84,7 +82,6 @@ func Start_Combat() -> void:
 	if !UtilsGlobalVariables.inCombat:
 		UtilsGlobalVariables.inCombat = true
 		Restart_Cycle()
-		UtilsGlobalVariables.currentEnemyLevel = UtilsGlobalVariables.currentEnemyLevel + 1
 
 func Stop_Combat() -> void:
 	if UtilsGlobalVariables.inCombat:

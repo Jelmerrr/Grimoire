@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8pvu2vwxalpg"]
+[gd_scene load_steps=9 format=3 uid="uid://b8pvu2vwxalpg"]
 
+[ext_resource type="Script" uid="uid://bdb2kr4526sud" path="res://Scripts/Controllers/SceneTransitionUIController.gd" id="1_4jvg3"]
 [ext_resource type="Theme" uid="uid://xhnxie8u8ncj" path="res://Assets/UI/Themes/StageTransitionTheme.tres" id="1_uucvn"]
 [ext_resource type="FontFile" uid="uid://djhpuwc8o5esm" path="res://Assets/UI/Font/PixelOperator8.ttf" id="2_mybvx"]
 [ext_resource type="FontFile" uid="uid://cq6k7a56rmitc" path="res://Assets/UI/Font/PixelOperator8-Bold.ttf" id="3_j6m7e"]
@@ -24,6 +25,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("1_4jvg3")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -42,13 +44,13 @@ size_flags_stretch_ratio = 0.5
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_7lia3")
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+[node name="GradientRect" type="TextureRect" parent="VBoxContainer"]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 mouse_filter = 2
 texture = SubResource("GradientTexture1D_tax3s")
 
-[node name="Control" type="Control" parent="VBoxContainer/TextureRect"]
+[node name="Side Details Left" type="Control" parent="VBoxContainer/GradientRect"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -59,7 +61,7 @@ offset_bottom = 10.0
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/TextureRect/Control"]
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/GradientRect/Side Details Left"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -72,7 +74,7 @@ size_flags_vertical = 0
 mouse_filter = 2
 theme = ExtResource("1_uucvn")
 
-[node name="PanelContainer3" type="PanelContainer" parent="VBoxContainer/TextureRect/Control"]
+[node name="PanelContainer3" type="PanelContainer" parent="VBoxContainer/GradientRect/Side Details Left"]
 layout_mode = 1
 offset_top = 8.0
 offset_right = 128.0
@@ -81,7 +83,7 @@ scale = Vector2(1, -1)
 mouse_filter = 2
 theme = ExtResource("1_uucvn")
 
-[node name="Control2" type="Control" parent="VBoxContainer/TextureRect"]
+[node name="Side Details Right" type="Control" parent="VBoxContainer/GradientRect"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -96,7 +98,7 @@ grow_vertical = 2
 scale = Vector2(-1, 1)
 mouse_filter = 2
 
-[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/TextureRect/Control2"]
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/GradientRect/Side Details Right"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -109,7 +111,7 @@ size_flags_vertical = 0
 mouse_filter = 2
 theme = ExtResource("1_uucvn")
 
-[node name="PanelContainer3" type="PanelContainer" parent="VBoxContainer/TextureRect/Control2"]
+[node name="PanelContainer3" type="PanelContainer" parent="VBoxContainer/GradientRect/Side Details Right"]
 layout_mode = 1
 offset_top = 8.0
 offset_right = 128.0
@@ -118,7 +120,7 @@ scale = Vector2(1, -1)
 mouse_filter = 2
 theme = ExtResource("1_uucvn")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TextureRect"]
+[node name="TextHBoxContainer" type="HBoxContainer" parent="VBoxContainer/GradientRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -127,20 +129,20 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="NegativeSpace 1" type="PanelContainer" parent="VBoxContainer/TextureRect/HBoxContainer"]
+[node name="NegativeSpace 1" type="PanelContainer" parent="VBoxContainer/GradientRect/TextHBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8y2gs")
 
-[node name="TextMargin" type="PanelContainer" parent="VBoxContainer/TextureRect/HBoxContainer"]
+[node name="TextMargin" type="PanelContainer" parent="VBoxContainer/GradientRect/TextHBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8y2gs")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TextureRect/HBoxContainer/TextMargin"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/GradientRect/TextHBoxContainer/TextMargin"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 4
@@ -148,22 +150,35 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/TextureRect/HBoxContainer/TextMargin/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/GradientRect/TextHBoxContainer/TextMargin/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Current Stage" type="RichTextLabel" parent="VBoxContainer/GradientRect/TextHBoxContainer/TextMargin/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/line_separation = 12
-theme_override_constants/paragraph_separation = 12
 theme_override_fonts/normal_font = ExtResource("2_mybvx")
 theme_override_fonts/bold_font = ExtResource("3_j6m7e")
 theme_override_font_sizes/normal_font_size = 24
 theme_override_font_sizes/bold_font_size = 16
 bbcode_enabled = true
-text = "[b]Current Stage[/b]
-1-2"
+text = "[b]Current Stage[/b]"
+fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NegativeSpace 2" type="PanelContainer" parent="VBoxContainer/TextureRect/HBoxContainer"]
+[node name="StageNumber" type="RichTextLabel" parent="VBoxContainer/GradientRect/TextHBoxContainer/TextMargin/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_mybvx")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "1-2"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NegativeSpace 2" type="PanelContainer" parent="VBoxContainer/GradientRect/TextHBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2

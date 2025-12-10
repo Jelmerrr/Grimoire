@@ -13,5 +13,4 @@ func process_newPage() -> void:
 
 func selected_newPage() -> void:
 	new_page_selection_ui.visible = false
-	UtilsGlobalVariables.currentGameState = UtilsGlobalEnums.gameState.Planning
-	SignalBus.Start_Planning_Phase.emit()
+	UtilsGlobalFunctions.goToPlanning()
