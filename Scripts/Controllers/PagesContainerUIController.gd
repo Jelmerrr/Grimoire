@@ -5,6 +5,8 @@ var dragging_panel = null
 var drag_offset = 0.0
 var threshold = 200
 
+var interactable = true
+
 @onready var page_title: RichTextLabel = $"CanvasGroup/PanelContainer/MarginContainer/VBoxContainer/Page title"
 @onready var page_description: RichTextLabel = $"CanvasGroup/PanelContainer/MarginContainer/VBoxContainer/Page description"
 @onready var canvas_group: CanvasGroup = $CanvasGroup
@@ -28,7 +30,7 @@ func UpdateText() -> void:
 		page_description.text = pageResource.UI_DescriptionString
 
 func _on_gui_input(event: InputEvent) -> void:
-	if !UtilsGlobalVariables.inCombat:
+	if !UtilsGlobalVariables.inCombat && interactable:
 		if event.is_action_pressed("click"):
 			#Create a temporary node that can move freely.
 			dragging_node = self.duplicate()
