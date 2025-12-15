@@ -5,6 +5,8 @@ extends Node2D
 
 var current_health: int
 
+const DAMAGE_NUMBER_UI = preload("uid://cfkn2u7gp546x")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalBus.Ask_PlayerPos.connect(UpdatePlayerPos)
@@ -20,6 +22,12 @@ func UpdatePlayerPos() -> void:
 func Get_Damaged(enemySpell):
 	var damageTaken = enemySpell.damage
 	Change_Health(-damageTaken)
+	
+	var damageInstance = DAMAGE_NUMBER_UI.instantiate()
+	damageInstance.damageDealt = damageTaken
+	damageInstance.pos = global_position + Vector2(0,-100) #The vector should recieve a random offset based on sprite size but for now I am lazy.
+	#Calling parent twice to ensure persistance should you die.
+	self.get_parent().get_parent().add_child.call_deferred(damageInstance)
 	
 	#if currentHealth <= 0:
 	#	queue_free()
