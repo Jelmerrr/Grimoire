@@ -2,17 +2,21 @@ extends Node2D
 
 @export var enemyResource: BaseEnemyResource
 
-var currentHealth
+var currentHealth: int
+var maxHealth: int
 var spawnPos: Vector2 = Vector2(0, -360)
 var level: int = 1
 var awake: bool = false
 
 var lastElementalTag = null
 
+var hovering: bool = false
+
 @onready var action_timer: Timer = $ActionTimer
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 @onready var health_bar: ProgressBar = $"Health Bar"
+@onready var mouse_area: PanelContainer = $MouseArea
 
 const DAMAGE_NUMBER_UI = preload("uid://cfkn2u7gp546x")
 
@@ -20,11 +24,16 @@ const DAMAGE_NUMBER_UI = preload("uid://cfkn2u7gp546x")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalBus.Start_Combat.connect(WakeUp)
-	SignalBus.Stop_Combat.connect(Sleep)       
-	currentHealth = enemyResource.baseHealth + (enemyResource.hpPerLevel * level)
+	SignalBus.Stop_Combat.connect(Sleep)
+	
+	maxHealth = int(enemyResource.baseHealth + (enemyResource.hpPerLevel * level))
+	currentHealth = maxHealth
 	sprite_2d.texture = enemyResource.enemySprite
 	health_bar.max_value = currentHealth
 	health_bar.value = currentHealth
+	mouse_area.size = sprite_2d.texture.get_size() * 2
+	mouse_area.position = sprite_2d.position
+	mouse_area.set_anchors_and_offsets_preset(Control.PRESET_CENTER, Control.LayoutPresetMode.PRESET_MODE_KEEP_SIZE)
 
 func WakeUp() -> void:
 	#Function gets called on combat start for each active enemy.
@@ -133,3 +142,17 @@ func Get_Damaged(projectileHit):
 						lastElementalTag = UtilsGlobalEnums.pageTags.Lightning
 					[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Cold]:
 						lastElementalTag = UtilsGlobalEnums.pageTags.Cold
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
+			if hovering == true:
+				SignalBus.ShowEnemyTooltip.emit(currentHealth, maxHealth, enemyResource)
+
+
+func _on_mouse_area_mouse_entered() -> void:
+	hovering = true
+
+
+func _on_mouse_area_mouse_exited() -> void:
+	hovering = false

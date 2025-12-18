@@ -17,6 +17,7 @@ signal Ask_PlayerPos()
 
 signal ShowTooltip(tooltipType: String)
 signal HideTooltip(tooltipType: String)
+signal ShowEnemyTooltip(currentHealth: int, maxHealth: int, enemyResource: BaseEnemyResource)
 
 signal Start_Planning_Phase()
 

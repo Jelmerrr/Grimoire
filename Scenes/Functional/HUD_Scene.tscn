@@ -1,9 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8lkfhngweyr3"]
+[gd_scene load_steps=3 format=3 uid="uid://c8lkfhngweyr3"]
 
 [ext_resource type="PackedScene" uid="uid://b05sxg6iw2sfr" path="res://Scenes/UI/HUD_UI.tscn" id="1_nsxse"]
+[ext_resource type="PackedScene" uid="uid://8afj2opdu48e" path="res://Scenes/UI/EnemyTooltipUI.tscn" id="2_jx44h"]
 
 [node name="HUD" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD_UI" parent="CanvasLayer" instance=ExtResource("1_nsxse")]
+
+[node name="EnemyTooltipContainer" parent="CanvasLayer" instance=ExtResource("2_jx44h")]
