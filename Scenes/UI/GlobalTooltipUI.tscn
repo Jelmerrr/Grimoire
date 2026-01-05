@@ -2,12 +2,13 @@
 
 [ext_resource type="Theme" uid="uid://dqixgcsr3m1l0" path="res://Assets/UI/Themes/Tooltip_UI_Theme.tres" id="1_4oyv2"]
 [ext_resource type="Script" uid="uid://t37nouq6ldod" path="res://Scripts/Controllers/TooltipUIController.gd" id="1_lputd"]
-[ext_resource type="FontFile" uid="uid://djhpuwc8o5esm" path="res://Assets/UI/Font/PixelOperator8.ttf" id="1_uad81"]
-[ext_resource type="FontFile" uid="uid://cq6k7a56rmitc" path="res://Assets/UI/Font/PixelOperator8-Bold.ttf" id="2_lputd"]
+[ext_resource type="FontFile" uid="uid://dqs1q6l3jigc2" path="res://Assets/UI/Font/pixelfysans/static/PixelifySans-Bold.ttf" id="3_4oyv2"]
+[ext_resource type="FontFile" uid="uid://bqx6c8qhnkiyg" path="res://Assets/UI/Font/m5x7.ttf" id="4_v08ml"]
 
 [node name="GlobalTooltip" type="PanelContainer"]
-offset_right = 270.0
-offset_bottom = 96.0
+custom_minimum_size = Vector2(150, 0)
+offset_right = 182.0
+offset_bottom = 91.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
@@ -16,27 +17,26 @@ script = ExtResource("1_lputd")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 0
 
 [node name="Tooltip Title" type="RichTextLabel" parent="VBoxContainer"]
-custom_minimum_size = Vector2(250, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
-theme_override_fonts/normal_font = ExtResource("1_uad81")
-theme_override_fonts/bold_font = ExtResource("2_lputd")
+theme_override_fonts/normal_font = ExtResource("3_4oyv2")
+theme_override_fonts/bold_font = ExtResource("3_4oyv2")
 bbcode_enabled = true
-text = "[img]res://Assets/Icons/fire-icon.png[/img][b]Tooltip[/b]"
+text = "[b]Tooltip[/b]"
 fit_content = true
 
 [node name="Tooltip Description" type="RichTextLabel" parent="VBoxContainer"]
-custom_minimum_size = Vector2(250, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
-theme_override_constants/line_separation = 5
-theme_override_fonts/normal_font = ExtResource("1_uad81")
-theme_override_fonts/bold_font = ExtResource("2_lputd")
-theme_override_font_sizes/normal_font_size = 8
-theme_override_font_sizes/bold_font_size = 8
+theme_override_fonts/normal_font = ExtResource("4_v08ml")
+theme_override_fonts/bold_font = ExtResource("4_v08ml")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
 bbcode_enabled = true
 text = "okayyy let's go. Yipeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
 fit_content = true
