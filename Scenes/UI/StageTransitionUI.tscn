@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8pvu2vwxalpg"]
+[gd_scene load_steps=8 format=3 uid="uid://b8pvu2vwxalpg"]
 
 [ext_resource type="Script" uid="uid://bdb2kr4526sud" path="res://Scripts/Controllers/SceneTransitionUIController.gd" id="1_4jvg3"]
 [ext_resource type="Theme" uid="uid://xhnxie8u8ncj" path="res://Assets/UI/Themes/StageTransitionTheme.tres" id="1_uucvn"]
-[ext_resource type="FontFile" uid="uid://djhpuwc8o5esm" path="res://Assets/UI/Font/PixelOperator8.ttf" id="2_mybvx"]
-[ext_resource type="FontFile" uid="uid://cq6k7a56rmitc" path="res://Assets/UI/Font/PixelOperator8-Bold.ttf" id="3_j6m7e"]
+[ext_resource type="FontFile" uid="uid://bqx6c8qhnkiyg" path="res://Assets/UI/Font/m5x7.ttf" id="3_7ajxj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7lia3"]
 
@@ -165,16 +164,16 @@ theme_override_constants/margin_bottom = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/GradientRect/TextHBoxContainer/TextMargin/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="Current Stage" type="RichTextLabel" parent="VBoxContainer/GradientRect/TextHBoxContainer/TextMargin/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("2_mybvx")
-theme_override_fonts/bold_font = ExtResource("3_j6m7e")
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 8
+theme_override_fonts/normal_font = ExtResource("3_7ajxj")
+theme_override_fonts/bold_font = ExtResource("3_7ajxj")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
 text = "[b]Current Stage[/b]"
 fit_content = true
@@ -183,8 +182,8 @@ vertical_alignment = 1
 
 [node name="StageNumber" type="RichTextLabel" parent="VBoxContainer/GradientRect/TextHBoxContainer/TextMargin/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("2_mybvx")
-theme_override_font_sizes/normal_font_size = 8
+theme_override_fonts/normal_font = ExtResource("3_7ajxj")
+theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "1-2"
 fit_content = true

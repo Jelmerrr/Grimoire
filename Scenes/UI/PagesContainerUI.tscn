@@ -17,13 +17,13 @@ shader_parameter/inside = true
 shader_parameter/add_margins = true
 
 [node name="PageContainer" type="Control"]
-custom_minimum_size = Vector2(132, 164)
+custom_minimum_size = Vector2(156, 188)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -828.0
-offset_bottom = -376.0
+offset_right = -796.0
+offset_bottom = -344.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4431p")
@@ -32,7 +32,7 @@ script = ExtResource("1_4431p")
 material = SubResource("ShaderMaterial_ptmhp")
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasGroup"]
-custom_minimum_size = Vector2(132, 164)
+custom_minimum_size = Vector2(156, 188)
 offset_right = 128.0
 offset_bottom = 164.0
 mouse_filter = 2
@@ -43,7 +43,7 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasGroup/PanelContainer/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 0
 
 [node name="Page title" type="RichTextLabel" parent="CanvasGroup/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -60,12 +60,7 @@ fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasGroup/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_right = 4
-
-[node name="Page description" type="RichTextLabel" parent="CanvasGroup/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="Page description" type="RichTextLabel" parent="CanvasGroup/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
@@ -82,5 +77,5 @@ horizontal_alignment = 1
 meta_underlined = false
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
-[connection signal="meta_hover_ended" from="CanvasGroup/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/Page description" to="." method="_on_page_description_meta_hover_ended"]
-[connection signal="meta_hover_started" from="CanvasGroup/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/Page description" to="." method="_on_page_description_meta_hover_started"]
+[connection signal="meta_hover_ended" from="CanvasGroup/PanelContainer/MarginContainer/VBoxContainer/Page description" to="." method="_on_page_description_meta_hover_ended"]
+[connection signal="meta_hover_started" from="CanvasGroup/PanelContainer/MarginContainer/VBoxContainer/Page description" to="." method="_on_page_description_meta_hover_started"]

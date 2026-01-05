@@ -3,12 +3,12 @@ extends Control
 var dragging_node = null
 var dragging_panel = null
 var drag_offset = 0.0
-var threshold = 132
+var threshold = 156
 
 var interactable = true
 
 @onready var page_title: RichTextLabel = $"CanvasGroup/PanelContainer/MarginContainer/VBoxContainer/Page title"
-@onready var page_description: RichTextLabel = $"CanvasGroup/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/Page description"
+@onready var page_description: RichTextLabel = $"CanvasGroup/PanelContainer/MarginContainer/VBoxContainer/Page description"
 @onready var canvas_group: CanvasGroup = $CanvasGroup
 
 var pageResource: PageResource

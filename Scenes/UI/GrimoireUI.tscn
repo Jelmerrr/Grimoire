@@ -43,7 +43,7 @@ layout_mode = 2
 theme_override_constants/separation = 4
 
 [node name="PageScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/PageVBox"]
-custom_minimum_size = Vector2(520, 164)
+custom_minimum_size = Vector2(520, 188)
 layout_mode = 2
 theme = ExtResource("4_lny7x")
 script = ExtResource("3_32588")

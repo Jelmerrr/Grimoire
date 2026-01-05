@@ -15,6 +15,8 @@ bg_color = Color(0.08235294, 0.05490196, 0.0627451, 1)
 [node name="BoardScene" type="Node2D"]
 script = ExtResource("1_xnhc1")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
@@ -30,8 +32,6 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_l56c8")
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="HUD" parent="." instance=ExtResource("2_jf025")]
 position = Vector2(-344, -237)
