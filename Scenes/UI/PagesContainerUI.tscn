@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://x6jym32jp0b1"]
+[gd_scene load_steps=8 format=3 uid="uid://x6jym32jp0b1"]
 
-[ext_resource type="FontFile" uid="uid://cq6k7a56rmitc" path="res://Assets/UI/Font/PixelOperator8-Bold.ttf" id="1_1m8es"]
 [ext_resource type="Script" uid="uid://dieoqfkw6oe5" path="res://Scripts/Controllers/PagesContainerUIController.gd" id="1_4431p"]
-[ext_resource type="FontFile" uid="uid://djhpuwc8o5esm" path="res://Assets/UI/Font/PixelOperator8.ttf" id="2_4431p"]
 [ext_resource type="Shader" uid="uid://db1vlyx5q5rwg" path="res://Shaders/UIOutline.gdshader" id="2_ptmhp"]
 [ext_resource type="Theme" uid="uid://dysfa43hoaxwe" path="res://Assets/UI/Themes/Page_UI_Theme.tres" id="3_qbxxd"]
+[ext_resource type="FontFile" uid="uid://b3u5jwloppl34" path="res://Assets/UI/Font/pixelfysans/static/PixelifySans-Regular.ttf" id="4_1y105"]
+[ext_resource type="FontFile" uid="uid://bqx6c8qhnkiyg" path="res://Assets/UI/Font/m5x7.ttf" id="4_ptmhp"]
+[ext_resource type="FontFile" uid="uid://dqs1q6l3jigc2" path="res://Assets/UI/Font/pixelfysans/static/PixelifySans-Bold.ttf" id="5_l00xp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ptmhp"]
 resource_local_to_scene = true
@@ -29,43 +30,52 @@ script = ExtResource("1_4431p")
 material = SubResource("ShaderMaterial_ptmhp")
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasGroup"]
-custom_minimum_size = Vector2(200, 250)
-offset_right = 200.0
-offset_bottom = 250.0
+custom_minimum_size = Vector2(150, 200)
+offset_right = 150.0
+offset_bottom = 200.0
 mouse_filter = 2
 theme = ExtResource("3_qbxxd")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasGroup/PanelContainer"]
 layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasGroup/PanelContainer/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 8
 
 [node name="Page title" type="RichTextLabel" parent="CanvasGroup/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
 theme_override_constants/line_separation = 4
-theme_override_fonts/normal_font = ExtResource("2_4431p")
-theme_override_fonts/bold_font = ExtResource("1_1m8es")
+theme_override_fonts/normal_font = ExtResource("4_1y105")
+theme_override_fonts/bold_font = ExtResource("5_l00xp")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_font_sizes/bold_font_size = 16
 bbcode_enabled = true
-text = "Page Title"
+text = "[b]Page Title[/b]"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 
-[node name="Page description" type="RichTextLabel" parent="CanvasGroup/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasGroup/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="Page description" type="RichTextLabel" parent="CanvasGroup/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
-theme_override_constants/line_separation = 4
-theme_override_fonts/normal_font = ExtResource("2_4431p")
-theme_override_fonts/bold_font = ExtResource("1_1m8es")
-theme_override_font_sizes/normal_font_size = 8
-theme_override_font_sizes/bold_font_size = 8
+theme_override_constants/line_separation = 0
+theme_override_fonts/normal_font = ExtResource("4_ptmhp")
+theme_override_fonts/bold_font = ExtResource("4_ptmhp")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
 bbcode_enabled = true
 text = "Description aaaaaaaaaaaaaa aaaaaaaaaa"
 fit_content = true
@@ -74,5 +84,5 @@ horizontal_alignment = 1
 meta_underlined = false
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
-[connection signal="meta_hover_ended" from="CanvasGroup/PanelContainer/MarginContainer/VBoxContainer/Page description" to="." method="_on_page_description_meta_hover_ended"]
-[connection signal="meta_hover_started" from="CanvasGroup/PanelContainer/MarginContainer/VBoxContainer/Page description" to="." method="_on_page_description_meta_hover_started"]
+[connection signal="meta_hover_ended" from="CanvasGroup/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/Page description" to="." method="_on_page_description_meta_hover_ended"]
+[connection signal="meta_hover_started" from="CanvasGroup/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/Page description" to="." method="_on_page_description_meta_hover_started"]

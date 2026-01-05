@@ -8,7 +8,7 @@ var threshold = 200
 var interactable = true
 
 @onready var page_title: RichTextLabel = $"CanvasGroup/PanelContainer/MarginContainer/VBoxContainer/Page title"
-@onready var page_description: RichTextLabel = $"CanvasGroup/PanelContainer/MarginContainer/VBoxContainer/Page description"
+@onready var page_description: RichTextLabel = $"CanvasGroup/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/Page description"
 @onready var canvas_group: CanvasGroup = $CanvasGroup
 
 var pageResource: PageResource
@@ -26,7 +26,7 @@ func _ready():
 
 func UpdateText() -> void:
 	if pageResource:
-		page_title.text = pageResource.UI_NameString
+		page_title.text = "[b]" + pageResource.UI_NameString + "[/b]"
 		page_description.text = pageResource.UI_DescriptionString
 
 func _on_gui_input(event: InputEvent) -> void:
