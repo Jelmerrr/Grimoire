@@ -3,7 +3,7 @@ extends Control
 var dragging_node = null
 var dragging_panel = null
 var drag_offset = 0.0
-var threshold = 200
+var threshold = 132
 
 var interactable = true
 

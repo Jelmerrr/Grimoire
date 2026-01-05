@@ -1,7 +1,7 @@
 extends Control
 
 const NEWPAGES_CONTAINER_UI = preload("uid://x6jym32jp0b1")
-@onready var pages_showcase: HBoxContainer = $PanelContainer/AspectRatioContainer/MarginContainer/PageVBox/PageScrollContainer/MarginContainer/PagesShowcase
+@onready var pages_showcase: HBoxContainer = $PanelContainer/MarginContainer/PageVBox/PageScrollContainer/MarginContainer/PagesShowcase
 
 var currentPages: Array
 
