@@ -89,7 +89,7 @@ func Get_Damaged(projectileHit):
 	#Instaniate damage number UI.
 	var damageInstance = DAMAGE_NUMBER_UI.instantiate()
 	damageInstance.damageDealt = damage
-	damageInstance.pos = global_position + Vector2(0,-100) #The vector should recieve a random offset based on sprite size but for now I am lazy.
+	damageInstance.pos = global_position + Vector2(0,-25) #The vector should recieve a random offset based on sprite size but for now I am lazy.
 	#Calling parent twice to ensure persistance should enemy die.
 	self.get_parent().get_parent().add_child.call_deferred(damageInstance)
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdx3eg3w0wwmw"]
+[gd_scene load_steps=9 format=3 uid="uid://bdx3eg3w0wwmw"]
 
 [ext_resource type="PackedScene" uid="uid://c8bfyku2dawj0" path="res://Scenes/Player/Grimoire_Scene.tscn" id="1_l56c8"]
 [ext_resource type="Script" uid="uid://bjt5ktm0evgsv" path="res://Scripts/Controllers/BoardSceneController.gd" id="1_xnhc1"]
@@ -9,32 +9,17 @@
 [ext_resource type="PackedScene" uid="uid://dp3mj1iacqrte" path="res://Scenes/Functional/TooltipScene.tscn" id="6_thgti"]
 [ext_resource type="PackedScene" uid="uid://c2pyro7jdsq6h" path="res://Scenes/Functional/StageTransitionHUDScene.tscn" id="10_5v2nm"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l56c8"]
-bg_color = Color(0.08235294, 0.05490196, 0.0627451, 1)
-
 [node name="BoardScene" type="Node2D"]
 script = ExtResource("1_xnhc1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="Panel" type="Panel" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -480.0
-offset_top = -270.0
-offset_right = 480.0
-offset_bottom = 270.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_l56c8")
+limit_left = -480
+limit_top = -270
+limit_right = 480
+limit_bottom = 270
+editor_draw_limits = true
 
 [node name="HUD" parent="." instance=ExtResource("2_jf025")]
-position = Vector2(-344, -237)
 
 [node name="Grimoire" parent="." instance=ExtResource("1_l56c8")]
 
@@ -43,7 +28,6 @@ position = Vector2(-344, -237)
 [node name="EnemyBoardScene" parent="." instance=ExtResource("4_7heqy")]
 
 [node name="Player" parent="." instance=ExtResource("4_dwcef")]
-position = Vector2(0, 150)
 
 [node name="TooltipScene" parent="." instance=ExtResource("6_thgti")]
 

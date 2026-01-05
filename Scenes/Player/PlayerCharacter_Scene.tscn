@@ -40,7 +40,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yr52o"]
-radius = 37.529987
+radius = 13.583077
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chfnm"]
 bg_color = Color(0.15294118, 0.1254902, 0.1882353, 1)
@@ -57,7 +57,6 @@ collision_mask = 32
 script = ExtResource("1_chfnm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ipcv7")
 frame_progress = 0.5477156
 
@@ -79,10 +78,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -48.0
-offset_top = -48.0
-offset_right = 48.0
-offset_bottom = -40.0
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_chfnm")

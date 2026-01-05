@@ -17,13 +17,13 @@ shader_parameter/inside = true
 shader_parameter/add_margins = true
 
 [node name="PageContainer" type="Control"]
-custom_minimum_size = Vector2(156, 188)
+custom_minimum_size = Vector2(140, 180)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -796.0
-offset_bottom = -344.0
+offset_right = -820.0
+offset_bottom = -360.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4431p")
@@ -32,7 +32,7 @@ script = ExtResource("1_4431p")
 material = SubResource("ShaderMaterial_ptmhp")
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasGroup"]
-custom_minimum_size = Vector2(156, 188)
+custom_minimum_size = Vector2(140, 180)
 offset_right = 128.0
 offset_bottom = 164.0
 mouse_filter = 2
@@ -43,13 +43,13 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasGroup/PanelContainer/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 0
+theme_override_constants/separation = -3
 
 [node name="Page title" type="RichTextLabel" parent="CanvasGroup/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
-theme_override_constants/line_separation = 4
+theme_override_constants/line_separation = 0
 theme_override_fonts/normal_font = ExtResource("4_1y105")
 theme_override_fonts/bold_font = ExtResource("5_l00xp")
 theme_override_font_sizes/normal_font_size = 16
@@ -64,7 +64,7 @@ horizontal_alignment = 1
 layout_mode = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
-theme_override_constants/line_separation = 0
+theme_override_constants/line_separation = -3
 theme_override_fonts/normal_font = ExtResource("4_ptmhp")
 theme_override_fonts/bold_font = ExtResource("4_ptmhp")
 theme_override_font_sizes/normal_font_size = 16
