@@ -18,8 +18,8 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -178.0
-offset_right = 178.0
+offset_left = -95.0
+offset_right = 95.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -30,7 +30,7 @@ size_flags_vertical = 3
 [node name="MenuButtonVbox" type="VBoxContainer" parent="MenuButtonContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 12
+theme_override_constants/separation = 6
 
 [node name="StartGame_Button" type="Button" parent="MenuButtonContainer/MenuButtonVbox"]
 layout_mode = 2

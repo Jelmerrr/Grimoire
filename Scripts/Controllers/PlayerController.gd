@@ -25,7 +25,7 @@ func Get_Damaged(enemySpell):
 	
 	var damageInstance = DAMAGE_NUMBER_UI.instantiate()
 	damageInstance.damageDealt = damageTaken
-	damageInstance.pos = global_position + Vector2(0,-100) #The vector should recieve a random offset based on sprite size but for now I am lazy.
+	damageInstance.pos = global_position + Vector2(0,-25) #The vector should recieve a random offset based on sprite size but for now I am lazy.
 	#Calling parent twice to ensure persistance should you die.
 	self.get_parent().get_parent().add_child.call_deferred(damageInstance)
 	

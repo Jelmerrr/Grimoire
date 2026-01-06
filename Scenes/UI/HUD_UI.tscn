@@ -14,29 +14,22 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_eq6xp")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Start Combat Button" type="Button" parent="."]
+custom_minimum_size = Vector2(150, 60)
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -230.0
-offset_top = -130.0
+offset_left = -150.0
+offset_top = -60.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_constants/margin_left = 300
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 300
-theme_override_constants/margin_bottom = 100
-
-[node name="Start Combat Button" type="Button" parent="MarginContainer"]
-custom_minimum_size = Vector2(200, 100)
-layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("2_wo3fl")
 theme_override_fonts/font = ExtResource("2_v7imw")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 16
 text = "Fight!"
 
-[connection signal="pressed" from="MarginContainer/Start Combat Button" to="." method="_on_start_combat_button_pressed"]
+[connection signal="pressed" from="Start Combat Button" to="." method="_on_start_combat_button_pressed"]

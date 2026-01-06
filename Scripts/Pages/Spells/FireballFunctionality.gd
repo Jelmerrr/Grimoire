@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var dir : float
-var spawnPos : Vector2 = Vector2(0, 150)
+var spawnPos : Vector2 = Vector2(0, 0)
 var spawnRot : float
 var zdex : int
 var damage : int = 10

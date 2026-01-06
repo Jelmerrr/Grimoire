@@ -10,6 +10,11 @@ func _ready() -> void:
 	SignalBus.Start_Combat.connect(Start_Combat)
 	SignalBus.Stop_Combat.connect(Stop_Combat)
 	SignalBus.Update_Grimoire.connect(Update_Grimoire)
+	await get_tree().create_timer(0.1).timeout
+	initpages()
+
+
+func initpages() -> void:
 	SignalBus.Add_Page.emit(preload("uid://bmvokbotxdoyw"))
 	SignalBus.Add_Page.emit(preload("uid://fsehssw35cdq"))
 

@@ -3,7 +3,7 @@ extends Control
 var dragging_node = null
 var dragging_panel = null
 var drag_offset = 0.0
-var threshold = 200
+var threshold = 140
 
 var interactable = true
 
@@ -26,7 +26,7 @@ func _ready():
 
 func UpdateText() -> void:
 	if pageResource:
-		page_title.text = pageResource.UI_NameString
+		page_title.text = "[b]" + pageResource.UI_NameString + "[/b]"
 		page_description.text = pageResource.UI_DescriptionString
 
 func _on_gui_input(event: InputEvent) -> void:
@@ -35,8 +35,9 @@ func _on_gui_input(event: InputEvent) -> void:
 			#Create a temporary node that can move freely.
 			dragging_node = self.duplicate()
 			dragging_node.set_script(null)
+			dragging_node.name = "DuplicatePage"
 			vbox.get_parent().add_child(dragging_node)
-			
+			set_process_input(true)
 			#Initial node positioning.
 			drag_offset = get_global_mouse_position().x - global_position.x + scrollContainer.global_position.x
 			dragging_node.position.x = get_global_mouse_position().x - drag_offset + scrollContainer.scroll_horizontal
@@ -45,13 +46,15 @@ func _on_gui_input(event: InputEvent) -> void:
 			
 			#Temporarily hide the "real" panel.
 			panel.hide()
-			set_process_input(true)
+			#set_process_input(true)
+			#get_tree().paused = true
 
 func _input(event):
 	if event is InputEventMouseMotion or event is InputEventScreenDrag:
 		#Update panel positioning according to mouse movement.
 		dragging_panel.position.x = 0 #Reset position offset when mouse inputs are detected
 		dragging_node.position.x = get_global_mouse_position().x - drag_offset + scrollContainer.scroll_horizontal
+		dragging_panel.size = Vector2(140,180)
 		
 		#Handle ordering within the scroll container.
 		if dragging_node.global_position.x < global_position.x - threshold: #dragging up past threshold

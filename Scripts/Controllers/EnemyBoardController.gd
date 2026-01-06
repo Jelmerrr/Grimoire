@@ -12,10 +12,10 @@ func _ready() -> void:
 	#SpawnEnemies()
 
 func SpawnEnemies() -> void:
-	InstanceEnemy(TRAINING_DUMMY, UtilsGlobalVariables.currentEnemyLevel, Vector2(150,-200))
-	InstanceEnemy(TRAINING_DUMMY, UtilsGlobalVariables.currentEnemyLevel, Vector2(-150,-350))
+	InstanceEnemy(TRAINING_DUMMY, UtilsGlobalVariables.currentEnemyLevel, Vector2(150,-100))
+	InstanceEnemy(TRAINING_DUMMY, UtilsGlobalVariables.currentEnemyLevel, Vector2(-150,-150))
 	if UtilsGlobalVariables.currentEnemyLevel >= 9:
-		InstanceEnemy(TRAINING_DUMMY, UtilsGlobalVariables.currentEnemyLevel, Vector2(-250,-100))
+		InstanceEnemy(TRAINING_DUMMY, UtilsGlobalVariables.currentEnemyLevel, Vector2(-50,-200))
 
 func InstanceEnemy(enemyResource:BaseEnemyResource, level: int, spawnPos: Vector2) -> void:
 	var instance = ENEMY_CHARACTER_SCENE.instantiate()

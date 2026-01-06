@@ -105,8 +105,7 @@ shape = SubResource("CircleShape2D_llsr1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 5
-position = Vector2(0, -80)
-scale = Vector2(2, 2)
+position = Vector2(0, -40)
 sprite_frames = SubResource("SpriteFrames_f31uw")
 
 [connection signal="timeout" from="Life Timer" to="." method="_on_life_timer_timeout"]

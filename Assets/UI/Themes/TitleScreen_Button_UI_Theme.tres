@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=8 format=3 uid="uid://yabf6oiw1re0"]
 
-[ext_resource type="FontFile" uid="uid://djhpuwc8o5esm" path="res://Assets/UI/Font/PixelOperator8.ttf" id="1_l1nx6"]
+[ext_resource type="FontFile" uid="uid://eku4pux6yrj3" path="res://Assets/UI/Font/pixelfysans/static/PixelifySans-SemiBold.ttf" id="1_l1nx6"]
 [ext_resource type="Texture2D" uid="uid://cfdww6jaxwkmg" path="res://Assets/UI/Borders/fantasy-ui-borders.svg" id="2_ir5du"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6slqc"]
@@ -61,7 +61,7 @@ Button/constants/align_to_largest_stylebox = 0
 Button/constants/h_separation = 4
 Button/constants/icon_max_width = 0
 Button/constants/outline_size = 0
-Button/font_sizes/font_size = 32
+Button/font_sizes/font_size = 16
 Button/fonts/font = ExtResource("1_l1nx6")
 Button/styles/disabled = SubResource("StyleBoxEmpty_6slqc")
 Button/styles/focus = SubResource("StyleBoxEmpty_3rwdf")

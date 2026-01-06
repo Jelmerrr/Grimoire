@@ -5,8 +5,10 @@
 
 [node name="HUD" type="Node2D"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="HUD_UI" parent="." instance=ExtResource("1_nsxse")]
 
-[node name="HUD_UI" parent="CanvasLayer" instance=ExtResource("1_nsxse")]
-
-[node name="EnemyTooltipContainer" parent="CanvasLayer" instance=ExtResource("2_jx44h")]
+[node name="EnemyTooltipContainer" parent="." instance=ExtResource("2_jx44h")]
+offset_left = 788.0
+offset_top = 141.0
+offset_right = 960.0
+offset_bottom = 399.0
