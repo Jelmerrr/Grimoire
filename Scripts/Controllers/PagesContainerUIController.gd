@@ -19,7 +19,6 @@ var marginContainer
 var scrollContainer
 
 func _ready():
-	print("page")
 	set_process_input(false)
 	UpdateText()
 	marginContainer = vbox.get_parent()
@@ -38,7 +37,7 @@ func _on_gui_input(event: InputEvent) -> void:
 			dragging_node.set_script(null)
 			dragging_node.name = "DuplicatePage"
 			vbox.get_parent().add_child(dragging_node)
-			
+			set_process_input(true)
 			#Initial node positioning.
 			drag_offset = get_global_mouse_position().x - global_position.x + scrollContainer.global_position.x
 			dragging_node.position.x = get_global_mouse_position().x - drag_offset + scrollContainer.scroll_horizontal
@@ -47,7 +46,8 @@ func _on_gui_input(event: InputEvent) -> void:
 			
 			#Temporarily hide the "real" panel.
 			panel.hide()
-			set_process_input(true)
+			#set_process_input(true)
+			#get_tree().paused = true
 
 func _input(event):
 	if event is InputEventMouseMotion or event is InputEventScreenDrag:
