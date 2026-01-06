@@ -38,10 +38,10 @@ script = ExtResource("2_xnhc1")
 
 [node name="StageTransition" parent="." instance=ExtResource("10_5v2nm")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer L = -1" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="Panel" type="Panel" parent="CanvasLayer"]
+[node name="Panel" type="Panel" parent="CanvasLayer L = -1"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

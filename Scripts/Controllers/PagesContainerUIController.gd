@@ -19,6 +19,7 @@ var marginContainer
 var scrollContainer
 
 func _ready():
+	print("page")
 	set_process_input(false)
 	UpdateText()
 	marginContainer = vbox.get_parent()
@@ -35,6 +36,7 @@ func _on_gui_input(event: InputEvent) -> void:
 			#Create a temporary node that can move freely.
 			dragging_node = self.duplicate()
 			dragging_node.set_script(null)
+			dragging_node.name = "DuplicatePage"
 			vbox.get_parent().add_child(dragging_node)
 			
 			#Initial node positioning.
@@ -52,6 +54,7 @@ func _input(event):
 		#Update panel positioning according to mouse movement.
 		dragging_panel.position.x = 0 #Reset position offset when mouse inputs are detected
 		dragging_node.position.x = get_global_mouse_position().x - drag_offset + scrollContainer.scroll_horizontal
+		dragging_panel.size = Vector2(140,180)
 		
 		#Handle ordering within the scroll container.
 		if dragging_node.global_position.x < global_position.x - threshold: #dragging up past threshold
