@@ -4,6 +4,9 @@
 
 [node name="StageTransition" type="Node2D"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="StageTransitionUI" parent="CanvasLayer" instance=ExtResource("1_3u6ad")]
+[node name="StageTransitionUI" parent="." instance=ExtResource("1_3u6ad")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+grow_vertical = 1

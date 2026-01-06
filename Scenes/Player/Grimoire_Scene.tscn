@@ -1,16 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8bfyku2dawj0"]
+[gd_scene load_steps=2 format=3 uid="uid://c8bfyku2dawj0"]
 
 [ext_resource type="Script" uid="uid://bigi006eyqocy" path="res://Scripts/Controllers/GrimoireController.gd" id="1_hunsh"]
-[ext_resource type="PackedScene" uid="uid://d1ombrhb13r6s" path="res://Scenes/UI/GrimoireUI.tscn" id="2_qn7od"]
 
 [node name="Grimoire" type="Node2D"]
 script = ExtResource("1_hunsh")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="GrimoireUI" parent="CanvasLayer" instance=ExtResource("2_qn7od")]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-grow_vertical = 0

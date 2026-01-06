@@ -1,14 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdx3eg3w0wwmw"]
+[gd_scene load_steps=12 format=3 uid="uid://bdx3eg3w0wwmw"]
 
 [ext_resource type="PackedScene" uid="uid://c8bfyku2dawj0" path="res://Scenes/Player/Grimoire_Scene.tscn" id="1_l56c8"]
 [ext_resource type="Script" uid="uid://bjt5ktm0evgsv" path="res://Scripts/Controllers/BoardSceneController.gd" id="1_xnhc1"]
-[ext_resource type="PackedScene" uid="uid://c8lkfhngweyr3" path="res://Scenes/Functional/HUD_Scene.tscn" id="2_jf025"]
-[ext_resource type="Script" uid="uid://m4bgcq7jvrdu" path="res://Scripts/Controllers/CameraController.gd" id="2_xnhc1"]
 [ext_resource type="PackedScene" uid="uid://cwncc32kjvsgy" path="res://Scenes/Functional/NewPageSelectionScene.tscn" id="3_cyht7"]
 [ext_resource type="PackedScene" uid="uid://dniujs4mtuy7t" path="res://Scenes/Enemy/EnemyBoard_scene.tscn" id="4_7heqy"]
 [ext_resource type="PackedScene" uid="uid://ctx3fvkp7wfk8" path="res://Scenes/Player/PlayerCharacter_Scene.tscn" id="4_dwcef"]
 [ext_resource type="PackedScene" uid="uid://dp3mj1iacqrte" path="res://Scenes/Functional/TooltipScene.tscn" id="6_thgti"]
-[ext_resource type="PackedScene" uid="uid://c2pyro7jdsq6h" path="res://Scenes/Functional/StageTransitionHUDScene.tscn" id="10_5v2nm"]
+[ext_resource type="PackedScene" uid="uid://b05sxg6iw2sfr" path="res://Scenes/UI/HUD_UI.tscn" id="9_5v2nm"]
+[ext_resource type="PackedScene" uid="uid://b8pvu2vwxalpg" path="res://Scenes/UI/StageTransitionUI.tscn" id="9_xnhc1"]
+[ext_resource type="PackedScene" uid="uid://d1ombrhb13r6s" path="res://Scenes/UI/GrimoireUI.tscn" id="10_3x1er"]
+[ext_resource type="PackedScene" uid="uid://8afj2opdu48e" path="res://Scenes/UI/EnemyTooltipUI.tscn" id="10_3y7yx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnhc1"]
 bg_color = Color(0.08235294, 0.05490196, 0.0627451, 1)
@@ -16,27 +17,11 @@ bg_color = Color(0.08235294, 0.05490196, 0.0627451, 1)
 [node name="BoardScene" type="Node2D"]
 script = ExtResource("1_xnhc1")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-limit_left = -480
-limit_top = -270
-limit_right = 480
-limit_bottom = 270
-editor_draw_limits = true
-script = ExtResource("2_xnhc1")
-
-[node name="HUD" parent="." instance=ExtResource("2_jf025")]
-
-[node name="Grimoire" parent="." instance=ExtResource("1_l56c8")]
-
-[node name="NewPageSelection" parent="." instance=ExtResource("3_cyht7")]
-
 [node name="EnemyBoardScene" parent="." instance=ExtResource("4_7heqy")]
 
 [node name="Player" parent="." instance=ExtResource("4_dwcef")]
 
-[node name="TooltipScene" parent="." instance=ExtResource("6_thgti")]
-
-[node name="StageTransition" parent="." instance=ExtResource("10_5v2nm")]
+[node name="Grimoire" parent="." instance=ExtResource("1_l56c8")]
 
 [node name="CanvasLayer L = -1" type="CanvasLayer" parent="."]
 layer = -1
@@ -48,3 +33,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xnhc1")
+
+[node name="CanvasLayer L = 1" type="CanvasLayer" parent="."]
+
+[node name="StageTransitionUI" parent="CanvasLayer L = 1" instance=ExtResource("9_xnhc1")]
+
+[node name="HUD_UI" parent="CanvasLayer L = 1" instance=ExtResource("9_5v2nm")]
+
+[node name="EnemyTooltipContainer" parent="CanvasLayer L = 1" instance=ExtResource("10_3y7yx")]
+
+[node name="NewPageSelection" parent="CanvasLayer L = 1" instance=ExtResource("3_cyht7")]
+
+[node name="GrimoireUI" parent="CanvasLayer L = 1" instance=ExtResource("10_3x1er")]
+
+[node name="TooltipScene" parent="CanvasLayer L = 1" instance=ExtResource("6_thgti")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
