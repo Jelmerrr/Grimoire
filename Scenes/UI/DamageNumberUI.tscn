@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfkn2u7gp546x"]
+[gd_scene load_steps=3 format=3 uid="uid://cfkn2u7gp546x"]
 
 [ext_resource type="Script" uid="uid://dqjejr3m8v7wr" path="res://Scripts/Controllers/DamageNumberUIController.gd" id="1_5yue0"]
-[ext_resource type="FontFile" uid="uid://djhpuwc8o5esm" path="res://Assets/UI/Font/PixelOperator8.ttf" id="2_qtxw5"]
-[ext_resource type="FontFile" uid="uid://cq6k7a56rmitc" path="res://Assets/UI/Font/PixelOperator8-Bold.ttf" id="3_ahyxh"]
+[ext_resource type="FontFile" uid="uid://bqx6c8qhnkiyg" path="res://Assets/UI/Font/m5x7.ttf" id="2_k3cgn"]
 
 [node name="Control" type="Control"]
 z_index = 10
@@ -19,10 +18,10 @@ layout_mode = 0
 offset_right = 286.0
 offset_bottom = 40.0
 theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
-theme_override_fonts/normal_font = ExtResource("2_qtxw5")
-theme_override_fonts/bold_font = ExtResource("3_ahyxh")
-theme_override_font_sizes/normal_font_size = 16
-theme_override_font_sizes/bold_font_size = 16
+theme_override_fonts/normal_font = ExtResource("2_k3cgn")
+theme_override_fonts/bold_font = ExtResource("2_k3cgn")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
 text = "0"
 fit_content = true
 
