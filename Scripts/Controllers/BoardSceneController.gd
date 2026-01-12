@@ -5,6 +5,8 @@ extends Node2D
 func _ready() -> void:
 	UtilsGlobalVariables.currentGameState = UtilsGlobalEnums.gameState.Planning
 	SignalBus.Start_Planning_Phase.emit()
+	AudioControllerScene.currentState = UtilsGlobalEnums.musicPlayerState.Stage1
+	AudioControllerScene.playMusic()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

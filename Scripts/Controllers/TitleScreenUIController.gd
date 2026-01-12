@@ -3,6 +3,8 @@ extends Control
 #Placeholder untill I make a proper Splash screen
 func _ready() -> void:
 	SceneTransitionControllerScene.transition("Fade_In")
+	AudioControllerScene.currentState = UtilsGlobalEnums.musicPlayerState.MainMenu
+	AudioControllerScene.playMusic()
 
 func _on_start_game_button_pressed() -> void:
 	AudioControllerScene.fade_out(AudioControllerScene.music_player)

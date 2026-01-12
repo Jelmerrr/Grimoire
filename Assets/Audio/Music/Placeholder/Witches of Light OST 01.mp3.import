@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ciomw7vby6tbg"
+path="res://.godot/imported/Witches of Light OST 01.mp3-51c9b78907a2f0d5cb62382e47c21898.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Music/Placeholder/Witches of Light OST 01.mp3"
+dest_files=["res://.godot/imported/Witches of Light OST 01.mp3-51c9b78907a2f0d5cb62382e47c21898.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

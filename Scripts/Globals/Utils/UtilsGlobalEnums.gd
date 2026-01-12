@@ -52,3 +52,8 @@ enum lastElementalHitBy{
 	Lightning,
 	Cold,
 }
+
+enum musicPlayerState{
+	MainMenu,
+	Stage1
+}

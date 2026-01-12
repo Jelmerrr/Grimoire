@@ -77,3 +77,9 @@ var damageModifiersDict = { #In percentile
 	"increasedDamageOverTime": {"Base": 100, "Current": 100, "Tag": "AreaOfEffect"},
 	"increasedAreaDamage": {"Base": 100, "Current": 100, "Tag": "DamageOverTime"},
 }
+
+#Add references to music here, dynamically gets loaded into the music system.
+var musicLibraryDict = {
+	"MainMenu": {"0": preload("uid://ciomw7vby6tbg")},
+	"Stage1": {"0": preload("uid://ki0ik0e6sq41")}
+}
