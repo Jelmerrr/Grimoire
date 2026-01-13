@@ -14,7 +14,7 @@ var pageTags: Array[UtilsGlobalEnums.pageTags]
 
 var speed_tween: Tween = null
 @onready var explosion_vfx: AnimatedSprite2D = $ExplosionVFX
-@onready var fireball_sprite: Sprite2D = $FireballSprite
+@onready var fireball_sprite: AnimatedSprite2D = $FireballSprite
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var area_collision_shape_2d: CollisionShape2D = $Area2D/AreaCollisionShape2D
@@ -27,6 +27,7 @@ var playingExplosion: bool = false
 func _ready() -> void:
 	global_position = spawnPos
 	global_rotation = spawnRot
+	fireball_sprite.look_at(destination)
 	
 	if pageAlignment == UtilsGlobalEnums.alignment.Player:
 		print("Getting Angle")
