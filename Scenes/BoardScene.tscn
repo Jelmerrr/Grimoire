@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bdx3eg3w0wwmw"]
+[gd_scene load_steps=13 format=3 uid="uid://bdx3eg3w0wwmw"]
 
 [ext_resource type="PackedScene" uid="uid://c8bfyku2dawj0" path="res://Scenes/Player/Grimoire_Scene.tscn" id="1_l56c8"]
 [ext_resource type="Script" uid="uid://bjt5ktm0evgsv" path="res://Scripts/Controllers/BoardSceneController.gd" id="1_xnhc1"]
 [ext_resource type="PackedScene" uid="uid://cwncc32kjvsgy" path="res://Scenes/Functional/NewPageSelectionScene.tscn" id="3_cyht7"]
 [ext_resource type="PackedScene" uid="uid://dniujs4mtuy7t" path="res://Scenes/Enemy/EnemyBoard_scene.tscn" id="4_7heqy"]
 [ext_resource type="PackedScene" uid="uid://ctx3fvkp7wfk8" path="res://Scenes/Player/PlayerCharacter_Scene.tscn" id="4_dwcef"]
+[ext_resource type="Texture2D" uid="uid://cln2tsk8l1cv0" path="res://Assets/Sprites/Placeholder/Treehell part 2 (transparent).png" id="5_3y7yx"]
 [ext_resource type="PackedScene" uid="uid://dp3mj1iacqrte" path="res://Scenes/Functional/TooltipScene.tscn" id="6_thgti"]
 [ext_resource type="PackedScene" uid="uid://b05sxg6iw2sfr" path="res://Scenes/UI/HUD_UI.tscn" id="9_5v2nm"]
 [ext_resource type="PackedScene" uid="uid://b8pvu2vwxalpg" path="res://Scenes/UI/StageTransitionUI.tscn" id="9_xnhc1"]
@@ -23,16 +24,66 @@ script = ExtResource("1_xnhc1")
 
 [node name="Grimoire" parent="." instance=ExtResource("1_l56c8")]
 
-[node name="CanvasLayer L = -1" type="CanvasLayer" parent="."]
-layer = -1
+[node name="CanvasLayer L = -5" type="CanvasLayer" parent="."]
+layer = -5
 
-[node name="Panel" type="Panel" parent="CanvasLayer L = -1"]
+[node name="Panel" type="Panel" parent="CanvasLayer L = -5"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xnhc1")
+
+[node name="CanvasLayer L = -1" type="CanvasLayer" parent="."]
+
+[node name="TempTree 4" type="Sprite2D" parent="CanvasLayer L = -1"]
+position = Vector2(115, 406)
+texture = ExtResource("5_3y7yx")
+
+[node name="TempTree 9" type="Sprite2D" parent="CanvasLayer L = -1"]
+position = Vector2(157, 550)
+texture = ExtResource("5_3y7yx")
+
+[node name="TempTree 10" type="Sprite2D" parent="CanvasLayer L = -1"]
+position = Vector2(51, 549)
+texture = ExtResource("5_3y7yx")
+
+[node name="TempTree 11" type="Sprite2D" parent="CanvasLayer L = -1"]
+position = Vector2(810, 568)
+texture = ExtResource("5_3y7yx")
+
+[node name="TempTree 12" type="Sprite2D" parent="CanvasLayer L = -1"]
+position = Vector2(905, 548)
+texture = ExtResource("5_3y7yx")
+
+[node name="TempTree 3" type="Sprite2D" parent="CanvasLayer L = -1"]
+position = Vector2(45, 463)
+texture = ExtResource("5_3y7yx")
+
+[node name="TempTree 2" type="Sprite2D" parent="CanvasLayer L = -1"]
+position = Vector2(116, 467)
+texture = ExtResource("5_3y7yx")
+
+[node name="TempTree 1" type="Sprite2D" parent="CanvasLayer L = -1"]
+position = Vector2(88, 503)
+texture = ExtResource("5_3y7yx")
+
+[node name="TempTree 5" type="Sprite2D" parent="CanvasLayer L = -1"]
+position = Vector2(882, 410)
+texture = ExtResource("5_3y7yx")
+
+[node name="TempTree 6" type="Sprite2D" parent="CanvasLayer L = -1"]
+position = Vector2(812, 467)
+texture = ExtResource("5_3y7yx")
+
+[node name="TempTree 7" type="Sprite2D" parent="CanvasLayer L = -1"]
+position = Vector2(883, 471)
+texture = ExtResource("5_3y7yx")
+
+[node name="TempTree 8" type="Sprite2D" parent="CanvasLayer L = -1"]
+position = Vector2(855, 507)
+texture = ExtResource("5_3y7yx")
 
 [node name="CanvasLayer L = 1" type="CanvasLayer" parent="."]
 
