@@ -5,6 +5,7 @@ extends Node2D
 
 @onready var music_player: AudioStreamPlayer = $MusicChannels/MusicPlayer
 const SFX_PLAYER_SCENE = preload("uid://230tx3cvi3dn")
+const SFX_INDIVIDUAL_COOLDOWN = 0.1
 
 var rng = RandomNumberGenerator.new()
 
@@ -31,10 +32,24 @@ func pickMusic(state: UtilsGlobalEnums.musicPlayerState) -> AudioStream:
 	return result
 
 func playSFX(AudioFile: AudioStreamWAV) -> void:
-	var instance = SFX_PLAYER_SCENE.instantiate()
-	instance.audioStream = AudioFile
-	instance.volume = UtilsGlobalVariables.globalSFXLevel
-	sfx_channels.add_child.call_deferred(instance)
+	#Add a tiny inaudible random delay to offsync multiple calls made on the exact same frame.
+	var rngDelay = rng.randf_range(0, 0.01)
+	await get_tree().create_timer(rngDelay).timeout
+	#This probably breaks at insanely high cast speeds so might need to rebalance that AGAIN.
+	
+	print("Attempting to play " + str(AudioFile.resource_path))
+	var check = true
+	for player in sfx_channels.get_children():
+		print(player.get_playback_position() + AudioServer.get_time_since_last_mix())
+		if player.stream == AudioFile && (player.get_playback_position() + AudioServer.get_time_since_last_mix()) <= SFX_INDIVIDUAL_COOLDOWN:
+			print("Too many requests of the same file in rapid succession")
+			check = false
+	if check == true:
+		print("Playing sound")
+		var instance = SFX_PLAYER_SCENE.instantiate()
+		instance.audioStream = AudioFile
+		instance.volume = UtilsGlobalVariables.globalSFXLevel
+		sfx_channels.add_child.call_deferred(instance)
 
 func fade_in(audioPlayer: AudioStreamPlayer):
 	audioPlayer.volume_db = -100

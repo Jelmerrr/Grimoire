@@ -40,6 +40,5 @@ func Reset_HP() -> void:
 func Change_Health(value: int) -> void:
 	current_health = clampi(current_health + value, 0, UtilsGlobalVariables.BasePlayerHealth)
 	health_bar.value = clampi(int(health_bar.value) + value, 0, UtilsGlobalVariables.BasePlayerHealth)
-	print(health_bar.value)
 	if current_health == 0:
 		UtilsGlobalFunctions.RoundDefeat()

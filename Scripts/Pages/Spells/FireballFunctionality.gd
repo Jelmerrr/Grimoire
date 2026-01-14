@@ -31,6 +31,7 @@ func _ready() -> void:
 	direction = global_position.direction_to(destination)
 	SignalBus.Stop_Combat.connect(onCombatEnd)
 	tween_speed(1000)
+	AudioControllerScene.playSFX(preload("uid://gwluacqepfpx"))
 	
 	if pageAlignment == UtilsGlobalEnums.alignment.Player:
 		set_collision_layer_value(5, true)
@@ -61,6 +62,7 @@ func _physics_process(_delta: float) -> void:
 		play_explosion()
 
 func play_explosion() -> void:
+	AudioControllerScene.playSFX(preload("uid://c6mv3pypbymby"))
 	playingExplosion = true
 	fireball_sprite.visible = false
 	collision_shape_2d.disabled = true
