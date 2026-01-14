@@ -28,11 +28,6 @@ func _ready() -> void:
 	global_position = spawnPos
 	global_rotation = spawnRot
 	fireball_sprite.look_at(destination)
-	
-	if pageAlignment == UtilsGlobalEnums.alignment.Player:
-		print("Getting Angle")
-		print(rad_to_deg(get_angle_to(destination)) - rad_to_deg(get_angle_to(Vector2(0, -600))))
-	
 	direction = global_position.direction_to(destination)
 	SignalBus.Stop_Combat.connect(onCombatEnd)
 	tween_speed(1000)
