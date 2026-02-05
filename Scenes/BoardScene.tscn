@@ -36,6 +36,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xnhc1")
 
 [node name="CanvasLayer L = -1" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="TempTree 4" type="Sprite2D" parent="CanvasLayer L = -1"]
 position = Vector2(115, 406)

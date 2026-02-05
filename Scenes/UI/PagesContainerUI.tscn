@@ -4,7 +4,7 @@
 [ext_resource type="Shader" uid="uid://db1vlyx5q5rwg" path="res://Shaders/UIOutline.gdshader" id="2_ptmhp"]
 [ext_resource type="Theme" uid="uid://dysfa43hoaxwe" path="res://Assets/UI/Themes/Page_UI_Theme.tres" id="3_qbxxd"]
 [ext_resource type="FontFile" uid="uid://bqx6c8qhnkiyg" path="res://Assets/UI/Font/m5x7.ttf" id="4_ptmhp"]
-[ext_resource type="FontFile" uid="uid://c0tqgecr47kgy" path="res://Assets/UI/Font/m6x11.ttf" id="4_qbxxd"]
+[ext_resource type="FontFile" uid="uid://dqs1q6l3jigc2" path="res://Assets/UI/Font/pixelfysans/static/PixelifySans-Bold.ttf" id="4_qbxxd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ptmhp"]
 resource_local_to_scene = true
