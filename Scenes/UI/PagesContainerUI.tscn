@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://x6jym32jp0b1"]
+[gd_scene load_steps=7 format=3 uid="uid://x6jym32jp0b1"]
 
 [ext_resource type="Script" uid="uid://dieoqfkw6oe5" path="res://Scripts/Controllers/PagesContainerUIController.gd" id="1_4431p"]
 [ext_resource type="Shader" uid="uid://db1vlyx5q5rwg" path="res://Shaders/UIOutline.gdshader" id="2_ptmhp"]
 [ext_resource type="Theme" uid="uid://dysfa43hoaxwe" path="res://Assets/UI/Themes/Page_UI_Theme.tres" id="3_qbxxd"]
-[ext_resource type="FontFile" uid="uid://b3u5jwloppl34" path="res://Assets/UI/Font/pixelfysans/static/PixelifySans-Regular.ttf" id="4_1y105"]
 [ext_resource type="FontFile" uid="uid://bqx6c8qhnkiyg" path="res://Assets/UI/Font/m5x7.ttf" id="4_ptmhp"]
-[ext_resource type="FontFile" uid="uid://dqs1q6l3jigc2" path="res://Assets/UI/Font/pixelfysans/static/PixelifySans-Bold.ttf" id="5_l00xp"]
+[ext_resource type="FontFile" uid="uid://c0tqgecr47kgy" path="res://Assets/UI/Font/m6x11.ttf" id="4_qbxxd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ptmhp"]
 resource_local_to_scene = true
@@ -55,10 +54,8 @@ size_flags_vertical = 0
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
 theme_override_constants/line_separation = 0
-theme_override_fonts/normal_font = ExtResource("4_1y105")
-theme_override_fonts/bold_font = ExtResource("5_l00xp")
-theme_override_font_sizes/normal_font_size = 16
-theme_override_font_sizes/bold_font_size = 16
+theme_override_fonts/normal_font = ExtResource("4_qbxxd")
+theme_override_fonts/bold_font = ExtResource("4_qbxxd")
 bbcode_enabled = true
 text = "[b]Page Title[/b]"
 fit_content = true
@@ -66,6 +63,7 @@ scroll_active = false
 horizontal_alignment = 1
 
 [node name="Page description" type="RichTextLabel" parent="CanvasGroup/PanelContainer/MarginContainer/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 0
 mouse_filter = 1
