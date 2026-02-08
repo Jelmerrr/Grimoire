@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://dqixgcsr3m1l0" path="res://Assets/UI/Themes/Tooltip_UI_Theme.tres" id="1_4oyv2"]
 [ext_resource type="Script" uid="uid://t37nouq6ldod" path="res://Scripts/Controllers/TooltipUIController.gd" id="1_lputd"]
-[ext_resource type="FontFile" uid="uid://dqs1q6l3jigc2" path="res://Assets/UI/Font/pixelfysans/static/PixelifySans-Bold.ttf" id="3_4oyv2"]
+[ext_resource type="FontFile" uid="uid://eku4pux6yrj3" path="res://Assets/UI/Font/pixelfysans/static/PixelifySans-SemiBold.ttf" id="3_4oyv2"]
 [ext_resource type="FontFile" uid="uid://bqx6c8qhnkiyg" path="res://Assets/UI/Font/m5x7.ttf" id="4_v08ml"]
 
 [node name="GlobalTooltip" type="PanelContainer"]
