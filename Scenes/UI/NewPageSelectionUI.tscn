@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://ifp20281h6t1"]
 
 [ext_resource type="Script" uid="uid://dyjutg8pfe3w7" path="res://Scripts/Controllers/NewPageSelectionUIController.gd" id="1_ygatb"]
+[ext_resource type="FontFile" uid="uid://eku4pux6yrj3" path="res://Assets/UI/Font/pixelfysans/static/PixelifySans-SemiBold.ttf" id="2_c4wou"]
 [ext_resource type="Theme" uid="uid://dysfa43hoaxwe" path="res://Assets/UI/Themes/Page_UI_Theme.tres" id="2_ri3wk"]
-[ext_resource type="FontFile" uid="uid://dqs1q6l3jigc2" path="res://Assets/UI/Font/pixelfysans/static/PixelifySans-Bold.ttf" id="4_c4wou"]
 [ext_resource type="FontFile" uid="uid://bqx6c8qhnkiyg" path="res://Assets/UI/Font/m5x7.ttf" id="4_ri3wk"]
 
 [node name="NewPageSelectionUI" type="Control"]
@@ -38,7 +38,7 @@ mouse_filter = 2
 layout_mode = 2
 mouse_filter = 2
 theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
-theme_override_fonts/normal_font = ExtResource("4_c4wou")
+theme_override_fonts/normal_font = ExtResource("2_c4wou")
 theme_override_font_sizes/normal_font_size = 46
 bbcode_enabled = true
 text = "Choose a reward
@@ -68,13 +68,18 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = -3
 
-[node name="Page 1 Title" type="RichTextLabel" parent="VBoxContainer/HBoxPanels/New Page 1 Container/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxPanels/New Page 1 Container/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="Page 1 Title" type="RichTextLabel" parent="VBoxContainer/HBoxPanels/New Page 1 Container/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
 theme_override_constants/line_separation = 0
-theme_override_fonts/normal_font = ExtResource("4_c4wou")
-theme_override_fonts/bold_font = ExtResource("4_c4wou")
+theme_override_fonts/normal_font = ExtResource("2_c4wou")
+theme_override_fonts/bold_font = ExtResource("2_c4wou")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_font_sizes/bold_font_size = 16
 bbcode_enabled = true
@@ -112,13 +117,18 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = -3
 
-[node name="Page 2 Title" type="RichTextLabel" parent="VBoxContainer/HBoxPanels/New Page 2 Container/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxPanels/New Page 2 Container/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="Page 2 Title" type="RichTextLabel" parent="VBoxContainer/HBoxPanels/New Page 2 Container/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
 theme_override_constants/line_separation = 0
-theme_override_fonts/normal_font = ExtResource("4_c4wou")
-theme_override_fonts/bold_font = ExtResource("4_c4wou")
+theme_override_fonts/normal_font = ExtResource("2_c4wou")
+theme_override_fonts/bold_font = ExtResource("2_c4wou")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_font_sizes/bold_font_size = 16
 bbcode_enabled = true
@@ -156,13 +166,18 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = -3
 
-[node name="Page 3 Title" type="RichTextLabel" parent="VBoxContainer/HBoxPanels/New Page 3 Container/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxPanels/New Page 3 Container/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="Page 3 Title" type="RichTextLabel" parent="VBoxContainer/HBoxPanels/New Page 3 Container/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1)
 theme_override_constants/line_separation = 0
-theme_override_fonts/normal_font = ExtResource("4_c4wou")
-theme_override_fonts/bold_font = ExtResource("4_c4wou")
+theme_override_fonts/normal_font = ExtResource("2_c4wou")
+theme_override_fonts/bold_font = ExtResource("2_c4wou")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_font_sizes/bold_font_size = 16
 bbcode_enabled = true

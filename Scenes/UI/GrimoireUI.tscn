@@ -17,16 +17,16 @@ grow_vertical = 0
 script = ExtResource("1_wiae1")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-custom_minimum_size = Vector2(520, 164)
+custom_minimum_size = Vector2(520, 196)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -279.02136
-offset_top = -202.0
-offset_right = 279.02136
+offset_left = -275.02136
+offset_top = -196.0
+offset_right = 275.02136
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("2_tnkrs")

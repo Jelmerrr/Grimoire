@@ -4,7 +4,7 @@
 [ext_resource type="Shader" uid="uid://db1vlyx5q5rwg" path="res://Shaders/UIOutline.gdshader" id="2_ptmhp"]
 [ext_resource type="Theme" uid="uid://dysfa43hoaxwe" path="res://Assets/UI/Themes/Page_UI_Theme.tres" id="3_qbxxd"]
 [ext_resource type="FontFile" uid="uid://bqx6c8qhnkiyg" path="res://Assets/UI/Font/m5x7.ttf" id="4_ptmhp"]
-[ext_resource type="FontFile" uid="uid://dqs1q6l3jigc2" path="res://Assets/UI/Font/pixelfysans/static/PixelifySans-Bold.ttf" id="4_qbxxd"]
+[ext_resource type="FontFile" uid="uid://eku4pux6yrj3" path="res://Assets/UI/Font/pixelfysans/static/PixelifySans-SemiBold.ttf" id="4_qbxxd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ptmhp"]
 resource_local_to_scene = true
@@ -48,7 +48,12 @@ layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = -3
 
-[node name="Page title" type="RichTextLabel" parent="CanvasGroup/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasGroup/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="Page title" type="RichTextLabel" parent="CanvasGroup/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 mouse_filter = 1
@@ -56,8 +61,9 @@ theme_override_colors/default_color = Color(0.7294118, 0.78039217, 0.78039217, 1
 theme_override_constants/line_separation = 0
 theme_override_fonts/normal_font = ExtResource("4_qbxxd")
 theme_override_fonts/bold_font = ExtResource("4_qbxxd")
+theme_override_font_sizes/bold_font_size = 16
 bbcode_enabled = true
-text = "[b]Page Title[/b]"
+text = "[b]Page Title baasd[/b]"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
