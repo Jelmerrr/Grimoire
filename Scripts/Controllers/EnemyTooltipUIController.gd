@@ -14,6 +14,7 @@ const NEWPAGES_CONTAINER_UI = preload("uid://x6jym32jp0b1")
 func _ready() -> void:
 	modulate.a = 0.0
 	SignalBus.ShowEnemyTooltip.connect(show_tooltip)
+	SignalBus.Start_Combat.connect(hide_tooltip)
 
 func show_tooltip(currentHealth: int, maxHealth: int, enemyResource: BaseEnemyResource) -> void:
 	for page in page_showcase.get_children():
