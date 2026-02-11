@@ -8,6 +8,8 @@ extends PanelContainer
 
 var opacity_tween: Tween = null
 
+var isVisible: bool = false
+
 const NEWPAGES_CONTAINER_UI = preload("uid://x6jym32jp0b1")
 
 # Called when the node enters the scene tree for the first time.
@@ -17,15 +19,19 @@ func _ready() -> void:
 	SignalBus.Start_Combat.connect(hide_tooltip)
 
 func show_tooltip(currentHealth: int, maxHealth: int, enemyResource: BaseEnemyResource) -> void:
-	for page in page_showcase.get_children():
-		page.queue_free()
-	update_details(currentHealth, maxHealth, enemyResource)
-	modulate.a = 0.0
-	tween_opactiy(1.0)
+	if !isVisible:
+		for page in page_showcase.get_children():
+			page.queue_free()
+		update_details(currentHealth, maxHealth, enemyResource)
+		modulate.a = 0.0
+		tween_opactiy(1.0)
+		isVisible = true
 
 func hide_tooltip() -> void:
-	modulate.a = 1.0
-	await tween_opactiy(0.0)
+	if isVisible:
+		modulate.a = 1.0
+		await tween_opactiy(0.0)
+		isVisible = false
 
 func update_details(currentHealth: int, maxHealth: int, enemyResource: BaseEnemyResource) -> void:
 	enemy_name_label.text = enemyResource.enemyName
