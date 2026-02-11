@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cym1fqod3i8l7" path="res://Scripts/Controllers/SFXPlayerController.gd" id="1_hs7vl"]
 
 [node name="SFXPlayer" type="AudioStreamPlayer"]
+bus = &"SFX"
 script = ExtResource("1_hs7vl")
 
 [connection signal="finished" from="." to="." method="_on_finished"]
