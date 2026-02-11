@@ -25,5 +25,5 @@ var IsSplitPowerActive: bool = false
 var currentEnemyLevel: int = 1 #Mostly used as placeholder until proper progression mechanics
 
 #Option variables
-var globalMusicLevel: float = -12
-var globalSFXLevel: float = -12
+var MusicBusLevel: float = 0
+var SFXBusLevel: float = 0

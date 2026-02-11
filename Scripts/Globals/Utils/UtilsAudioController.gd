@@ -14,6 +14,9 @@ var fade_tween: Tween = null
 var currentState: UtilsGlobalEnums.musicPlayerState
 
 func playMusic() -> void:
+	#This should be somewhere else when options menu gets implemented
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), UtilsGlobalVariables.MusicBusLevel)
+	
 	if !music_player.playing:
 		music_player.stream = pickMusic(currentState)
 		fade_in(music_player)
