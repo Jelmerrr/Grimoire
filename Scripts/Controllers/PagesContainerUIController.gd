@@ -3,7 +3,7 @@ extends Control
 var dragging_node = null
 var dragging_panel = null
 var drag_offset = 0.0
-var threshold = 140
+var threshold = 200
 
 var interactable = true
 
@@ -19,6 +19,7 @@ var marginContainer
 var scrollContainer
 
 func _ready():
+	threshold = size.x
 	set_process_input(false)
 	UpdateText()
 	marginContainer = vbox.get_parent()
@@ -54,7 +55,7 @@ func _input(event):
 		#Update panel positioning according to mouse movement.
 		dragging_panel.position.x = 0 #Reset position offset when mouse inputs are detected
 		dragging_node.position.x = get_global_mouse_position().x - drag_offset + scrollContainer.scroll_horizontal
-		dragging_panel.size = Vector2(140,180)
+		dragging_panel.size = size
 		
 		#Handle ordering within the scroll container.
 		if dragging_node.global_position.x < global_position.x - threshold: #dragging up past threshold

@@ -1,55 +1,79 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1ombrhb13r6s"]
+[gd_scene load_steps=6 format=3 uid="uid://d1ombrhb13r6s"]
 
 [ext_resource type="Script" uid="uid://cwgkve0txudle" path="res://Scripts/Controllers/GrimoireUIController.gd" id="1_wiae1"]
 [ext_resource type="Theme" uid="uid://7l18ui63kjji" path="res://Assets/UI/Themes/Grimoire_UI_Theme.tres" id="2_tnkrs"]
 [ext_resource type="Script" uid="uid://dtuo1bniqd1n4" path="res://Scripts/Controllers/PageOrderUIController.gd" id="3_32588"]
 [ext_resource type="Theme" uid="uid://dqkdlfwsoxe0w" path="res://Assets/UI/Themes/ScrollContainer_UI_Theme.tres" id="4_lny7x"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tnkrs"]
+
 [node name="GrimoireUI" type="Control"]
 layout_mode = 3
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_wiae1")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-custom_minimum_size = Vector2(520, 196)
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -275.02136
-offset_top = -196.0
-offset_right = 275.02136
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+alignment = 2
+
+[node name="NegativeSpace3" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.5
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_tnkrs")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NegativeSpace" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_tnkrs")
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
 theme = ExtResource("2_tnkrs")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="PageVBox" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="PageVBox" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="PageScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/PageVBox"]
-custom_minimum_size = Vector2(520, 180)
+[node name="PageScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/PageVBox"]
 layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("4_lny7x")
 script = ExtResource("3_32588")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/PageVBox/PageScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/PageVBox/PageScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="PagesShowcase" type="HBoxContainer" parent="PanelContainer/MarginContainer/PageVBox/PageScrollContainer/MarginContainer"]
+[node name="PagesShowcase" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/PageVBox/PageScrollContainer/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_constants/separation = 8
-alignment = 1
+
+[node name="NegativeSpace2" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_tnkrs")
