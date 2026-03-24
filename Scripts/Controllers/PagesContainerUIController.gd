@@ -3,7 +3,7 @@ extends Control
 var dragging_node = null
 var dragging_panel = null
 var drag_offset = 0.0
-var threshold = 140
+var threshold = 200
 
 var interactable = true
 
@@ -19,6 +19,7 @@ var marginContainer
 var scrollContainer
 
 func _ready():
+	threshold = size.x
 	set_process_input(false)
 	UpdateText()
 	marginContainer = vbox.get_parent()
@@ -36,13 +37,17 @@ func _on_gui_input(event: InputEvent) -> void:
 			dragging_node = self.duplicate()
 			dragging_node.set_script(null)
 			dragging_node.name = "DuplicatePage"
-			vbox.get_parent().add_child(dragging_node)
-			set_process_input(true)
+			dragging_node.size = size
+			
 			#Initial node positioning.
 			drag_offset = get_global_mouse_position().x - global_position.x + scrollContainer.global_position.x
 			dragging_node.position.x = get_global_mouse_position().x - drag_offset + scrollContainer.scroll_horizontal
 			dragging_panel = dragging_node.get_node("CanvasGroup").get_node("PanelContainer") #PanelContainer
 			dragging_panel.position.x = dragging_node.position.x
+			
+			#Add the temporary node to the child of the vbox container.
+			vbox.get_parent().add_child(dragging_node)
+			set_process_input(true)
 			
 			#Temporarily hide the "real" panel.
 			panel.hide()
@@ -54,7 +59,7 @@ func _input(event):
 		#Update panel positioning according to mouse movement.
 		dragging_panel.position.x = 0 #Reset position offset when mouse inputs are detected
 		dragging_node.position.x = get_global_mouse_position().x - drag_offset + scrollContainer.scroll_horizontal
-		dragging_panel.size = Vector2(140,180)
+		dragging_panel.size = size
 		
 		#Handle ordering within the scroll container.
 		if dragging_node.global_position.x < global_position.x - threshold: #dragging up past threshold

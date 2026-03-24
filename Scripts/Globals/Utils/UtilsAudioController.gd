@@ -51,7 +51,7 @@ func playSFX(AudioFile: AudioStreamWAV) -> void:
 		print("Playing sound")
 		var instance = SFX_PLAYER_SCENE.instantiate()
 		instance.audioStream = AudioFile
-		instance.volume = UtilsGlobalVariables.globalSFXLevel
+		instance.volume = -12
 		sfx_channels.add_child.call_deferred(instance)
 
 func fade_in(audioPlayer: AudioStreamPlayer):
