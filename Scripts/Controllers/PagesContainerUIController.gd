@@ -37,13 +37,17 @@ func _on_gui_input(event: InputEvent) -> void:
 			dragging_node = self.duplicate()
 			dragging_node.set_script(null)
 			dragging_node.name = "DuplicatePage"
-			vbox.get_parent().add_child(dragging_node)
-			set_process_input(true)
+			dragging_node.size = size
+			
 			#Initial node positioning.
 			drag_offset = get_global_mouse_position().x - global_position.x + scrollContainer.global_position.x
 			dragging_node.position.x = get_global_mouse_position().x - drag_offset + scrollContainer.scroll_horizontal
 			dragging_panel = dragging_node.get_node("CanvasGroup").get_node("PanelContainer") #PanelContainer
 			dragging_panel.position.x = dragging_node.position.x
+			
+			#Add the temporary node to the child of the vbox container.
+			vbox.get_parent().add_child(dragging_node)
+			set_process_input(true)
 			
 			#Temporarily hide the "real" panel.
 			panel.hide()

@@ -40,13 +40,16 @@ handle_input_locally = false
 size = Vector2i(960, 540)
 render_target_update_mode = 4
 
-[node name="Player" parent="Control/SubViewportContainer/SubViewport" instance=ExtResource("4_dwcef")]
-
-[node name="EnemyBoardScene" parent="Control/SubViewportContainer/SubViewport" instance=ExtResource("4_7heqy")]
-
-[node name="Grimoire" parent="Control/SubViewportContainer/SubViewport" instance=ExtResource("1_l56c8")]
-
 [node name="Camera2D" type="Camera2D" parent="Control/SubViewportContainer/SubViewport"]
+
+[node name="Player, Enemies & Attacks" type="CanvasLayer" parent="Control/SubViewportContainer/SubViewport"]
+follow_viewport_enabled = true
+
+[node name="Player" parent="Control/SubViewportContainer/SubViewport/Player, Enemies & Attacks" instance=ExtResource("4_dwcef")]
+
+[node name="EnemyBoardScene" parent="Control/SubViewportContainer/SubViewport/Player, Enemies & Attacks" instance=ExtResource("4_7heqy")]
+
+[node name="Grimoire" parent="Control/SubViewportContainer/SubViewport/Player, Enemies & Attacks" instance=ExtResource("1_l56c8")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Control/SubViewportContainer/SubViewport"]
 layer = -5
