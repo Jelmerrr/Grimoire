@@ -3,17 +3,17 @@ extends Node
 var tooltipDict = {
 	"Fire": {
 		"Title": "Fire", 
-		"Description": "When an enemy is hit by 2 elemental damage instances, unique effects occur. \r\rFire + Fire = Burst. \r(Deal 75% of hit damage in an area around the original target) \r\r Fire + Lightning = Scorch. \r(Deal 10% of the targets max health every second for 3 seconds) \r\r Fire + Cold = Brittle. \r(The target takes 25% more damage for 5 seconds)", 
+		"Description": "Fire damage has a chance to ignite, dealing an additional 5% of the hit damage to the target each second over 5 seconds. \r\rYour base ignite chance is 5%, this can be increased with buffs and trinkets.", 
 		"Icon": "res://Assets/Icons/fire-icon.png"
 		},
 	"Lightning": {
 		"Title": "Lightning", 
-		"Description": "When an enemy is hit by 2 elemental damage instances, unique effects occur.", 
+		"Description": "Lightning damage has a chance to shock, making the target take 10% more damage from all sources. \r\rYour base shock chance is 5%, this can be increased with buffs and trinkets.", 
 		"Icon": "res://Assets/Icons/fire-icon.png"
 		},
 	"Cold": {
 		"Title": "Cold", 
-		"Description": "When an enemy is hit by 2 elemental damage instances, unique effects occur.", 
+		"Description": "Cold damage has a chance to chill, slowing the cast speed of the target by 10%. \r\rYour base chill chance is 10%, this can be increased with buffs and trinkets.", 
 		"Icon": "res://Assets/Icons/fire-icon.png"
 		},
 	"Page": {
