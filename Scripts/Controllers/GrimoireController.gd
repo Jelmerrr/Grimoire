@@ -15,8 +15,8 @@ func _ready() -> void:
 
 
 func initpages() -> void:
-	#SignalBus.Add_Page.emit(preload("uid://bmvokbotxdoyw"))
-	SignalBus.Add_Page.emit(preload("uid://fsehssw35cdq"))
+	SignalBus.Add_Page.emit(preload("uid://bmvokbotxdoyw")) #Fireball
+	#SignalBus.Add_Page.emit(preload("uid://fsehssw35cdq")) #Thunderbolt
 
 func Add_Page(Page: PageResource) -> void:
 	UtilsGlobalVariables.playerGrimoire.Pages.append(Page)
