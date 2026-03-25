@@ -5,7 +5,7 @@ extends Node2D
 
 @onready var music_player: AudioStreamPlayer = $MusicChannels/MusicPlayer
 const SFX_PLAYER_SCENE = preload("uid://230tx3cvi3dn")
-const SFX_INDIVIDUAL_COOLDOWN = 0.1
+const SFX_INDIVIDUAL_COOLDOWN = 0.2
 
 var rng = RandomNumberGenerator.new()
 
@@ -36,7 +36,7 @@ func pickMusic(state: UtilsGlobalEnums.musicPlayerState) -> AudioStream:
 
 func playSFX(AudioFile: AudioStreamWAV) -> void:
 	#Add a tiny inaudible random delay to offsync multiple calls made on the exact same frame.
-	var rngDelay = rng.randf_range(0, 0.01)
+	var rngDelay = rng.randf_range(0, 0.02)
 	await get_tree().create_timer(rngDelay).timeout
 	#This probably breaks at insanely high cast speeds so might need to rebalance that AGAIN.
 	
