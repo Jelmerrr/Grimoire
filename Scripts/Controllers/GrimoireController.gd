@@ -15,7 +15,7 @@ func _ready() -> void:
 
 
 func initpages() -> void:
-	SignalBus.Add_Page.emit(preload("uid://bmvokbotxdoyw"))
+	#SignalBus.Add_Page.emit(preload("uid://bmvokbotxdoyw"))
 	SignalBus.Add_Page.emit(preload("uid://fsehssw35cdq"))
 
 func Add_Page(Page: PageResource) -> void:
