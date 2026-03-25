@@ -81,7 +81,20 @@ func Get_Damaged(projectileHit):
 	
 	#Apply damage multipliers to base damage of the projectile.
 	var damage = projectileHit.totalDamage
+	Adjust_Hp(damage)
 	
+	#Check if hit by an elemental spell for ailments.
+	if projectileHit.pageTags != null:
+		var tags: Array[UtilsGlobalEnums.pageTags] = projectileHit.pageTags
+		match tags:
+			[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Fire]:
+				lastElementalTag = UtilsGlobalEnums.pageTags.Fire
+			[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Lightning]:
+				lastElementalTag = UtilsGlobalEnums.pageTags.Lightning
+			[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Cold]:
+				lastElementalTag = UtilsGlobalEnums.pageTags.Cold
+
+func Adjust_Hp(damage) -> void:
 	#Adjust HP values.
 	currentHealth -= damage
 	health_bar.value -= damage
@@ -96,52 +109,6 @@ func Get_Damaged(projectileHit):
 	#If HP is below 0 or = 0, remove enemy from scene.
 	if currentHealth <= 0:
 		queue_free()
-	
-	#Big switch statement that handles the elemental synergies system.
-	if projectileHit.pageTags != null:
-		var tags: Array[UtilsGlobalEnums.pageTags] = projectileHit.pageTags
-		match lastElementalTag:
-			UtilsGlobalEnums.pageTags.Fire:
-				match tags:
-					[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Fire]:
-						print("Burst")
-						lastElementalTag = null
-					[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Lightning]:
-						print("Scorch")
-						lastElementalTag = null
-					[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Cold]:
-						print("Brittle")
-						lastElementalTag = null
-			UtilsGlobalEnums.pageTags.Lightning:
-				match tags:
-					[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Fire]:
-						print("Scorch")
-						lastElementalTag = null
-					[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Lightning]:
-						print("Conduct")
-						lastElementalTag = null
-					[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Cold]:
-						print("Shock")
-						lastElementalTag = null
-			UtilsGlobalEnums.pageTags.Cold:
-				match tags:
-					[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Fire]:
-						print("Brittle")
-						lastElementalTag = null
-					[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Lightning]:
-						print("Shock")
-						lastElementalTag = null
-					[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Cold]:
-						print("Freeze")
-						lastElementalTag = null
-			_:
-				match tags:
-					[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Fire]:
-						lastElementalTag = UtilsGlobalEnums.pageTags.Fire
-					[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Lightning]:
-						lastElementalTag = UtilsGlobalEnums.pageTags.Lightning
-					[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Cold]:
-						lastElementalTag = UtilsGlobalEnums.pageTags.Cold
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
