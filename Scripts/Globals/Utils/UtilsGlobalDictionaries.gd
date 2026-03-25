@@ -8,12 +8,12 @@ var tooltipDict = {
 		},
 	"Lightning": {
 		"Title": "Lightning", 
-		"Description": "Lightning damage has a chance to shock, making the target take 10% more damage from all sources. \r\rYour base shock chance is 5%, this can be increased with buffs and trinkets.", 
+		"Description": "Lightning damage has a chance to shock, making the target take 10% more damage from all sources for the next 5 times the target takes damage. \r\rYour base shock chance is 5%, this can be increased with buffs and trinkets.", 
 		"Icon": "res://Assets/Icons/fire-icon.png"
 		},
 	"Cold": {
 		"Title": "Cold", 
-		"Description": "Cold damage has a chance to chill, slowing the cast speed of the target by 10%. \r\rYour base chill chance is 10%, this can be increased with buffs and trinkets.", 
+		"Description": "Cold damage has a chance to chill, slowing the cast speed of the target by 10% for 5 seconds. \r\rYour base chill chance is 10%, this can be increased with buffs and trinkets.", 
 		"Icon": "res://Assets/Icons/fire-icon.png"
 		},
 	"Page": {
