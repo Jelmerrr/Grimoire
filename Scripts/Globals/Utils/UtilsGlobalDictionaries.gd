@@ -3,7 +3,7 @@ extends Node
 var tooltipDict = {
 	"Fire": {
 		"Title": "Fire", 
-		"Description": "Fire damage has a chance to ignite, dealing an additional 5% of the hit damage to the target each second over 5 seconds. \r\rYour base ignite chance is 5%, this can be increased with buffs and trinkets.", 
+		"Description": "Fire damage has a chance to ignite, dealing an additional 5% of the initial hit damage to the target each second over 5 seconds. \r\rYour base ignite chance is 5%, this can be increased with buffs and trinkets.", 
 		"Icon": "res://Assets/Icons/fire-icon.png"
 		},
 	"Lightning": {
@@ -74,8 +74,17 @@ var damageModifiersDict = { #In percentile
 	"increasedLightningDamage": {"Base": 100, "Current": 100, "Tag": "Lightning"},
 	"increasedFireDamage": {"Base": 100, "Current": 100, "Tag": "Fire"},
 	"increasedColdDamage": {"Base": 100, "Current": 100, "Tag": "Cold"},
-	"increasedDamageOverTime": {"Base": 100, "Current": 100, "Tag": "AreaOfEffect"},
-	"increasedAreaDamage": {"Base": 100, "Current": 100, "Tag": "DamageOverTime"},
+	"increasedDamageOverTime": {"Base": 100, "Current": 100, "Tag": "DamageOverTime"},
+	"increasedAreaDamage": {"Base": 100, "Current": 100, "Tag": "AreaOfEffect"},
+}
+
+var ailmentModifiersDict = {
+	"currentIgniteChance": {"Base": 5, "Current": 5, "Tag": "igniteChance"},
+	"increasedIgniteEffect": {"Base": 100, "Current": 100, "Tag": "igniteEffect"},
+	"currentShockChance": {"Base": 5, "Current": 5, "Tag": "shockChance"},
+	"increasedShockEffect": {"Base": 100, "Current": 100, "Tag": "shockEffect"},
+	"currentChillChance": {"Base": 10, "Current": 10, "Tag": "chillChance"},
+	"increasedChillEffect": {"Base": 100, "Current": 100, "Tag": "chillEffect"},
 }
 
 #Add references to music here, dynamically gets loaded into the music system.
