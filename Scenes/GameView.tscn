@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://dat3t0adwiheb"]
+
+[ext_resource type="PackedScene" uid="uid://ctx3fvkp7wfk8" path="res://Scenes/Player/PlayerCharacter_Scene.tscn" id="1_xha4s"]
+[ext_resource type="PackedScene" uid="uid://dniujs4mtuy7t" path="res://Scenes/Enemy/EnemyBoard_scene.tscn" id="2_87a3q"]
+[ext_resource type="PackedScene" uid="uid://c8bfyku2dawj0" path="res://Scenes/Player/Grimoire_Scene.tscn" id="3_bb5by"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnhc1"]
+bg_color = Color(0.08235294, 0.05490196, 0.0627451, 1)
+
+[node name="GameView" type="Node2D"]
+
+[node name="Player, Enemies & Attacks" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Player" parent="Player, Enemies & Attacks" instance=ExtResource("1_xha4s")]
+
+[node name="EnemyBoardScene" parent="Player, Enemies & Attacks" instance=ExtResource("2_87a3q")]
+
+[node name="Grimoire" parent="Player, Enemies & Attacks" instance=ExtResource("3_bb5by")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -5
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xnhc1")
+
+[node name="Placeholder" type="Camera2D" parent="."]
+enabled = false
+zoom = Vector2(2, 2)

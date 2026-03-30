@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba284d84evukq"
-path="res://.godot/imported/SatoriPortrait 64x64.png-58f3fd3f42519cc92e5f38f621828101.ctex"
+uid="uid://cyjnqrk0764wm"
+path="res://.godot/imported/grimtree.png-5e859a65ac9c6dc816e193b73c96ec16.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Placeholder/SatoriPortrait 64x64.png"
-dest_files=["res://.godot/imported/SatoriPortrait 64x64.png-58f3fd3f42519cc92e5f38f621828101.ctex"]
+source_file="res://Assets/Sprites/Placeholder/grimtree.png"
+dest_files=["res://.godot/imported/grimtree.png-5e859a65ac9c6dc816e193b73c96ec16.ctex"]
 
 [params]
 
