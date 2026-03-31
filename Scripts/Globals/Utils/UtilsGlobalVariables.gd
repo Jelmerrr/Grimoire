@@ -16,6 +16,24 @@ var PlayerCastSpeed: float = 1 #Time in Seconds
 var BasePlayerCastSpeed: float = 1 #Time in Seconds
 var BasePlayerHealth: int = 100
 
+#Player ailment variables
+var baseIgniteChance: float = 5
+var currentIgniteChance: float = 5
+var baseShockChance: float = 5
+var currentShockChance: float = 5
+var baseChillChance: float = 10
+var currentChillChance: float = 10
+
+var baseIgniteEffect: float = 100
+var currentIgniteEffect: float = 100
+var baseShockEffect: float = 100
+var currentShockEffect: float = 100
+var baseChillEffect: float = 100
+var currentChillEffect: float = 100
+
+var baseIgniteDamage: float = 10
+var baseShockIncrease: float = 110
+
 #Page specific variables
 var SpellPagesCastInCycleCount: int = 0
 var FiredUpStacks: int = 0

@@ -53,6 +53,13 @@ enum lastElementalHitBy{
 	Cold,
 }
 
+enum ailments{
+	None,
+	Ignite,
+	Shock,
+	Chill
+}
+
 enum musicPlayerState{
 	MainMenu,
 	Stage1

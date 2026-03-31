@@ -7,6 +7,7 @@ var maxHealth: int
 var spawnPos: Vector2 = Vector2(0, -360)
 var level: int = 1
 var awake: bool = false
+var currentAilment: UtilsGlobalEnums.ailments
 
 var lastElementalTag = null
 
@@ -81,6 +82,7 @@ func Get_Damaged(projectileHit):
 	
 	#Apply damage multipliers to base damage of the projectile.
 	var damage = projectileHit.totalDamage
+	if currentAilment == UtilsGlobalEnums.ailments.Shock: damage = damage * ((UtilsGlobalVariables.baseShockIncrease / 100) * (UtilsGlobalVariables.currentShockEffect / 100))
 	Adjust_Hp(damage)
 	
 	#Check if hit by an elemental spell for ailments.
