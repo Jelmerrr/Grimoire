@@ -40,15 +40,11 @@ func playSFX(AudioFile: AudioStreamWAV) -> void:
 	await get_tree().create_timer(rngDelay).timeout
 	#This probably breaks at insanely high cast speeds so might need to rebalance that AGAIN.
 	
-	print("Attempting to play " + str(AudioFile.resource_path))
 	var check = true
 	for player in sfx_channels.get_children():
-		print(player.get_playback_position() + AudioServer.get_time_since_last_mix())
 		if player.stream == AudioFile && (player.get_playback_position() + AudioServer.get_time_since_last_mix()) <= SFX_INDIVIDUAL_COOLDOWN:
-			print("Too many requests of the same file in rapid succession")
 			check = false
 	if check == true:
-		print("Playing sound")
 		var instance = SFX_PLAYER_SCENE.instantiate()
 		instance.audioStream = AudioFile
 		instance.volume = -12

@@ -58,5 +58,17 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxEmpty_6wvlp")
 
+[node name="IgniteDurationTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="IgniteTickTimer" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="ChillDurationTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="mouse_entered" from="MouseArea" to="." method="_on_mouse_area_mouse_entered"]
 [connection signal="mouse_exited" from="MouseArea" to="." method="_on_mouse_area_mouse_exited"]
+[connection signal="timeout" from="IgniteDurationTimer" to="." method="_on_ignite_duration_timer_timeout"]
+[connection signal="timeout" from="IgniteTickTimer" to="." method="_on_ignite_tick_timer_timeout"]
+[connection signal="timeout" from="ChillDurationTimer" to="." method="_on_chill_duration_timer_timeout"]

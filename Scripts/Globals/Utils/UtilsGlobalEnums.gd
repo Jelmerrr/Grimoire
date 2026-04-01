@@ -47,7 +47,7 @@ enum pageTags{
 	Defense,
 }
 
-enum lastElementalHitBy{
+enum elements{
 	Fire,
 	Lightning,
 	Cold,

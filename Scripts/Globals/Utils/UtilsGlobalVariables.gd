@@ -31,8 +31,20 @@ var currentShockEffect: float = 100
 var baseChillEffect: float = 100
 var currentChillEffect: float = 100
 
-var baseIgniteDamage: float = 10
 var baseShockIncrease: float = 110
+var baseShockDamageInstanceAmount: int = 5
+var currentShockDamageInstanceAmount: int = 5
+
+var baseChillDuration: float = 5
+var baseChillSlowdown: float = 110
+var baseChillDurationIncrease: float = 100
+var currentChillDurationIncrease: float = 100
+
+var baseIgniteDuration: float = 3
+var baseIgniteDurationIncrease: float = 100
+var currentIgniteDurationIncrease: float = 100
+var baseIgniteHitPercentage: float = 5
+var currentIgniteHitPercentage: float = 5
 
 #Page specific variables
 var SpellPagesCastInCycleCount: int = 0
