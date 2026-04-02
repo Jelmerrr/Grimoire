@@ -86,6 +86,7 @@ func _input(event):
 func Highlight() -> void:
 	var tween = get_tree().create_tween()
 	tween.set_parallel(true)
+	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_method(Set_Shader_ColorParam, Color("bac7c7"), Color("150e10"), 0.5)
 	tween.tween_method(Set_shader_WidthParam, 5.0, 0.0, 0.5)
 
