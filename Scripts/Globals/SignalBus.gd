@@ -22,3 +22,7 @@ signal ShowEnemyTooltip(currentHealth: int, maxHealth: int, enemyResource: BaseE
 signal Start_Planning_Phase()
 
 signal AddPlayerHealth(value: int)
+
+signal IgniteInflicted()
+signal ShockInflicted()
+signal ChillInflicted()

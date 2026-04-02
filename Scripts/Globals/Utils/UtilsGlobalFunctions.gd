@@ -44,6 +44,8 @@ func RoundDefeat() -> void:
 	SignalBus.Start_Planning_Phase.emit()
 	AudioControllerScene.fade_out(AudioControllerScene.music_player)
 	UtilsSceneManager.switch_scene(UtilsSceneManager.TITLE_SCREEN_SCENE)
+	UtilsGlobalVariables.currentStageValue = 1
+	UtilsGlobalVariables.currentRoundValue = 1
 
 func goToPlanning() -> void:
 	RoundIncrease()
@@ -54,11 +56,14 @@ func Run_AilmentCheck(element: UtilsGlobalEnums.elements) -> UtilsGlobalEnums.ai
 	match element:
 		UtilsGlobalEnums.elements.Fire:
 			if UtilsRngHandler.rng.randf_range(1,100) <= clampf(UtilsGlobalVariables.currentIgniteChance, 0, 100):
+				SignalBus.IgniteInflicted.emit()
 				return UtilsGlobalEnums.ailments.Ignite
 		UtilsGlobalEnums.elements.Lightning:
 			if UtilsRngHandler.rng.randf_range(1,100) <= clampf(UtilsGlobalVariables.currentShockChance, 0, 100):
+				SignalBus.ShockInflicted.emit()
 				return UtilsGlobalEnums.ailments.Shock
 		UtilsGlobalEnums.elements.Cold:
 			if UtilsRngHandler.rng.randf_range(1,100) <= clampf(UtilsGlobalVariables.currentChillChance, 0, 100):
+				SignalBus.ChillInflicted.emit()
 				return UtilsGlobalEnums.ailments.Chill
 	return UtilsGlobalEnums.ailments.None
