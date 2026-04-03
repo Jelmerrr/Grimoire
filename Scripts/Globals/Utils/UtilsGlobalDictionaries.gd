@@ -79,12 +79,15 @@ var damageModifiersDict = { #In percentile
 }
 
 var ailmentModifiersDict = {
-	"currentIgniteChance": {"Base": 5, "Current": 5, "Tag": "igniteChance"},
-	"increasedIgniteEffect": {"Base": 100, "Current": 100, "Tag": "igniteEffect"},
-	"currentShockChance": {"Base": 5, "Current": 5, "Tag": "shockChance"},
-	"increasedShockEffect": {"Base": 100, "Current": 100, "Tag": "shockEffect"},
-	"currentChillChance": {"Base": 10, "Current": 10, "Tag": "chillChance"},
-	"increasedChillEffect": {"Base": 100, "Current": 100, "Tag": "chillEffect"},
+	"igniteChance": {"Base": 5, "Current": 5, "Tag": "igniteChance"},
+	"igniteEffect": {"Base": 100, "Current": 100, "Tag": "igniteEffect"},
+	"igniteBaseDuration": {"Base": 4, "Current": 4, "Tag": "igniteDurationIncrease"},
+	"igniteDurationIncrease": {"Base": 100, "Current": 100, "Tag": "igniteDurationIncrease"},
+	"ignitePercentageOfHitDamage": {"Base": 10, "Current": 10, "Tag": "igniteHitDamage"},
+	"shockChance": {"Base": 5, "Current": 5, "Tag": "shockChance"},
+	"shockEffect": {"Base": 100, "Current": 100, "Tag": "shockEffect"},
+	"chillChance": {"Base": 10, "Current": 10, "Tag": "chillChance"},
+	"chillEffect": {"Base": 100, "Current": 100, "Tag": "chillEffect"},
 }
 
 #Add references to music here, dynamically gets loaded into the music system.
