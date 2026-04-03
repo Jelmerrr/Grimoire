@@ -21,7 +21,7 @@ func tween_opactiy(to: float):
 	opacity_tween = get_tree().create_tween()
 	opacity_tween.set_ease(Tween.EASE_IN)
 	opacity_tween.set_trans(Tween.TRANS_CIRC)
-	opacity_tween.tween_property(self, "modulate:a", to, 0.8)
+	opacity_tween.tween_property(self, "modulate:a", to, 0.5)
 	return opacity_tween
 
 
@@ -30,7 +30,7 @@ func tween_position(to: Vector2):
 	position_tween = get_tree().create_tween()
 	position_tween.set_ease(Tween.EASE_OUT)
 	position_tween.set_trans(Tween.TRANS_EXPO)
-	position_tween.tween_property(self, "global_position", to, 0.8)
+	position_tween.tween_property(self, "global_position", to, 0.5)
 	
 
 func _on_timer_timeout() -> void:
