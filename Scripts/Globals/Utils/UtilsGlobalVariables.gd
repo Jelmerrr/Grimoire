@@ -40,11 +40,11 @@ var baseChillSlowdown: float = 110
 var baseChillDurationIncrease: float = 100
 var currentChillDurationIncrease: float = 100
 
-var baseIgniteDuration: float = 3
+var baseIgniteDuration: float = 4
 var baseIgniteDurationIncrease: float = 100
 var currentIgniteDurationIncrease: float = 100
-var baseIgniteHitPercentage: float = 5
-var currentIgniteHitPercentage: float = 5
+var baseIgniteHitPercentage: float = 10
+var currentIgniteHitPercentage: float = 10
 
 #Page specific variables
 var SpellPagesCastInCycleCount: int = 0

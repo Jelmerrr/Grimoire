@@ -3,7 +3,7 @@ extends Node
 var tooltipDict = {
 	"Fire": {
 		"Title": "Fire", 
-		"Description": "Fire damage has a chance to ignite, dealing an additional 5% of the initial hit damage to the target every 0.25 seconds with a base duration of 3 seconds. \r\rYour base ignite chance is 5%, this can be increased with buffs and trinkets.", 
+		"Description": "Fire damage has a chance to ignite, dealing an additional 10% of the initial hit damage to the target every 0.25 seconds with a base duration of 4 seconds. \r\rIgnites do not stack, instead if you ignite an already ignited enemy, it applies the strongest effect and extends the duration. \r\rYour base ignite chance is 5%, this can be increased with buffs and trinkets.", 
 		"Icon": "res://Assets/Icons/fire-icon.png"
 		},
 	"Lightning": {
