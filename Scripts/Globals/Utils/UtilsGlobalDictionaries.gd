@@ -81,7 +81,7 @@ var damageModifiersDict = { #In percentile
 var ailmentModifiersDict = {
 	"igniteChance": {"Base": 5.0, "Current": 5.0, "Tag": "igniteChance"},
 	"igniteEffect": {"Base": 100.0, "Current": 100.0, "Tag": "igniteEffect"},
-	"igniteBaseDuration": {"Base": 4.0, "Current": 4.0, "Tag": "igniteDurationIncrease"},
+	"igniteBaseDuration": {"Base": 4.0, "Current": 4.0, "Tag": "igniteDuration"},
 	"igniteDurationIncrease": {"Base": 100.0, "Current": 100.0, "Tag": "igniteDurationIncrease"},
 	"ignitePercentageOfHitDamage": {"Base": 10.0, "Current": 10.0, "Tag": "igniteHitDamage"},
 	"shockChance": {"Base": 5.0, "Current": 5.0, "Tag": "shockChance"},
@@ -90,6 +90,8 @@ var ailmentModifiersDict = {
 	"shockTriggerAmount": {"Base": 5.0, "Current": 5.0, "Tag": "shockAmount"},
 	"chillChance": {"Base": 10.0, "Current": 10.0, "Tag": "chillChance"},
 	"chillEffect": {"Base": 100.0, "Current": 100.0, "Tag": "chillEffect"},
+	"chillBaseDuration": {"Base": 5.0, "Current": 5.0, "Tag": "chillDuration"},
+	"chillDurationIncrease": {"Base": 100.0, "Current": 100.0, "Tag": "chillDuration"},
 }
 
 #Add references to music here, dynamically gets loaded into the music system.

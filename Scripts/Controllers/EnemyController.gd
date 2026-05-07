@@ -131,7 +131,7 @@ func Apply_Ailment(ailment: UtilsGlobalEnums.ailments, hitDamage: float) -> void
 		UtilsGlobalEnums.ailments.Chill:
 			if !currentAilments.has(UtilsGlobalEnums.ailments.Chill):
 				currentAilments.append(UtilsGlobalEnums.ailments.Chill)
-			chill_duration_timer.start(UtilsGlobalVariables.baseChillDuration * (UtilsGlobalVariables.currentChillDurationIncrease/100))
+			chill_duration_timer.start(UtilsGlobalDictionaries.ailmentModifiersDict.chillBaseDuration.Current * (UtilsGlobalDictionaries.ailmentModifiersDict.chillDurationIncrease.Current/100))
 
 func Apply_Shock(damage) -> float:
 	if currentAilments.has(UtilsGlobalEnums.ailments.Shock): 
