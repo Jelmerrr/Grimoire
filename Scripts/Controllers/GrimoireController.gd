@@ -15,6 +15,7 @@ func _ready() -> void:
 
 
 func initpages() -> void:
+	SignalBus.Add_Page.emit(preload("uid://d28q6rox0ifqv")) #Ablaze
 	SignalBus.Add_Page.emit(preload("uid://bmvokbotxdoyw")) #Fireball
 	#SignalBus.Add_Page.emit(preload("uid://fsehssw35cdq")) #Thunderbolt
 

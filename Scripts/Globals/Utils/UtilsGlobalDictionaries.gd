@@ -69,25 +69,25 @@ var tooltipDict = {
 }
 
 var damageModifiersDict = { #In percentile
-	"increasedDamage": {"Base": 100, "Current": 100, "Tag": "Global"},
-	"increasedSpellDamage": {"Base": 100, "Current": 100, "Tag": "Spell"},
-	"increasedLightningDamage": {"Base": 100, "Current": 100, "Tag": "Lightning"},
-	"increasedFireDamage": {"Base": 100, "Current": 100, "Tag": "Fire"},
-	"increasedColdDamage": {"Base": 100, "Current": 100, "Tag": "Cold"},
-	"increasedDamageOverTime": {"Base": 100, "Current": 100, "Tag": "DamageOverTime"},
-	"increasedAreaDamage": {"Base": 100, "Current": 100, "Tag": "AreaOfEffect"},
+	"increasedDamage": {"Base": 100.0, "Current": 100.0, "Tag": "Global"},
+	"increasedSpellDamage": {"Base": 100.0, "Current": 100.0, "Tag": "Spell"},
+	"increasedLightningDamage": {"Base": 100.0, "Current": 100.0, "Tag": "Lightning"},
+	"increasedFireDamage": {"Base": 100.0, "Current": 100.0, "Tag": "Fire"},
+	"increasedColdDamage": {"Base": 100.0, "Current": 100.0, "Tag": "Cold"},
+	"increasedDamageOverTime": {"Base": 100.0, "Current": 100.0, "Tag": "DamageOverTime"},
+	"increasedAreaDamage": {"Base": 100.0, "Current": 100.0, "Tag": "AreaOfEffect"},
 }
 
 var ailmentModifiersDict = {
-	"igniteChance": {"Base": 5, "Current": 5, "Tag": "igniteChance"},
-	"igniteEffect": {"Base": 100, "Current": 100, "Tag": "igniteEffect"},
-	"igniteBaseDuration": {"Base": 4, "Current": 4, "Tag": "igniteDurationIncrease"},
-	"igniteDurationIncrease": {"Base": 100, "Current": 100, "Tag": "igniteDurationIncrease"},
-	"ignitePercentageOfHitDamage": {"Base": 10, "Current": 10, "Tag": "igniteHitDamage"},
-	"shockChance": {"Base": 5, "Current": 5, "Tag": "shockChance"},
-	"shockEffect": {"Base": 100, "Current": 100, "Tag": "shockEffect"},
-	"chillChance": {"Base": 10, "Current": 10, "Tag": "chillChance"},
-	"chillEffect": {"Base": 100, "Current": 100, "Tag": "chillEffect"},
+	"igniteChance": {"Base": 5.0, "Current": 5.0, "Tag": "igniteChance"},
+	"igniteEffect": {"Base": 100.0, "Current": 100.0, "Tag": "igniteEffect"},
+	"igniteBaseDuration": {"Base": 4.0, "Current": 4.0, "Tag": "igniteDurationIncrease"},
+	"igniteDurationIncrease": {"Base": 100.0, "Current": 100.0, "Tag": "igniteDurationIncrease"},
+	"ignitePercentageOfHitDamage": {"Base": 10.0, "Current": 10.0, "Tag": "igniteHitDamage"},
+	"shockChance": {"Base": 5.0, "Current": 5.0, "Tag": "shockChance"},
+	"shockEffect": {"Base": 100.0, "Current": 100.0, "Tag": "shockEffect"},
+	"chillChance": {"Base": 10.0, "Current": 10.0, "Tag": "chillChance"},
+	"chillEffect": {"Base": 100.0, "Current": 100.0, "Tag": "chillEffect"},
 }
 
 #Add references to music here, dynamically gets loaded into the music system.

@@ -119,8 +119,8 @@ func Apply_Ailment(ailment: UtilsGlobalEnums.ailments, hitDamage: float) -> void
 			if !currentAilments.has(UtilsGlobalEnums.ailments.Ignite):
 				currentAilments.append(UtilsGlobalEnums.ailments.Ignite)
 				ignite_tick_timer.start()
-			ignite_duration_timer.start(UtilsGlobalVariables.baseIgniteDuration * (UtilsGlobalVariables.currentIgniteDurationIncrease/100))
-			if (strongestIgniteValue * (UtilsGlobalVariables.currentIgniteEffect / 100) < hitDamage * (UtilsGlobalVariables.currentIgniteEffect / 100)):
+			ignite_duration_timer.start(UtilsGlobalDictionaries.ailmentModifiersDict.igniteBaseDuration.Current * (UtilsGlobalDictionaries.ailmentModifiersDict.igniteDurationIncrease.Current/100))
+			if strongestIgniteValue < hitDamage: 
 				strongestIgniteValue = hitDamage
 				
 		UtilsGlobalEnums.ailments.Shock:
@@ -183,6 +183,8 @@ func _on_ignite_duration_timer_timeout() -> void:
 	ignite_tick_timer.stop()
 
 func _on_ignite_tick_timer_timeout() -> void:
-	var damage = strongestIgniteValue * (UtilsGlobalVariables.currentIgniteEffect / 100) * (UtilsGlobalVariables.currentIgniteHitPercentage / 100)
+	print(UtilsGlobalDictionaries.ailmentModifiersDict.ignitePercentageOfHitDamage.Current / 100)
+	var damage = strongestIgniteValue * (UtilsGlobalDictionaries.ailmentModifiersDict.igniteEffect.Current / 100) * (UtilsGlobalDictionaries.ailmentModifiersDict.ignitePercentageOfHitDamage.Current / 100)
+	print(damage)
 	damage = Apply_Shock(damage)
 	Adjust_Hp(damage)
