@@ -11,14 +11,17 @@ var buffDuration: int = 1
 func _ready() -> void:
 	SignalBus.IgniteInflicted.connect(igniteCount)
 	SignalBus.Stop_Combat.connect(onCombatEnd)
-	UtilsGlobalVariables.currentIgniteChance += 999
+	UtilsGlobalDictionaries.ailmentModifiersDict.igniteChance.Current += 999
+	#UtilsGlobalVariables.currentIgniteChance += 999
 
 func igniteCount() -> void:
 	buffDuration -= 1
 	if buffDuration == 0:
-		UtilsGlobalVariables.currentIgniteChance -= 999
+		UtilsGlobalDictionaries.ailmentModifiersDict.igniteChance.Current -= 999
+		#UtilsGlobalVariables.currentIgniteChance -= 999
 		queue_free()
 
 func onCombatEnd() -> void:
-	UtilsGlobalVariables.currentIgniteChance -= 999
+	UtilsGlobalDictionaries.ailmentModifiersDict.igniteChance.Current -= 999
+	#UtilsGlobalVariables.currentIgniteChance -= 999
 	queue_free()

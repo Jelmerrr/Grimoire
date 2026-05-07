@@ -55,15 +55,15 @@ func goToPlanning() -> void:
 func Run_AilmentCheck(element: UtilsGlobalEnums.elements) -> UtilsGlobalEnums.ailments:
 	match element:
 		UtilsGlobalEnums.elements.Fire:
-			if UtilsRngHandler.rng.randf_range(1,100) <= clampf(UtilsGlobalVariables.currentIgniteChance, 0, 100):
+			if UtilsRngHandler.rng.randf_range(1,100) <= clampf(UtilsGlobalDictionaries.ailmentModifiersDict.igniteChance.Current, 0, 100):
 				SignalBus.IgniteInflicted.emit()
 				return UtilsGlobalEnums.ailments.Ignite
 		UtilsGlobalEnums.elements.Lightning:
-			if UtilsRngHandler.rng.randf_range(1,100) <= clampf(UtilsGlobalVariables.currentShockChance, 0, 100):
+			if UtilsRngHandler.rng.randf_range(1,100) <= clampf(UtilsGlobalDictionaries.ailmentModifiersDict.shockChance.Current, 0, 100):
 				SignalBus.ShockInflicted.emit()
 				return UtilsGlobalEnums.ailments.Shock
 		UtilsGlobalEnums.elements.Cold:
-			if UtilsRngHandler.rng.randf_range(1,100) <= clampf(UtilsGlobalVariables.currentChillChance, 0, 100):
+			if UtilsRngHandler.rng.randf_range(1,100) <= clampf(UtilsGlobalDictionaries.ailmentModifiersDict.chillChance.Current, 0, 100): 
 				SignalBus.ChillInflicted.emit()
 				return UtilsGlobalEnums.ailments.Chill
 	return UtilsGlobalEnums.ailments.None
