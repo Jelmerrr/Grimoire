@@ -86,6 +86,8 @@ var ailmentModifiersDict = {
 	"ignitePercentageOfHitDamage": {"Base": 10.0, "Current": 10.0, "Tag": "igniteHitDamage"},
 	"shockChance": {"Base": 5.0, "Current": 5.0, "Tag": "shockChance"},
 	"shockEffect": {"Base": 100.0, "Current": 100.0, "Tag": "shockEffect"},
+	"shockBaseDamageIncrease": {"Base": 110.0, "Current": 110.0, "Tag": "shockDamage"},
+	"shockTriggerAmount": {"Base": 5.0, "Current": 5.0, "Tag": "shockAmount"},
 	"chillChance": {"Base": 10.0, "Current": 10.0, "Tag": "chillChance"},
 	"chillEffect": {"Base": 100.0, "Current": 100.0, "Tag": "chillEffect"},
 }
