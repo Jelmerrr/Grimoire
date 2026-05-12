@@ -23,9 +23,9 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -152.0
-offset_top = -123.0
-offset_bottom = 123.0
+offset_left = -232.0
+offset_top = -178.0
+offset_bottom = 178.0
 grow_horizontal = 0
 grow_vertical = 2
 theme = ExtResource("1_r8dxi")
@@ -86,7 +86,7 @@ layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_tvccl")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(140, 180)
+custom_minimum_size = Vector2(200, 278)
 layout_mode = 2
 theme = ExtResource("5_eu5os")
 
