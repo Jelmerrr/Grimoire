@@ -2,6 +2,7 @@ extends Node2D
 
 const ENEMY_CHARACTER_SCENE = preload("uid://bkl1uw8420f1t")
 const TRAINING_DUMMY = preload("uid://t8ncgrjjpm32")
+const TRAINING_DUMMY_2 = preload("uid://c8ob4odotuy8q")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -13,7 +14,7 @@ func _ready() -> void:
 
 func SpawnEnemies() -> void:
 	InstanceEnemy(TRAINING_DUMMY, UtilsGlobalVariables.currentEnemyLevel, Vector2(150,-100))
-	InstanceEnemy(TRAINING_DUMMY, UtilsGlobalVariables.currentEnemyLevel, Vector2(-150,-150))
+	InstanceEnemy(TRAINING_DUMMY_2, UtilsGlobalVariables.currentEnemyLevel, Vector2(-150,-150))
 	if UtilsGlobalVariables.currentEnemyLevel >= 9:
 		InstanceEnemy(TRAINING_DUMMY, UtilsGlobalVariables.currentEnemyLevel, Vector2(-50,-200))
 
