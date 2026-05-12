@@ -19,6 +19,9 @@ func _ready() -> void:
 	SignalBus.Start_Combat.connect(hide_tooltip)
 
 func show_tooltip(currentHealth: int, maxHealth: int, enemyResource: BaseEnemyResource) -> void:
+	if isVisible:
+		await hide_tooltip()
+		show_tooltip(currentHealth, maxHealth, enemyResource)
 	if !isVisible:
 		for page in page_showcase.get_children():
 			page.queue_free()
