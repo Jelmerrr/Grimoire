@@ -92,6 +92,7 @@ var ailmentModifiersDict = {
 	"chillEffect": {"Base": 100.0, "Current": 100.0, "Tag": "chillEffect"},
 	"chillBaseDuration": {"Base": 5.0, "Current": 5.0, "Tag": "chillDuration"},
 	"chillDurationIncrease": {"Base": 100.0, "Current": 100.0, "Tag": "chillDuration"},
+	"chillBaseSlowdown": {"Base": 10.0, "Current": 10.0, "Tag": "chillBaseSlowdown"},
 }
 
 #Add references to music here, dynamically gets loaded into the music system.

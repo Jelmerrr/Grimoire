@@ -65,7 +65,7 @@ func Cycle_Pages() -> void:
 		if awake:
 			Cast_Page(page)
 			if currentAilments.has(UtilsGlobalEnums.ailments.Chill):
-				await get_tree().create_timer(enemyResource.enemyGrimoire.CastSpeed * (UtilsGlobalVariables.baseChillSlowdown/100)).timeout
+				await get_tree().create_timer(enemyResource.enemyGrimoire.CastSpeed * (1.0 - ((UtilsGlobalDictionaries.ailmentModifiersDict.chillEffect.Current / 100.0) * (UtilsGlobalDictionaries.ailmentModifiersDict.chillBaseSlowdown.Current / 100.0)))).timeout
 			else:
 				await get_tree().create_timer(enemyResource.enemyGrimoire.CastSpeed).timeout
 		else:
@@ -85,7 +85,10 @@ func Cast_Page(page: PageResource) -> void:
 
 func Restart_Cycle() -> void:
 	#Loops back to the beginning after the last page of a cycle is cast.
-	await get_tree().create_timer(enemyResource.enemyGrimoire.CastSpeed).timeout
+	if currentAilments.has(UtilsGlobalEnums.ailments.Chill):
+		await get_tree().create_timer(enemyResource.enemyGrimoire.CastSpeed * (1.0 - ((UtilsGlobalDictionaries.ailmentModifiersDict.chillEffect.Current / 100.0) * (UtilsGlobalDictionaries.ailmentModifiersDict.chillBaseSlowdown.Current / 100.0)))).timeout
+	else:
+		await get_tree().create_timer(enemyResource.enemyGrimoire.CastSpeed).timeout
 	Cycle_Pages()
 
 func Get_Damaged(projectileHit):
@@ -119,7 +122,7 @@ func Apply_Ailment(ailment: UtilsGlobalEnums.ailments, hitDamage: float) -> void
 			if !currentAilments.has(UtilsGlobalEnums.ailments.Ignite):
 				currentAilments.append(UtilsGlobalEnums.ailments.Ignite)
 				ignite_tick_timer.start()
-			ignite_duration_timer.start(UtilsGlobalDictionaries.ailmentModifiersDict.igniteBaseDuration.Current * (UtilsGlobalDictionaries.ailmentModifiersDict.igniteDurationIncrease.Current/100))
+			ignite_duration_timer.start(UtilsGlobalDictionaries.ailmentModifiersDict.igniteBaseDuration.Current * (UtilsGlobalDictionaries.ailmentModifiersDict.igniteDurationIncrease.Current/100.0))
 			if strongestIgniteValue < hitDamage: 
 				strongestIgniteValue = hitDamage
 				
@@ -131,11 +134,11 @@ func Apply_Ailment(ailment: UtilsGlobalEnums.ailments, hitDamage: float) -> void
 		UtilsGlobalEnums.ailments.Chill:
 			if !currentAilments.has(UtilsGlobalEnums.ailments.Chill):
 				currentAilments.append(UtilsGlobalEnums.ailments.Chill)
-			chill_duration_timer.start(UtilsGlobalDictionaries.ailmentModifiersDict.chillBaseDuration.Current * (UtilsGlobalDictionaries.ailmentModifiersDict.chillDurationIncrease.Current/100))
+			chill_duration_timer.start(UtilsGlobalDictionaries.ailmentModifiersDict.chillBaseDuration.Current * (UtilsGlobalDictionaries.ailmentModifiersDict.chillDurationIncrease.Current/100.0))
 
 func Apply_Shock(damage) -> float:
 	if currentAilments.has(UtilsGlobalEnums.ailments.Shock): 
-		damage = damage * ((UtilsGlobalDictionaries.ailmentModifiersDict.shockBaseDamageIncrease.Current / 100) * (UtilsGlobalDictionaries.ailmentModifiersDict.shockEffect.Current / 100))
+		damage = damage * ((UtilsGlobalDictionaries.ailmentModifiersDict.shockBaseDamageIncrease.Current / 100.0) * (UtilsGlobalDictionaries.ailmentModifiersDict.shockEffect.Current / 100.0))
 		shockDamageInstanceCount -= 1
 		if shockDamageInstanceCount <= 0:
 			currentAilments.erase(UtilsGlobalEnums.ailments.Shock)
@@ -183,6 +186,6 @@ func _on_ignite_duration_timer_timeout() -> void:
 	ignite_tick_timer.stop()
 
 func _on_ignite_tick_timer_timeout() -> void:
-	var damage = strongestIgniteValue * (UtilsGlobalDictionaries.ailmentModifiersDict.igniteEffect.Current / 100) * (UtilsGlobalDictionaries.ailmentModifiersDict.ignitePercentageOfHitDamage.Current / 100)
+	var damage = strongestIgniteValue * (UtilsGlobalDictionaries.ailmentModifiersDict.igniteEffect.Current / 100.0) * (UtilsGlobalDictionaries.ailmentModifiersDict.ignitePercentageOfHitDamage.Current / 100)
 	damage = Apply_Shock(damage)
 	Adjust_Hp(damage)
