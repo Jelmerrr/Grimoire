@@ -2,7 +2,7 @@ extends Resource
 
 class_name ModifiersResource
 
-var damageModifiersDict = { #In percentile
+@export var damageModifiersDict = { #In percentile
 	"increasedDamage": {"Base": 100.0, "Current": 100.0, "Tag": "Global"},
 	"increasedSpellDamage": {"Base": 100.0, "Current": 100.0, "Tag": "Spell"},
 	"increasedLightningDamage": {"Base": 100.0, "Current": 100.0, "Tag": "Lightning"},
@@ -12,7 +12,7 @@ var damageModifiersDict = { #In percentile
 	"increasedAreaDamage": {"Base": 100.0, "Current": 100.0, "Tag": "AreaOfEffect"},
 }
 
-var ailmentModifiersDict = {
+@export var ailmentModifiersDict = {
 	"igniteChance": {"Base": 5.0, "Current": 5.0, "Tag": "igniteChance"},
 	"igniteEffect": {"Base": 100.0, "Current": 100.0, "Tag": "igniteEffect"},
 	"igniteBaseDuration": {"Base": 4.0, "Current": 4.0, "Tag": "igniteDuration"},
