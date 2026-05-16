@@ -57,3 +57,6 @@ var currentEnemyLevel: int = 1 #Mostly used as placeholder until proper progress
 #Option variables
 var MusicBusLevel: float = 0
 var SFXBusLevel: float = 0
+
+#Player modifiers reference
+const PLAYER_MODIFIERS_RESOURCE = preload("uid://dmv788hwpa5lm")
