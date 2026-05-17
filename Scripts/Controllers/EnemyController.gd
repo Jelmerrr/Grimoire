@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var enemyResource: BaseEnemyResource
+var modifiers: ModifiersResource = ModifiersResource.new()
 
 var currentHealth: int
 var maxHealth: int
