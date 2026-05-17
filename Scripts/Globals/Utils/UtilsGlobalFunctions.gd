@@ -3,22 +3,23 @@ extends Node
 func _ready() -> void:
 	SignalBus.Stop_Combat.connect(ResetDamageMultipliers)
 
-func DamageCalc(BaseDamage: float, tags: Array[UtilsGlobalEnums.pageTags]) -> float:
+func DamageCalc(BaseDamage: float, tags: Array[UtilsGlobalEnums.pageTags], modifiersInstanceId: int) -> float:
 	var tagsToString: Array[String]
 	for tag in tags:
 		tagsToString.append(UtilsGlobalEnums.pageTags.keys()[tag])
 	var totalDamage: float
 	#Set Damage to Base
 	totalDamage = BaseDamage
+	var modifiers: ModifiersResource = instance_from_id(modifiersInstanceId)
 	
 	#Add player damage multipliers to the base damage
-	for multiplier in UtilsGlobalDictionaries.damageModifiersDict:
+	for multiplier in modifiers.damageModifiersDict:
 		#Only apply conditional multipliers if the attack contains tags related to the multiplier
-		if UtilsGlobalDictionaries.damageModifiersDict[multiplier].Tag != "Global" && tagsToString.has(UtilsGlobalDictionaries.damageModifiersDict[multiplier].Tag):
-			totalDamage = totalDamage * (UtilsGlobalDictionaries.damageModifiersDict[multiplier].Current / 100)
+		if modifiers.damageModifiersDict[multiplier].Tag != "Global" && tagsToString.has(modifiers.damageModifiersDict[multiplier].Tag):
+			totalDamage = totalDamage * (modifiers.damageModifiersDict[multiplier].Current / 100)
 		#Always apply global multipliers
-		if UtilsGlobalDictionaries.damageModifiersDict[multiplier].Tag == "Global":
-			totalDamage = totalDamage * (UtilsGlobalDictionaries.damageModifiersDict[multiplier].Current / 100)
+		if modifiers.damageModifiersDict[multiplier].Tag == "Global":
+			totalDamage = totalDamage * (modifiers.damageModifiersDict[multiplier].Current / 100)
 	#print(totalDamage)
 	return totalDamage
 

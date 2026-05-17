@@ -20,7 +20,7 @@ func UpdatePlayerPos() -> void:
 	UtilsGlobalVariables.playerPosition = global_position
 
 func Get_Damaged(enemySpell):
-	var damageTaken = enemySpell.damage
+	var damageTaken = enemySpell.totalDamage
 	Change_Health(-damageTaken)
 	
 	var damageInstance = DAMAGE_NUMBER_UI.instantiate()

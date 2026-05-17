@@ -21,7 +21,7 @@ func _ready() -> void:
 	if pageAlignment == UtilsGlobalEnums.alignment.Player:
 		area_2d.set_collision_layer_value(5, true)
 		area_2d.set_collision_mask_value(3, true)
-		totalDamage = UtilsGlobalFunctions.DamageCalc(damage, pageTags)
+		totalDamage = UtilsGlobalFunctions.DamageCalc(damage, pageTags, 0)
 	elif pageAlignment == UtilsGlobalEnums.alignment.Enemy:
 		area_2d.set_collision_layer_value(6, true)
 		area_2d.set_collision_mask_value(2, true)

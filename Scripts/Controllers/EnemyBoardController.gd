@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func SpawnEnemies() -> void:
 	InstanceEnemy(TRAINING_DUMMY, UtilsGlobalVariables.currentEnemyLevel, Vector2(150,-100))
-	InstanceEnemy(TRAINING_DUMMY_2, UtilsGlobalVariables.currentEnemyLevel, Vector2(-150,-150))
+	#InstanceEnemy(TRAINING_DUMMY_2, UtilsGlobalVariables.currentEnemyLevel, Vector2(-150,-150))
 	if UtilsGlobalVariables.currentEnemyLevel >= 9:
 		InstanceEnemy(TRAINING_DUMMY, UtilsGlobalVariables.currentEnemyLevel, Vector2(-50,-200))
 

@@ -11,6 +11,8 @@ var destination: Vector2 = Vector2(0, -600)
 var direction: Vector2
 var pageAlignment: UtilsGlobalEnums.alignment
 var pageTags: Array[UtilsGlobalEnums.pageTags]
+var modifiers: ModifiersResource
+var modifierID: int
 
 var speed_tween: Tween = null
 @onready var explosion_vfx: AnimatedSprite2D = $ExplosionVFX
@@ -38,12 +40,13 @@ func _ready() -> void:
 		area_2d.set_collision_layer_value(5, true)
 		set_collision_mask_value(3, true)
 		area_2d.set_collision_mask_value(3, true)
-		totalDamage = UtilsGlobalFunctions.DamageCalc(damage, pageTags)
+		totalDamage = UtilsGlobalFunctions.DamageCalc(damage, pageTags, modifierID)
 	if pageAlignment == UtilsGlobalEnums.alignment.Enemy:
 		set_collision_layer_value(6, true)
 		area_2d.set_collision_layer_value(6, true)
 		set_collision_mask_value(2, true)
 		area_2d.set_collision_mask_value(2, true)
+		totalDamage = UtilsGlobalFunctions.DamageCalc(damage, pageTags, modifierID)
 	
 
 func onCombatEnd() -> void:

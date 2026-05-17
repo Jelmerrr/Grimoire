@@ -3,6 +3,8 @@ extends Node2D
 var destination: Vector2 = Vector2(0, -600) #Needs to be here for targeting shenanigans
 var spawnPos : Vector2 = Vector2(0, 150)
 
+var modifierID: int
+
 var pageAlignment: UtilsGlobalEnums.alignment
 var pageTags: Array[UtilsGlobalEnums.pageTags]
 

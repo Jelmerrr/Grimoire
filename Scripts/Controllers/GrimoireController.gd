@@ -13,7 +13,6 @@ func _ready() -> void:
 	await get_tree().create_timer(0.1).timeout
 	initpages()
 
-
 func initpages() -> void:
 	SignalBus.Add_Page.emit(preload("uid://d28q6rox0ifqv")) #Ablaze
 	SignalBus.Add_Page.emit(preload("uid://bmvokbotxdoyw")) #Fireball
@@ -33,6 +32,7 @@ func Cast_Page(Page: PageResource) -> void:
 			instance.destination = Targeting_Logic(Page.PageTargeting)
 			instance.pageAlignment = UtilsGlobalEnums.alignment.Player
 			instance.pageTags = Page.PageTags
+			instance.modifierID = UtilsGlobalVariables.PLAYER_MODIFIERS_RESOURCE.get_instance_id()
 			SignalBus.PageCasted.emit(Page.PageType)
 			add_child.call_deferred(instance)
 	elif UtilsGlobalVariables.enemyPositions.size() == 0:

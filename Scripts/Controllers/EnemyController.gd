@@ -81,6 +81,7 @@ func Cast_Page(page: PageResource) -> void:
 	instance.destination = UtilsGlobalVariables.playerPosition
 	instance.spawnPos = global_position
 	instance.pageAlignment = UtilsGlobalEnums.alignment.Enemy
+	instance.modifierID = modifiers.get_instance_id()
 	#Calling parent twice to ensure persistance should enemy die.
 	self.get_parent().get_parent().add_child.call_deferred(instance)
 
