@@ -3,6 +3,9 @@ extends Node2D
 var destination: Vector2 = Vector2(0, -600) #Needs to be here for targeting shenanigans
 var spawnPos : Vector2 = Vector2(0, 150)
 
+var modifierID: int
+var modifiers: ModifiersResource
+
 var pageAlignment: UtilsGlobalEnums.alignment
 var pageTags: Array[UtilsGlobalEnums.pageTags]
 
@@ -10,6 +13,7 @@ var buffDuration: int = 4
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	modifiers = instance_from_id(modifierID)
 	SignalBus.PageCasted.connect(countPage)
 	SignalBus.Stop_Combat.connect(onCombatEnd)
 

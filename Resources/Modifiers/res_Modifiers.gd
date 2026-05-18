@@ -28,3 +28,8 @@ class_name ModifiersResource
 	"chillDurationIncrease": {"Base": 100.0, "Current": 100.0, "Tag": "chillDuration"},
 	"chillBaseSlowdown": {"Base": 10.0, "Current": 10.0, "Tag": "chillBaseSlowdown"},
 }
+
+@export var miscModifiersDict = {
+	"firedUpStacks": 0,
+	"isSplitPowerActive": false,
+}

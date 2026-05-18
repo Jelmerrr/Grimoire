@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="BaseEnemyResource" load_steps=7 format=3 uid="uid://c8ob4odotuy8q"]
+[gd_resource type="Resource" script_class="BaseEnemyResource" load_steps=8 format=3 uid="uid://c8ob4odotuy8q"]
 
 [ext_resource type="Resource" uid="uid://fsehssw35cdq" path="res://Resources/Pages/Page Resources/Thunderbolt.tres" id="2_6j4ko"]
+[ext_resource type="Resource" uid="uid://bcjhlnij4jbxm" path="res://Resources/Pages/Page Resources/SplitPower.tres" id="2_u34jf"]
 [ext_resource type="Script" uid="uid://4uqlkofs35db" path="res://Resources/Pages/Res_PageEntry.gd" id="2_v4so2"]
 [ext_resource type="Script" uid="uid://djtj3q8sol68n" path="res://Resources/Grimoire/Res_Grimoire.gd" id="3_u34jf"]
 [ext_resource type="Texture2D" uid="uid://dt0v4effr0mc" path="res://Assets/Sprites/Placeholder/PlayerSprite 32x32 Transparent.png" id="4_3h4ha"]
@@ -8,7 +9,7 @@
 
 [sub_resource type="Resource" id="Resource_7gtu3"]
 script = ExtResource("3_u34jf")
-Pages = Array[ExtResource("2_v4so2")]([ExtResource("2_6j4ko")])
+Pages = Array[ExtResource("2_v4so2")]([ExtResource("2_u34jf"), ExtResource("2_6j4ko")])
 CastSpeed = 1.0
 metadata/_custom_type_script = "uid://djtj3q8sol68n"
 
