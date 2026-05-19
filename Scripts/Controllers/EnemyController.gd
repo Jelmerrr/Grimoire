@@ -172,7 +172,6 @@ func Change_Health(damage) -> void:
 	
 	#If HP is below 0 or = 0, remove enemy from scene.
 	if currentHealth <= 0:
-		print("dead")
 		queue_free()
 
 func _input(event: InputEvent) -> void:
