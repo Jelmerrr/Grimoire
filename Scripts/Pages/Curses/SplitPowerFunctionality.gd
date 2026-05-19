@@ -6,6 +6,7 @@ var hasCurseConditionBeenFulfilled: bool = false
 
 var modifierID: int
 var modifiers: ModifiersResource
+var pageOwner: Node
 
 var preCurseMultiplierSetup
 
@@ -46,7 +47,6 @@ func countPage(pageType: UtilsGlobalEnums.pageTypes):
 		queue_free()
 	if pageType == UtilsGlobalEnums.pageTypes.Spell && hasCurseConditionBeenFulfilled == true:
 		buffDuration = buffDuration - 1
-	print(modifiers.damageModifiersDict)
 
 func onCombatEnd() -> void:
 	modifiers.miscModifiersDict.isSplitPowerActive = false

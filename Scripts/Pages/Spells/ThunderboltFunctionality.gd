@@ -8,6 +8,8 @@ var totalDamage = damage
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var modifierID: int
+var modifiers: ModifiersResource
+var pageOwner: Node
 
 var pageAlignment: UtilsGlobalEnums.alignment
 

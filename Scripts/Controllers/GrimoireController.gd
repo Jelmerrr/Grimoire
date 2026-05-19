@@ -16,6 +16,7 @@ func _ready() -> void:
 func initpages() -> void:
 	SignalBus.Add_Page.emit(preload("uid://d28q6rox0ifqv")) #Ablaze
 	SignalBus.Add_Page.emit(preload("uid://bmvokbotxdoyw")) #Fireball
+	SignalBus.Add_Page.emit(preload("uid://7uy53ukryjia")) #Health Potion
 	#SignalBus.Add_Page.emit(preload("uid://fsehssw35cdq")) #Thunderbolt
 
 func Add_Page(Page: PageResource) -> void:
@@ -33,7 +34,8 @@ func Cast_Page(Page: PageResource) -> void:
 			instance.pageAlignment = UtilsGlobalEnums.alignment.Player
 			instance.pageTags = Page.PageTags
 			instance.modifierID = UtilsGlobalVariables.PLAYER_MODIFIERS_RESOURCE.get_instance_id()
-			SignalBus.PageCasted.emit(Page.PageType)
+			instance.pageOwner = UtilsGlobalVariables.playerInstanceID
+			SignalBus.PageCasted.emit(Page.PageType, UtilsGlobalVariables.playerInstanceID)
 			add_child.call_deferred(instance)
 	elif UtilsGlobalVariables.enemyPositions.size() == 0:
 		UtilsGlobalFunctions.RoundVictory()

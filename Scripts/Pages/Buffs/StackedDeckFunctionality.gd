@@ -5,6 +5,7 @@ var spawnPos : Vector2 = Vector2(0, 150)
 
 var modifierID: int
 var modifiers: ModifiersResource
+var pageOwner: Node
 
 var pageAlignment: UtilsGlobalEnums.alignment
 var pageTags: Array[UtilsGlobalEnums.pageTags]

@@ -68,7 +68,8 @@ func Cycle_Pages() -> void:
 		if awake:
 			Cast_Page(page)
 			if currentAilments.has(UtilsGlobalEnums.ailments.Chill):
-				await get_tree().create_timer(enemyResource.enemyGrimoire.CastSpeed * (1.0 - ((UtilsGlobalDictionaries.ailmentModifiersDict.chillEffect.Current / 100.0) * (UtilsGlobalDictionaries.ailmentModifiersDict.chillBaseSlowdown.Current / 100.0)))).timeout
+				#TODO: fix that this scales of PLAYER modifiers and not ENEMY modifier.
+				await get_tree().create_timer(enemyResource.enemyGrimoire.CastSpeed * (1.0 - ((modifiers.ailmentModifiersDict.chillEffect.Current / 100.0) * (modifiers.ailmentModifiersDict.chillBaseSlowdown.Current / 100.0)))).timeout
 			else:
 				await get_tree().create_timer(enemyResource.enemyGrimoire.CastSpeed).timeout
 		else:
@@ -84,6 +85,8 @@ func Cast_Page(page: PageResource) -> void:
 	instance.spawnPos = global_position
 	instance.pageAlignment = UtilsGlobalEnums.alignment.Enemy
 	instance.modifierID = modifiers.get_instance_id()
+	instance.pageOwner = self
+	SignalBus.PageCasted.emit(page.PageType, self)
 	#Calling parent twice to ensure persistance should enemy die.
 	self.get_parent().get_parent().add_child.call_deferred(instance)
 
@@ -100,7 +103,7 @@ func Get_Damaged(projectileHit):
 	#Apply damage multipliers to base damage of the projectile.
 	var damage = projectileHit.totalDamage
 	damage = Apply_Shock(damage)
-	Adjust_Hp(damage)
+	Change_Health(-damage)
 	
 	#Check if hit by an elemental spell for ailments.
 	if projectileHit.pageTags != null:
@@ -148,13 +151,16 @@ func Apply_Shock(damage) -> float:
 			currentAilments.erase(UtilsGlobalEnums.ailments.Shock)
 	return damage
 
-func Adjust_Hp(damage) -> void:
+func Change_Health(damage) -> void:
 	#Round down decimal damage values (mostly relevant with Ailment calculations such as ignite)
 	damage = roundi(damage)
 	
 	#Adjust HP values.
-	currentHealth -= damage
-	health_bar.value -= damage
+	currentHealth = clampi(currentHealth + damage, 0, maxHealth)
+	health_bar.value = clampi(int(health_bar.value) + damage, 0, maxHealth)
+	
+	#Inverse damage for ui showing
+	damage *= -1
 	
 	#Instaniate damage number UI.
 	if damage >= 1: #Prevents showcasing 0 damage
@@ -166,6 +172,7 @@ func Adjust_Hp(damage) -> void:
 	
 	#If HP is below 0 or = 0, remove enemy from scene.
 	if currentHealth <= 0:
+		print("dead")
 		queue_free()
 
 func _input(event: InputEvent) -> void:
@@ -192,4 +199,4 @@ func _on_ignite_duration_timer_timeout() -> void:
 func _on_ignite_tick_timer_timeout() -> void:
 	var damage = strongestIgniteValue * (playerModifiers.ailmentModifiersDict.igniteEffect.Current / 100.0) * (playerModifiers.ailmentModifiersDict.ignitePercentageOfHitDamage.Current / 100)
 	damage = Apply_Shock(damage)
-	Adjust_Hp(damage)
+	Change_Health(-damage)

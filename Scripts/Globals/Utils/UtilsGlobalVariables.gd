@@ -15,6 +15,7 @@ var currentRoundValue: int = 1
 var PlayerCastSpeed: float = 1 #Time in Seconds
 var BasePlayerCastSpeed: float = 1 #Time in Seconds
 var BasePlayerHealth: int = 100
+var playerInstanceID: Node
 
 #Player ailment variables
 var baseIgniteChance: float = 5

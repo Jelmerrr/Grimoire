@@ -13,6 +13,7 @@ var pageAlignment: UtilsGlobalEnums.alignment
 var pageTags: Array[UtilsGlobalEnums.pageTags]
 var modifiers: ModifiersResource
 var modifierID: int
+var pageOwner: Node
 
 var speed_tween: Tween = null
 @onready var explosion_vfx: AnimatedSprite2D = $ExplosionVFX
