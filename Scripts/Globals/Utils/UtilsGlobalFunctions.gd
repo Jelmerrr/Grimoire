@@ -54,17 +54,18 @@ func goToPlanning() -> void:
 	SignalBus.Start_Planning_Phase.emit()
 
 func Run_AilmentCheck(element: UtilsGlobalEnums.elements) -> UtilsGlobalEnums.ailments:
+	var playerModifiers = UtilsGlobalVariables.PLAYER_MODIFIERS_RESOURCE
 	match element:
 		UtilsGlobalEnums.elements.Fire:
-			if UtilsRngHandler.rng.randf_range(1,100) <= clampf(UtilsGlobalDictionaries.ailmentModifiersDict.igniteChance.Current, 0, 100):
+			if UtilsRngHandler.rng.randf_range(1,100) <= clampf(playerModifiers.ailmentModifiersDict.igniteChance.Current, 0, 100):
 				SignalBus.IgniteInflicted.emit()
 				return UtilsGlobalEnums.ailments.Ignite
 		UtilsGlobalEnums.elements.Lightning:
-			if UtilsRngHandler.rng.randf_range(1,100) <= clampf(UtilsGlobalDictionaries.ailmentModifiersDict.shockChance.Current, 0, 100):
+			if UtilsRngHandler.rng.randf_range(1,100) <= clampf(playerModifiers.ailmentModifiersDict.shockChance.Current, 0, 100):
 				SignalBus.ShockInflicted.emit()
 				return UtilsGlobalEnums.ailments.Shock
 		UtilsGlobalEnums.elements.Cold:
-			if UtilsRngHandler.rng.randf_range(1,100) <= clampf(UtilsGlobalDictionaries.ailmentModifiersDict.chillChance.Current, 0, 100): 
+			if UtilsRngHandler.rng.randf_range(1,100) <= clampf(playerModifiers.ailmentModifiersDict.chillChance.Current, 0, 100): 
 				SignalBus.ChillInflicted.emit()
 				return UtilsGlobalEnums.ailments.Chill
 	return UtilsGlobalEnums.ailments.None
