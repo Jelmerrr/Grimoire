@@ -104,6 +104,7 @@ func Restart_Cycle() -> void:
 	else:
 		await get_tree().create_timer(enemyResource.enemyGrimoire.CastSpeed).timeout
 	modifiers.miscModifiersDict.spellPagesCastInCycle = 0
+	SignalBus.CyclePages.emit(self)
 	Cycle_Pages()
 
 func Get_Damaged(projectileHit):

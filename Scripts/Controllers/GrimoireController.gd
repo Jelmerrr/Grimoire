@@ -82,7 +82,7 @@ func Cycle_Pages() -> void:
 
 func Restart_Cycle() -> void:
 	await get_tree().create_timer(UtilsGlobalVariables.playerGrimoire.CastSpeed).timeout
-	SignalBus.CyclePages.emit()
+	SignalBus.CyclePages.emit(UtilsGlobalVariables.playerInstanceID)
 	UtilsGlobalVariables.PLAYER_MODIFIERS_RESOURCE.miscModifiersDict.spellPagesCastInCycle = 0
 	Cycle_Pages()
 

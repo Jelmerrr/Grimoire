@@ -49,5 +49,12 @@ func countPage(pageType: UtilsGlobalEnums.pageTypes, pageOwnerRef: Node):
 		buffDuration = buffDuration - 1
 
 func onCombatEnd() -> void:
-	modifiers.miscModifiersDict.isSplitPowerActive = false
 	queue_free()
+
+func _notification(what: int) -> void:
+	match what:
+		NOTIFICATION_PREDELETE:
+			on_predelete()
+
+func on_predelete() -> void:
+	modifiers.miscModifiersDict.isSplitPowerActive = false

@@ -22,11 +22,17 @@ func _ready() -> void:
 func igniteCount() -> void:
 	buffDuration -= 1
 	if buffDuration == 0:
-		modifiers.ailmentModifiersDict.igniteChance.Current -= 999
 		#UtilsGlobalVariables.currentIgniteChance -= 999
 		queue_free()
 
 func onCombatEnd() -> void:
-	modifiers.ailmentModifiersDict.igniteChance.Current -= 999
 	#UtilsGlobalVariables.currentIgniteChance -= 999
 	queue_free()
+
+func _notification(what: int) -> void:
+	match what:
+		NOTIFICATION_PREDELETE:
+			on_predelete()
+
+func on_predelete() -> void:
+	modifiers.ailmentModifiersDict.igniteChance.Current -= 999

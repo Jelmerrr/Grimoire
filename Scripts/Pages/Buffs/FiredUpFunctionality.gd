@@ -25,8 +25,6 @@ func _ready() -> void:
 			pageOwner.grimoireRef.CastSpeed = pageOwner.grimoireRef.CastSpeed - subtractor
 
 func onCombatEnd() -> void:
-	pageOwner.grimoireRef.CastSpeed = pageOwner.grimoireRef.BaseCastSpeed
-	modifiers.miscModifiersDict.firedUpStacks = 0
 	queue_free()
 
 func _notification(what: int) -> void:

@@ -20,9 +20,18 @@ func _ready() -> void:
 	multiplier = multiplier + (25 * UtilsGlobalVariables.SpellPagesCastInCycleCount)
 	modifiers.damageModifiersDict.increasedSpellDamage.Current = modifiers.damageModifiersDict.increasedSpellDamage.Current + multiplier
 
-func ResetOnCycle() -> void:
-	modifiers.damageModifiersDict.increasedSpellDamage.Current = modifiers.damageModifiersDict.increasedSpellDamage.Current - multiplier
-	queue_free()
+func ResetOnCycle(pageOwnerRef: Node) -> void:
+	if pageOwner == pageOwnerRef:
+		modifiers.damageModifiersDict.increasedSpellDamage.Current = modifiers.damageModifiersDict.increasedSpellDamage.Current - multiplier
+		queue_free()
 
 func onCombatEnd() -> void:
 	queue_free()
+
+func _notification(what: int) -> void:
+	match what:
+		NOTIFICATION_PREDELETE:
+			on_predelete()
+
+func on_predelete() -> void:
+	pass

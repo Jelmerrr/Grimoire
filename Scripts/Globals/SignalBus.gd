@@ -7,7 +7,7 @@ signal Update_Grimoire(updatedGrimoire: Array[PageResource])
 signal Start_Combat()
 signal Stop_Combat()
 signal PageCasted(pageType: UtilsGlobalEnums.pageTypes, pageOwner: Node)
-signal CyclePages()
+signal CyclePages(pageOwnerRef: Node)
 
 signal Get_New_Page()
 signal Selected_New_Page()
