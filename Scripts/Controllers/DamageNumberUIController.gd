@@ -24,14 +24,12 @@ func tween_opactiy(to: float):
 	opacity_tween.tween_property(self, "modulate:a", to, 0.5)
 	return opacity_tween
 
-
 func tween_position(to: Vector2):
 	if position_tween: position_tween.kill()
 	position_tween = get_tree().create_tween()
 	position_tween.set_ease(Tween.EASE_OUT)
 	position_tween.set_trans(Tween.TRANS_EXPO)
 	position_tween.tween_property(self, "global_position", to, 0.5)
-	
 
 func _on_timer_timeout() -> void:
 	queue_free()

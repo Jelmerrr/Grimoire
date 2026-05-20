@@ -7,6 +7,10 @@ var totalDamage = damage
 @onready var area_2d: Area2D = $Area2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+var modifierID: int
+var modifiers: ModifiersResource
+var pageOwner: Node
+
 var pageAlignment: UtilsGlobalEnums.alignment
 
 var pageTags: Array[UtilsGlobalEnums.pageTags]
@@ -21,10 +25,11 @@ func _ready() -> void:
 	if pageAlignment == UtilsGlobalEnums.alignment.Player:
 		area_2d.set_collision_layer_value(5, true)
 		area_2d.set_collision_mask_value(3, true)
-		totalDamage = UtilsGlobalFunctions.DamageCalc(damage, pageTags)
+		totalDamage = UtilsGlobalFunctions.DamageCalc(damage, pageTags, modifierID)
 	elif pageAlignment == UtilsGlobalEnums.alignment.Enemy:
 		area_2d.set_collision_layer_value(6, true)
 		area_2d.set_collision_mask_value(2, true)
+		totalDamage = UtilsGlobalFunctions.DamageCalc(damage, pageTags, modifierID)
 
 func _on_life_timer_timeout() -> void:
 	queue_free()

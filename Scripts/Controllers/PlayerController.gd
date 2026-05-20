@@ -3,24 +3,27 @@ extends Node2D
 @onready var health_bar: ProgressBar = $"Health Bar"
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-var current_health: int
+var currentHealth: int
+var grimoireRef: GrimoireResource
 
 const DAMAGE_NUMBER_UI = preload("uid://cfkn2u7gp546x")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	grimoireRef = UtilsGlobalVariables.playerGrimoire
 	SignalBus.Ask_PlayerPos.connect(UpdatePlayerPos)
 	SignalBus.Start_Combat.connect(Reset_HP)
 	SignalBus.Stop_Combat.connect(Reset_HP)
 	SignalBus.AddPlayerHealth.connect(Change_Health)
 	Reset_HP()
 	animated_sprite_2d.play()
+	UtilsGlobalVariables.playerInstanceID = self
 
 func UpdatePlayerPos() -> void:
 	UtilsGlobalVariables.playerPosition = global_position
 
 func Get_Damaged(enemySpell):
-	var damageTaken = enemySpell.damage
+	var damageTaken = enemySpell.totalDamage
 	Change_Health(-damageTaken)
 	
 	var damageInstance = DAMAGE_NUMBER_UI.instantiate()
@@ -33,12 +36,12 @@ func Get_Damaged(enemySpell):
 	#	queue_free()
 
 func Reset_HP() -> void:
-	current_health = UtilsGlobalVariables.BasePlayerHealth
+	currentHealth = UtilsGlobalVariables.BasePlayerHealth
 	health_bar.max_value = UtilsGlobalVariables.BasePlayerHealth
 	health_bar.value = health_bar.max_value
 
 func Change_Health(value: int) -> void:
-	current_health = clampi(current_health + value, 0, UtilsGlobalVariables.BasePlayerHealth)
+	currentHealth = clampi(currentHealth + value, 0, UtilsGlobalVariables.BasePlayerHealth)
 	health_bar.value = clampi(int(health_bar.value) + value, 0, UtilsGlobalVariables.BasePlayerHealth)
-	if current_health == 0:
+	if currentHealth == 0:
 		UtilsGlobalFunctions.RoundDefeat()

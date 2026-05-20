@@ -3,7 +3,7 @@ extends Node
 var enemyPositions: Array[Vector2]
 var playerPosition: Vector2
 
-var playerGrimoire: GrimoireResource
+var playerGrimoire: GrimoireResource = preload("uid://b8kghq3xx7f7k")
 
 #Game state variables
 var inCombat: bool
@@ -15,6 +15,7 @@ var currentRoundValue: int = 1
 var PlayerCastSpeed: float = 1 #Time in Seconds
 var BasePlayerCastSpeed: float = 1 #Time in Seconds
 var BasePlayerHealth: int = 100
+var playerInstanceID: Node
 
 #Player ailment variables
 var baseIgniteChance: float = 5
@@ -57,3 +58,6 @@ var currentEnemyLevel: int = 1 #Mostly used as placeholder until proper progress
 #Option variables
 var MusicBusLevel: float = 0
 var SFXBusLevel: float = 0
+
+#Player modifiers reference
+var PLAYER_MODIFIERS_RESOURCE = preload("uid://dmv788hwpa5lm")

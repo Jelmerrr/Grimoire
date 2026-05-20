@@ -13,10 +13,10 @@ func _ready() -> void:
 	await get_tree().create_timer(0.1).timeout
 	initpages()
 
-
 func initpages() -> void:
 	SignalBus.Add_Page.emit(preload("uid://d28q6rox0ifqv")) #Ablaze
 	SignalBus.Add_Page.emit(preload("uid://bmvokbotxdoyw")) #Fireball
+	SignalBus.Add_Page.emit(preload("uid://7uy53ukryjia")) #Health Potion
 	#SignalBus.Add_Page.emit(preload("uid://fsehssw35cdq")) #Thunderbolt
 
 func Add_Page(Page: PageResource) -> void:
@@ -33,12 +33,14 @@ func Cast_Page(Page: PageResource) -> void:
 			instance.destination = Targeting_Logic(Page.PageTargeting)
 			instance.pageAlignment = UtilsGlobalEnums.alignment.Player
 			instance.pageTags = Page.PageTags
-			SignalBus.PageCasted.emit(Page.PageType)
+			instance.modifierID = UtilsGlobalVariables.PLAYER_MODIFIERS_RESOURCE.get_instance_id()
+			instance.pageOwner = UtilsGlobalVariables.playerInstanceID
+			SignalBus.PageCasted.emit(Page.PageType, UtilsGlobalVariables.playerInstanceID)
 			add_child.call_deferred(instance)
 	elif UtilsGlobalVariables.enemyPositions.size() == 0:
 		UtilsGlobalFunctions.RoundVictory()
 	if Page.PageType == UtilsGlobalEnums.pageTypes.Spell:
-		UtilsGlobalVariables.SpellPagesCastInCycleCount += 1
+		UtilsGlobalVariables.PLAYER_MODIFIERS_RESOURCE.miscModifiersDict.spellPagesCastInCycle += 1
 
 func Targeting_Logic(targetType: UtilsGlobalEnums.pageTargeting) -> Vector2:
 	SignalBus.Ask_EnemyPos.emit()
@@ -72,16 +74,16 @@ func Cycle_Pages() -> void:
 	for item in UtilsGlobalVariables.playerGrimoire.Pages:
 		if UtilsGlobalVariables.inCombat:
 			Cast_Page(item)
-			await get_tree().create_timer(UtilsGlobalVariables.PlayerCastSpeed).timeout
+			await get_tree().create_timer(UtilsGlobalVariables.playerGrimoire.CastSpeed).timeout
 		else:
 			break
 	if UtilsGlobalVariables.inCombat:
 		Restart_Cycle()
 
 func Restart_Cycle() -> void:
-	await get_tree().create_timer(UtilsGlobalVariables.PlayerCastSpeed).timeout
-	SignalBus.CyclePages.emit()
-	UtilsGlobalVariables.SpellPagesCastInCycleCount = 0
+	await get_tree().create_timer(UtilsGlobalVariables.playerGrimoire.CastSpeed).timeout
+	SignalBus.CyclePages.emit(UtilsGlobalVariables.playerInstanceID)
+	UtilsGlobalVariables.PLAYER_MODIFIERS_RESOURCE.miscModifiersDict.spellPagesCastInCycle = 0
 	Cycle_Pages()
 
 func Start_Combat() -> void:

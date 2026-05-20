@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ModifiersResource" load_steps=2 format=3 uid="uid://dmv788hwpa5lm"]
+
+[ext_resource type="Script" uid="uid://cjtrpob0hk2dk" path="res://Resources/Modifiers/res_Modifiers.gd" id="1_powri"]
+
+[resource]
+script = ExtResource("1_powri")
+metadata/_custom_type_script = "uid://cjtrpob0hk2dk"
