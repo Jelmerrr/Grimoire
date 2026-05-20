@@ -11,7 +11,6 @@ func _ready() -> void:
 	AudioControllerScene.playMusic()
 	camera_2d.make_current()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	camera_2d.make_current() #Surely this will fix the camera issue copium

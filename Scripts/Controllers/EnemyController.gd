@@ -192,10 +192,8 @@ func _input(event: InputEvent) -> void:
 func _on_mouse_area_mouse_entered() -> void:
 	hovering = true
 
-
 func _on_mouse_area_mouse_exited() -> void:
 	hovering = false
-
 
 func _on_chill_duration_timer_timeout() -> void:
 	currentAilments.erase(UtilsGlobalEnums.ailments.Chill)

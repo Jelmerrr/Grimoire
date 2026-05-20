@@ -10,7 +10,6 @@ func _ready() -> void:
 	SignalBus.Start_Planning_Phase.connect(SpawnEnemies)
 	SignalBus.Stop_Combat.connect(ClearEnemies)
 	SignalBus.Ask_EnemyPos.connect(AskPos)
-	#SpawnEnemies()
 
 func SpawnEnemies() -> void:
 	InstanceEnemy(TRAINING_DUMMY, UtilsGlobalVariables.currentEnemyLevel, Vector2(150,-100))
