@@ -3,7 +3,7 @@ extends Node
 var enemyPositions: Array[Vector2]
 var playerPosition: Vector2
 
-var playerGrimoire: GrimoireResource
+var playerGrimoire: GrimoireResource = preload("uid://b8kghq3xx7f7k")
 
 #Game state variables
 var inCombat: bool

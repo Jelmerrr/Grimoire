@@ -74,14 +74,14 @@ func Cycle_Pages() -> void:
 	for item in UtilsGlobalVariables.playerGrimoire.Pages:
 		if UtilsGlobalVariables.inCombat:
 			Cast_Page(item)
-			await get_tree().create_timer(UtilsGlobalVariables.PlayerCastSpeed).timeout
+			await get_tree().create_timer(UtilsGlobalVariables.playerGrimoire.CastSpeed).timeout
 		else:
 			break
 	if UtilsGlobalVariables.inCombat:
 		Restart_Cycle()
 
 func Restart_Cycle() -> void:
-	await get_tree().create_timer(UtilsGlobalVariables.PlayerCastSpeed).timeout
+	await get_tree().create_timer(UtilsGlobalVariables.playerGrimoire.CastSpeed).timeout
 	SignalBus.CyclePages.emit()
 	UtilsGlobalVariables.SpellPagesCastInCycleCount = 0
 	Cycle_Pages()

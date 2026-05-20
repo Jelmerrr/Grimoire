@@ -4,11 +4,13 @@ extends Node2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var currentHealth: int
+var grimoireRef: GrimoireResource
 
 const DAMAGE_NUMBER_UI = preload("uid://cfkn2u7gp546x")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	grimoireRef = UtilsGlobalVariables.playerGrimoire
 	SignalBus.Ask_PlayerPos.connect(UpdatePlayerPos)
 	SignalBus.Start_Combat.connect(Reset_HP)
 	SignalBus.Stop_Combat.connect(Reset_HP)

@@ -8,6 +8,7 @@ var maxHealth: int
 var spawnPos: Vector2 = Vector2(0, -360)
 var level: int = 1
 var awake: bool = false
+var grimoireRef: GrimoireResource
 
 var currentAilments: Array[UtilsGlobalEnums.ailments]
 var shockDamageInstanceCount: int
@@ -38,6 +39,7 @@ func _ready() -> void:
 	SignalBus.Start_Combat.connect(WakeUp)
 	SignalBus.Stop_Combat.connect(Sleep)
 	
+	grimoireRef = enemyResource.enemyGrimoire
 	maxHealth = int(enemyResource.baseHealth + (enemyResource.hpPerLevel * level))
 	currentHealth = maxHealth
 	sprite_2d.texture = enemyResource.enemySprite
