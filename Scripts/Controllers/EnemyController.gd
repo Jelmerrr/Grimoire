@@ -91,6 +91,8 @@ func Cast_Page(page: PageResource) -> void:
 	SignalBus.PageCasted.emit(page.PageType, self)
 	#Calling parent twice to ensure persistance should enemy die.
 	self.get_parent().get_parent().add_child.call_deferred(instance)
+	if page.PageType == UtilsGlobalEnums.pageTypes.Spell:
+		modifiers.miscModifiersDict.spellPagesCastInCycle += 1
 
 func Restart_Cycle() -> void:
 	#Loops back to the beginning after the last page of a cycle is cast.
@@ -98,6 +100,7 @@ func Restart_Cycle() -> void:
 		await get_tree().create_timer(enemyResource.enemyGrimoire.CastSpeed * (1.0 - ((UtilsGlobalDictionaries.ailmentModifiersDict.chillEffect.Current / 100.0) * (UtilsGlobalDictionaries.ailmentModifiersDict.chillBaseSlowdown.Current / 100.0)))).timeout
 	else:
 		await get_tree().create_timer(enemyResource.enemyGrimoire.CastSpeed).timeout
+	modifiers.miscModifiersDict.spellPagesCastInCycle = 0
 	Cycle_Pages()
 
 func Get_Damaged(projectileHit):

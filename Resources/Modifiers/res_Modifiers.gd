@@ -32,4 +32,5 @@ class_name ModifiersResource
 @export var miscModifiersDict = {
 	"firedUpStacks": 0,
 	"isSplitPowerActive": false,
+	"spellPagesCastInCycle": 0
 }

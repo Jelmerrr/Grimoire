@@ -60,4 +60,4 @@ var MusicBusLevel: float = 0
 var SFXBusLevel: float = 0
 
 #Player modifiers reference
-const PLAYER_MODIFIERS_RESOURCE = preload("uid://dmv788hwpa5lm")
+var PLAYER_MODIFIERS_RESOURCE = preload("uid://dmv788hwpa5lm")

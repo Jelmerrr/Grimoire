@@ -40,7 +40,7 @@ func Cast_Page(Page: PageResource) -> void:
 	elif UtilsGlobalVariables.enemyPositions.size() == 0:
 		UtilsGlobalFunctions.RoundVictory()
 	if Page.PageType == UtilsGlobalEnums.pageTypes.Spell:
-		UtilsGlobalVariables.SpellPagesCastInCycleCount += 1
+		UtilsGlobalVariables.PLAYER_MODIFIERS_RESOURCE.miscModifiersDict.spellPagesCastInCycle += 1
 
 func Targeting_Logic(targetType: UtilsGlobalEnums.pageTargeting) -> Vector2:
 	SignalBus.Ask_EnemyPos.emit()
@@ -83,7 +83,7 @@ func Cycle_Pages() -> void:
 func Restart_Cycle() -> void:
 	await get_tree().create_timer(UtilsGlobalVariables.playerGrimoire.CastSpeed).timeout
 	SignalBus.CyclePages.emit()
-	UtilsGlobalVariables.SpellPagesCastInCycleCount = 0
+	UtilsGlobalVariables.PLAYER_MODIFIERS_RESOURCE.miscModifiersDict.spellPagesCastInCycle = 0
 	Cycle_Pages()
 
 func Start_Combat() -> void:
