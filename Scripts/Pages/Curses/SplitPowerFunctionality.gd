@@ -33,7 +33,7 @@ func InitializeCurse() -> void:
 	multiplier = -50
 	modifiers.damageModifiersDict.increasedDamage.Current = modifiers.damageModifiersDict.increasedDamage.Current + multiplier
 
-func countPage(pageType: UtilsGlobalEnums.pageTypes):
+func countPage(pageType: UtilsGlobalEnums.pageTypes, pageOwnerRef: Node):
 	if debuffDuration <= 0 && hasCurseConditionBeenFulfilled == false:
 		hasCurseConditionBeenFulfilled = true
 		modifiers.damageModifiersDict.increasedDamage.Current = modifiers.damageModifiersDict.increasedDamage.Current - multiplier

@@ -28,3 +28,12 @@ func onCombatEnd() -> void:
 	pageOwner.grimoireRef.CastSpeed = pageOwner.grimoireRef.BaseCastSpeed
 	modifiers.miscModifiersDict.firedUpStacks = 0
 	queue_free()
+
+func _notification(what: int) -> void:
+	match what:
+		NOTIFICATION_PREDELETE:
+			on_predelete()
+
+func on_predelete() -> void:
+	pageOwner.grimoireRef.CastSpeed = pageOwner.grimoireRef.BaseCastSpeed
+	modifiers.miscModifiersDict.firedUpStacks = 0

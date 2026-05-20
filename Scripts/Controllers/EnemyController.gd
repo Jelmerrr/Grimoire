@@ -89,8 +89,11 @@ func Cast_Page(page: PageResource) -> void:
 	instance.modifierID = modifiers.get_instance_id()
 	instance.pageOwner = self
 	SignalBus.PageCasted.emit(page.PageType, self)
-	#Calling parent twice to ensure persistance should enemy die.
-	self.get_parent().get_parent().add_child.call_deferred(instance)
+	#Calling parent twice to ensure persistance should enemy die if page is a spell.
+	if page.PageType == UtilsGlobalEnums.pageTypes.Spell:
+		self.get_parent().get_parent().add_child.call_deferred(instance)
+	else:
+		add_child.call_deferred(instance)
 	if page.PageType == UtilsGlobalEnums.pageTypes.Spell:
 		modifiers.miscModifiersDict.spellPagesCastInCycle += 1
 

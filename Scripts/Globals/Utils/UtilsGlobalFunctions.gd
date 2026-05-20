@@ -24,8 +24,8 @@ func DamageCalc(BaseDamage: float, tags: Array[UtilsGlobalEnums.pageTags], modif
 	return totalDamage
 
 func ResetDamageMultipliers() -> void:
-	for multiplier in UtilsGlobalDictionaries.damageModifiersDict:
-		UtilsGlobalDictionaries.damageModifiersDict[multiplier].Current = UtilsGlobalDictionaries.damageModifiersDict[multiplier].Base
+	for multiplier in UtilsGlobalVariables.PLAYER_MODIFIERS_RESOURCE.damageModifiersDict:
+		UtilsGlobalVariables.PLAYER_MODIFIERS_RESOURCE.damageModifiersDict[multiplier].Current = UtilsGlobalVariables.PLAYER_MODIFIERS_RESOURCE.damageModifiersDict[multiplier].Base
 
 func RoundIncrease() -> void:
 	UtilsGlobalVariables.currentRoundValue += 1
