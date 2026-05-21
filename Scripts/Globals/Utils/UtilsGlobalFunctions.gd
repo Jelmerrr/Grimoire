@@ -53,7 +53,7 @@ func goToPlanning() -> void:
 	UtilsGlobalVariables.currentGameState = UtilsGlobalEnums.gameState.Planning
 	SignalBus.Start_Planning_Phase.emit()
 
-func Run_AilmentCheck(element: UtilsGlobalEnums.elements) -> UtilsGlobalEnums.ailments:
+func Run_AilmentCheck(element: UtilsGlobalEnums.elements, attemptedBy: Node) -> UtilsGlobalEnums.ailments:
 	var playerModifiers = UtilsGlobalVariables.PLAYER_MODIFIERS_RESOURCE
 	match element:
 		UtilsGlobalEnums.elements.Fire:
