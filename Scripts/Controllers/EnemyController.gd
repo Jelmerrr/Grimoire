@@ -118,16 +118,17 @@ func Get_Damaged(projectileHit):
 	if projectileHit.pageTags != null:
 		var tags: Array[UtilsGlobalEnums.pageTags] = projectileHit.pageTags
 		var ailmentToApply: UtilsGlobalEnums.ailments
+		var playerModifierID = UtilsGlobalVariables.PLAYER_MODIFIERS_RESOURCE.get_instance_id()
 		match tags:
 			[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Fire]:
 				lastElementalTag = UtilsGlobalEnums.pageTags.Fire
-				ailmentToApply = UtilsGlobalFunctions.Run_AilmentCheck(UtilsGlobalEnums.elements.Fire, UtilsGlobalVariables.playerInstanceID)
+				ailmentToApply = UtilsGlobalFunctions.Run_AilmentCheck(UtilsGlobalEnums.elements.Fire, playerModifierID)
 			[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Lightning]:
 				lastElementalTag = UtilsGlobalEnums.pageTags.Lightning
-				ailmentToApply = UtilsGlobalFunctions.Run_AilmentCheck(UtilsGlobalEnums.elements.Lightning, UtilsGlobalVariables.playerInstanceID)
+				ailmentToApply = UtilsGlobalFunctions.Run_AilmentCheck(UtilsGlobalEnums.elements.Lightning, playerModifierID)
 			[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Cold]:
 				lastElementalTag = UtilsGlobalEnums.pageTags.Cold
-				ailmentToApply = UtilsGlobalFunctions.Run_AilmentCheck(UtilsGlobalEnums.elements.Cold, UtilsGlobalVariables.playerInstanceID)
+				ailmentToApply = UtilsGlobalFunctions.Run_AilmentCheck(UtilsGlobalEnums.elements.Cold, playerModifierID)
 		Apply_Ailment(ailmentToApply, damage)
 
 func Apply_Ailment(ailment: UtilsGlobalEnums.ailments, hitDamage: float) -> void:
