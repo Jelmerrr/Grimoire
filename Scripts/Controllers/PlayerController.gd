@@ -8,6 +8,8 @@ var grimoireRef: GrimoireResource
 
 const DAMAGE_NUMBER_UI = preload("uid://cfkn2u7gp546x")
 
+var lastElementalTag = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	grimoireRef = UtilsGlobalVariables.playerGrimoire
@@ -22,8 +24,8 @@ func _ready() -> void:
 func UpdatePlayerPos() -> void:
 	UtilsGlobalVariables.playerPosition = global_position
 
-func Get_Damaged(enemySpell):
-	var damageTaken = enemySpell.totalDamage
+func Get_Damaged(projectileHit):
+	var damageTaken = projectileHit.totalDamage
 	Change_Health(-damageTaken)
 	
 	var damageInstance = DAMAGE_NUMBER_UI.instantiate()
@@ -32,6 +34,23 @@ func Get_Damaged(enemySpell):
 	#Calling parent twice to ensure persistance should you die.
 	self.get_parent().get_parent().add_child.call_deferred(damageInstance)
 	
+	#Check if hit by an elemental spell for ailments.
+	if projectileHit.pageTags != null:
+		var tags: Array[UtilsGlobalEnums.pageTags] = projectileHit.pageTags
+		var ailmentToApply: UtilsGlobalEnums.ailments
+		var playerModifierID = UtilsGlobalVariables.PLAYER_MODIFIERS_RESOURCE.get_instance_id()
+		match tags:
+			[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Fire]:
+				lastElementalTag = UtilsGlobalEnums.pageTags.Fire
+				ailmentToApply = UtilsGlobalFunctions.Run_AilmentCheck(UtilsGlobalEnums.elements.Fire, playerModifierID)
+			[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Lightning]:
+				lastElementalTag = UtilsGlobalEnums.pageTags.Lightning
+				ailmentToApply = UtilsGlobalFunctions.Run_AilmentCheck(UtilsGlobalEnums.elements.Lightning, playerModifierID)
+			[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Cold]:
+				lastElementalTag = UtilsGlobalEnums.pageTags.Cold
+				ailmentToApply = UtilsGlobalFunctions.Run_AilmentCheck(UtilsGlobalEnums.elements.Cold, playerModifierID)
+		#Apply_Ailment(ailmentToApply, damage)
+		
 	#if currentHealth <= 0:
 	#	queue_free()
 
@@ -41,6 +60,7 @@ func Reset_HP() -> void:
 	health_bar.value = health_bar.max_value
 
 func Change_Health(value: int) -> void:
+	value = roundi(value)
 	currentHealth = clampi(currentHealth + value, 0, UtilsGlobalVariables.BasePlayerHealth)
 	health_bar.value = clampi(int(health_bar.value) + value, 0, UtilsGlobalVariables.BasePlayerHealth)
 	if currentHealth == 0:
