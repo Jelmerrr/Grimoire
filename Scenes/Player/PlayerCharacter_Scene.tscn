@@ -87,3 +87,16 @@ grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_chfnm")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jh8iq")
 show_percentage = false
+
+[node name="IgniteDurationTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="IgniteTickTimer" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="ChillDurationTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="IgniteDurationTimer" to="CharacterBody2D" method="_on_ignite_duration_timer_timeout"]
+[connection signal="timeout" from="IgniteTickTimer" to="CharacterBody2D" method="_on_ignite_tick_timer_timeout"]
+[connection signal="timeout" from="ChillDurationTimer" to="CharacterBody2D" method="_on_chill_duration_timer_timeout"]

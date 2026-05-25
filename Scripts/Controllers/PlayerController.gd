@@ -6,6 +6,12 @@ extends Node2D
 var currentHealth: int
 var grimoireRef: GrimoireResource
 
+var currentAilments: Array[UtilsGlobalEnums.ailments]
+var shockDamageInstanceCount: int
+var strongestIgniteValue: float
+
+@onready var ignite_tick_timer: Timer = $"../IgniteTickTimer"
+
 const DAMAGE_NUMBER_UI = preload("uid://cfkn2u7gp546x")
 
 var lastElementalTag = null
@@ -65,3 +71,19 @@ func Change_Health(value: int) -> void:
 	health_bar.value = clampi(int(health_bar.value) + value, 0, UtilsGlobalVariables.BasePlayerHealth)
 	if currentHealth == 0:
 		UtilsGlobalFunctions.RoundDefeat()
+
+
+func _on_ignite_duration_timer_timeout() -> void:
+	currentAilments.erase(UtilsGlobalEnums.ailments.Ignite)
+	ignite_tick_timer.stop()
+
+
+func _on_ignite_tick_timer_timeout() -> void:
+	pass
+	#var damage = strongestIgniteValue * (playerModifiers.ailmentModifiersDict.igniteEffect.Current / 100.0) * (playerModifiers.ailmentModifiersDict.ignitePercentageOfHitDamage.Current / 100)
+	#damage = Apply_Shock(damage)
+	#Change_Health(-damage)
+
+
+func _on_chill_duration_timer_timeout() -> void:
+	currentAilments.erase(UtilsGlobalEnums.ailments.Chill)
