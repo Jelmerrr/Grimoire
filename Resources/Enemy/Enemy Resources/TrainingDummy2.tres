@@ -23,4 +23,6 @@ enemyType = 2
 enemySprite = ExtResource("4_3h4ha")
 hpPerLevel = 5
 enemyGrimoire = SubResource("Resource_7gtu3")
+difficultyValue = 12
+difficultyValueIncreasePerLevel = 6
 metadata/_custom_type_script = "uid://cqiyxfo60k6tj"

@@ -14,3 +14,6 @@ class_name  BaseEnemyResource
 @export var hpPerLevel: int
 
 @export var enemyGrimoire: GrimoireResource
+
+@export var difficultyValue: int
+@export var difficultyValueIncreasePerLevel: int
