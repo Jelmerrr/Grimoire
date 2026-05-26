@@ -38,33 +38,30 @@ func Get_Damaged(projectileHit):
 	var damageTaken = projectileHit.totalDamage
 	Change_Health(-damageTaken)
 	
-	var damageInstance = DAMAGE_NUMBER_UI.instantiate()
-	damageInstance.damageDealt = damageTaken
-	damageInstance.pos = global_position + Vector2(0,-25) #The vector should recieve a random offset based on sprite size but for now I am lazy.
-	#Calling parent twice to ensure persistance should you die.
-	self.get_parent().get_parent().add_child.call_deferred(damageInstance)
 	
 	#Check if hit by an elemental spell for ailments.
 	if projectileHit.pageTags != null:
 		var tags: Array[UtilsGlobalEnums.pageTags] = projectileHit.pageTags
 		var ailmentToApply: UtilsGlobalEnums.ailments
-		var modifierID = projectileHit.modifierID.get_instance_id()
+		var modifierID = projectileHit.modifierID
+		var modifiers: ModifiersResource = instance_from_id(modifierID)
+		var pageOwner = projectileHit.pageOwner
 		match tags:
 			[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Fire]:
 				lastElementalTag = UtilsGlobalEnums.pageTags.Fire
-				ailmentToApply = UtilsGlobalFunctions.Run_AilmentCheck(UtilsGlobalEnums.elements.Fire, modifierID)
+				ailmentToApply = UtilsGlobalFunctions.Run_AilmentCheck(UtilsGlobalEnums.elements.Fire, modifierID, pageOwner)
 			[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Lightning]:
 				lastElementalTag = UtilsGlobalEnums.pageTags.Lightning
-				ailmentToApply = UtilsGlobalFunctions.Run_AilmentCheck(UtilsGlobalEnums.elements.Lightning, modifierID)
+				ailmentToApply = UtilsGlobalFunctions.Run_AilmentCheck(UtilsGlobalEnums.elements.Lightning, modifierID, pageOwner)
 			[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Cold]:
 				lastElementalTag = UtilsGlobalEnums.pageTags.Cold
-				ailmentToApply = UtilsGlobalFunctions.Run_AilmentCheck(UtilsGlobalEnums.elements.Cold, modifierID)
-		Apply_Ailment(ailmentToApply, damageTaken, modifierID)
+				ailmentToApply = UtilsGlobalFunctions.Run_AilmentCheck(UtilsGlobalEnums.elements.Cold, modifierID, pageOwner)
+		Apply_Ailment(ailmentToApply, damageTaken, modifiers)
 		
 	#if currentHealth <= 0:
 	#	queue_free()
 
-func Apply_Ailment(ailment: UtilsGlobalEnums.ailments, hitDamage: float, modifierID: ModifiersResource) -> void:
+func Apply_Ailment(ailment: UtilsGlobalEnums.ailments, hitDamage: float, modifiers: ModifiersResource) -> void:
 	match ailment:
 		UtilsGlobalEnums.ailments.None:
 			return
@@ -72,20 +69,20 @@ func Apply_Ailment(ailment: UtilsGlobalEnums.ailments, hitDamage: float, modifie
 			if !currentAilments.has(UtilsGlobalEnums.ailments.Ignite):
 				currentAilments.append(UtilsGlobalEnums.ailments.Ignite)
 				ignite_tick_timer.start()
-			ignite_duration_timer.start(modifierID.ailmentModifiersDict.igniteBaseDuration.Current * (modifierID.ailmentModifiersDict.igniteDurationIncrease.Current/100.0))
+			ignite_duration_timer.start(modifiers.ailmentModifiersDict.igniteBaseDuration.Current * (modifiers.ailmentModifiersDict.igniteDurationIncrease.Current/100.0))
 			if strongestIgniteValue < hitDamage: 
 				strongestIgniteValue = hitDamage
-			igniteDamage = strongestIgniteValue * (modifierID.ailmentModifiersDict.igniteEffect.Current / 100.0) * (modifierID.ailmentModifiersDict.ignitePercentageOfHitDamage.Current / 100)
+			igniteDamage = strongestIgniteValue * (modifiers.ailmentModifiersDict.igniteEffect.Current / 100.0) * (modifiers.ailmentModifiersDict.ignitePercentageOfHitDamage.Current / 100)
 		UtilsGlobalEnums.ailments.Shock:
 			if !currentAilments.has(UtilsGlobalEnums.ailments.Shock): 
 				currentAilments.append(UtilsGlobalEnums.ailments.Shock)
-			shockDamageInstanceCount = modifierID.ailmentModifiersDict.shockTriggerAmount.Current
-			shockAppliedBy = modifierID
+			shockDamageInstanceCount = modifiers.ailmentModifiersDict.shockTriggerAmount.Current
+			shockAppliedBy = modifiers
 			
 		UtilsGlobalEnums.ailments.Chill:
 			if !currentAilments.has(UtilsGlobalEnums.ailments.Chill):
 				currentAilments.append(UtilsGlobalEnums.ailments.Chill)
-			chill_duration_timer.start(modifierID.ailmentModifiersDict.chillBaseDuration.Current * (modifierID.ailmentModifiersDict.chillDurationIncrease.Current/100.0))
+			chill_duration_timer.start(modifiers.ailmentModifiersDict.chillBaseDuration.Current * (modifiers.ailmentModifiersDict.chillDurationIncrease.Current/100.0))
 
 
 func Reset_HP() -> void:
@@ -97,6 +94,17 @@ func Change_Health(value: int) -> void:
 	value = roundi(value)
 	currentHealth = clampi(currentHealth + value, 0, UtilsGlobalVariables.BasePlayerHealth)
 	health_bar.value = clampi(int(health_bar.value) + value, 0, UtilsGlobalVariables.BasePlayerHealth)
+	
+	value *= -1
+	
+	#Instaniate damage number UI.
+	if value >= 1: #Prevents showcasing 0 damage
+		var damageInstance = DAMAGE_NUMBER_UI.instantiate()
+		damageInstance.damageDealt = value
+		damageInstance.pos = global_position + Vector2(0,-25) #The vector should recieve a random offset based on sprite size but for now I am lazy.
+		#Calling parent twice to ensure persistance should you die.
+		self.get_parent().get_parent().add_child.call_deferred(damageInstance)
+	
 	if currentHealth == 0:
 		UtilsGlobalFunctions.RoundDefeat()
 

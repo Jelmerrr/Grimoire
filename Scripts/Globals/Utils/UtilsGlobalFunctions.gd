@@ -53,19 +53,19 @@ func goToPlanning() -> void:
 	UtilsGlobalVariables.currentGameState = UtilsGlobalEnums.gameState.Planning
 	SignalBus.Start_Planning_Phase.emit()
 
-func Run_AilmentCheck(element: UtilsGlobalEnums.elements, modifiersInstanceId: int) -> UtilsGlobalEnums.ailments:
+func Run_AilmentCheck(element: UtilsGlobalEnums.elements, modifiersInstanceId: int, pageOwner: Node) -> UtilsGlobalEnums.ailments:
 	var modifiers: ModifiersResource = instance_from_id(modifiersInstanceId)
 	match element:
 		UtilsGlobalEnums.elements.Fire:
 			if UtilsRngHandler.rng.randf_range(1,100) <= clampf(modifiers.ailmentModifiersDict.igniteChance.Current, 0, 100):
-				SignalBus.IgniteInflicted.emit()
+				SignalBus.IgniteInflicted.emit(pageOwner)
 				return UtilsGlobalEnums.ailments.Ignite
 		UtilsGlobalEnums.elements.Lightning:
 			if UtilsRngHandler.rng.randf_range(1,100) <= clampf(modifiers.ailmentModifiersDict.shockChance.Current, 0, 100):
-				SignalBus.ShockInflicted.emit()
+				SignalBus.ShockInflicted.emit(pageOwner)
 				return UtilsGlobalEnums.ailments.Shock
 		UtilsGlobalEnums.elements.Cold:
 			if UtilsRngHandler.rng.randf_range(1,100) <= clampf(modifiers.ailmentModifiersDict.chillChance.Current, 0, 100): 
-				SignalBus.ChillInflicted.emit()
+				SignalBus.ChillInflicted.emit(pageOwner)
 				return UtilsGlobalEnums.ailments.Chill
 	return UtilsGlobalEnums.ailments.None

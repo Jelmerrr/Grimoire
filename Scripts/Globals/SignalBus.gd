@@ -23,6 +23,6 @@ signal Start_Planning_Phase()
 
 signal AddPlayerHealth(value: int)
 
-signal IgniteInflicted()
-signal ShockInflicted()
-signal ChillInflicted()
+signal IgniteInflicted(pageOwner: Node)
+signal ShockInflicted(pageOwner: Node)
+signal ChillInflicted(pageOwner: Node)

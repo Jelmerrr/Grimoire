@@ -19,11 +19,12 @@ func _ready() -> void:
 	modifiers.ailmentModifiersDict.igniteChance.Current += 999
 	#UtilsGlobalVariables.currentIgniteChance += 999
 
-func igniteCount() -> void:
-	buffDuration -= 1
-	if buffDuration == 0:
+func igniteCount(ownerRef: Node) -> void:
+	if ownerRef == pageOwner:
+		buffDuration -= 1
+		if buffDuration == 0:
 		#UtilsGlobalVariables.currentIgniteChance -= 999
-		queue_free()
+			queue_free()
 
 func onCombatEnd() -> void:
 	#UtilsGlobalVariables.currentIgniteChance -= 999

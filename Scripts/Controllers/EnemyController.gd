@@ -8,6 +8,7 @@ var maxHealth: int
 var spawnPos: Vector2 = Vector2(0, -360)
 var level: int = 1
 var awake: bool = false
+var alive: bool = true
 var grimoireRef: GrimoireResource
 
 var currentAilments: Array[UtilsGlobalEnums.ailments]
@@ -53,6 +54,8 @@ func WakeUp() -> void:
 	#Function gets called on combat start for each active enemy.
 	action_timer.wait_time = enemyResource.actionSpeed
 	awake = true
+	if currentHealth >= 1:
+		alive = true
 	Restart_Cycle()
 	action_timer.start()
 
@@ -67,7 +70,7 @@ func Cycle_Pages() -> void:
 	#Grimoire cycle logic.
 	#TODO: Dynamic action speed and decision tree stuff.
 	for page in enemyResource.enemyGrimoire.Pages:
-		if awake:
+		if awake && alive:
 			Cast_Page(page)
 			if currentAilments.has(UtilsGlobalEnums.ailments.Chill):
 				#TODO: fix that this scales of PLAYER modifiers and not ENEMY modifier.
@@ -76,7 +79,7 @@ func Cycle_Pages() -> void:
 				await get_tree().create_timer(enemyResource.enemyGrimoire.CastSpeed).timeout
 		else:
 			break
-	if awake:
+	if awake && alive:
 		Restart_Cycle()
 
 func Cast_Page(page: PageResource) -> void:
@@ -85,6 +88,7 @@ func Cast_Page(page: PageResource) -> void:
 	SignalBus.Ask_PlayerPos.emit()
 	instance.destination = UtilsGlobalVariables.playerPosition
 	instance.spawnPos = global_position
+	instance.pageTags = page.PageTags
 	instance.pageAlignment = UtilsGlobalEnums.alignment.Enemy
 	instance.modifierID = modifiers.get_instance_id()
 	instance.pageOwner = self
@@ -119,16 +123,17 @@ func Get_Damaged(projectileHit):
 		var tags: Array[UtilsGlobalEnums.pageTags] = projectileHit.pageTags
 		var ailmentToApply: UtilsGlobalEnums.ailments
 		var playerModifierID = UtilsGlobalVariables.PLAYER_MODIFIERS_RESOURCE.get_instance_id()
+		var pageOwner = projectileHit.pageOwner
 		match tags:
 			[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Fire]:
 				lastElementalTag = UtilsGlobalEnums.pageTags.Fire
-				ailmentToApply = UtilsGlobalFunctions.Run_AilmentCheck(UtilsGlobalEnums.elements.Fire, playerModifierID)
+				ailmentToApply = UtilsGlobalFunctions.Run_AilmentCheck(UtilsGlobalEnums.elements.Fire, playerModifierID, pageOwner)
 			[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Lightning]:
 				lastElementalTag = UtilsGlobalEnums.pageTags.Lightning
-				ailmentToApply = UtilsGlobalFunctions.Run_AilmentCheck(UtilsGlobalEnums.elements.Lightning, playerModifierID)
+				ailmentToApply = UtilsGlobalFunctions.Run_AilmentCheck(UtilsGlobalEnums.elements.Lightning, playerModifierID, pageOwner)
 			[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Cold]:
 				lastElementalTag = UtilsGlobalEnums.pageTags.Cold
-				ailmentToApply = UtilsGlobalFunctions.Run_AilmentCheck(UtilsGlobalEnums.elements.Cold, playerModifierID)
+				ailmentToApply = UtilsGlobalFunctions.Run_AilmentCheck(UtilsGlobalEnums.elements.Cold, playerModifierID, pageOwner)
 		Apply_Ailment(ailmentToApply, damage)
 
 func Apply_Ailment(ailment: UtilsGlobalEnums.ailments, hitDamage: float) -> void:
@@ -182,7 +187,10 @@ func Change_Health(damage) -> void:
 	
 	#If HP is below 0 or = 0, remove enemy from scene.
 	if currentHealth <= 0:
-		queue_free()
+		alive = false
+		self.visible = false
+		ignite_tick_timer.stop()
+		#queue_free()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:

@@ -3,6 +3,7 @@ extends Node2D
 const ENEMY_CHARACTER_SCENE = preload("uid://bkl1uw8420f1t")
 const TRAINING_DUMMY = preload("uid://t8ncgrjjpm32")
 const TRAINING_DUMMY_2 = preload("uid://c8ob4odotuy8q")
+const TRAINING_DUMMY_3 = preload("uid://ch77rk1lmoii2")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -12,7 +13,7 @@ func _ready() -> void:
 	SignalBus.Ask_EnemyPos.connect(AskPos)
 
 func SpawnEnemies() -> void:
-	InstanceEnemy(TRAINING_DUMMY, UtilsGlobalVariables.currentEnemyLevel, Vector2(150,-100))
+	InstanceEnemy(TRAINING_DUMMY_3, UtilsGlobalVariables.currentEnemyLevel, Vector2(150,-100))
 	InstanceEnemy(TRAINING_DUMMY_2, UtilsGlobalVariables.currentEnemyLevel, Vector2(-150,-150))
 	if UtilsGlobalVariables.currentEnemyLevel >= 9:
 		InstanceEnemy(TRAINING_DUMMY, UtilsGlobalVariables.currentEnemyLevel, Vector2(-50,-200))
@@ -34,5 +35,6 @@ func AskPos() -> void:
 func GetEnemyPositions() -> Array[Vector2]:
 	var result: Array[Vector2]
 	for child in get_children():
-		result.append(child.global_position)
+		if child.alive:
+			result.append(child.global_position)
 	return result
