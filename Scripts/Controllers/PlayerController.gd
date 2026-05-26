@@ -8,9 +8,13 @@ var grimoireRef: GrimoireResource
 
 var currentAilments: Array[UtilsGlobalEnums.ailments]
 var shockDamageInstanceCount: int
+var shockAppliedBy: ModifiersResource
 var strongestIgniteValue: float
 
 @onready var ignite_tick_timer: Timer = $"../IgniteTickTimer"
+@onready var ignite_duration_timer: Timer = $"../IgniteDurationTimer"
+@onready var chill_duration_timer: Timer = $"../ChillDurationTimer"
+var igniteDamage
 
 const DAMAGE_NUMBER_UI = preload("uid://cfkn2u7gp546x")
 
@@ -44,21 +48,45 @@ func Get_Damaged(projectileHit):
 	if projectileHit.pageTags != null:
 		var tags: Array[UtilsGlobalEnums.pageTags] = projectileHit.pageTags
 		var ailmentToApply: UtilsGlobalEnums.ailments
-		var playerModifierID = UtilsGlobalVariables.PLAYER_MODIFIERS_RESOURCE.get_instance_id()
+		var modifierID = projectileHit.modifierID.get_instance_id()
 		match tags:
 			[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Fire]:
 				lastElementalTag = UtilsGlobalEnums.pageTags.Fire
-				ailmentToApply = UtilsGlobalFunctions.Run_AilmentCheck(UtilsGlobalEnums.elements.Fire, playerModifierID)
+				ailmentToApply = UtilsGlobalFunctions.Run_AilmentCheck(UtilsGlobalEnums.elements.Fire, modifierID)
 			[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Lightning]:
 				lastElementalTag = UtilsGlobalEnums.pageTags.Lightning
-				ailmentToApply = UtilsGlobalFunctions.Run_AilmentCheck(UtilsGlobalEnums.elements.Lightning, playerModifierID)
+				ailmentToApply = UtilsGlobalFunctions.Run_AilmentCheck(UtilsGlobalEnums.elements.Lightning, modifierID)
 			[UtilsGlobalEnums.pageTags.Spell, UtilsGlobalEnums.pageTags.Cold]:
 				lastElementalTag = UtilsGlobalEnums.pageTags.Cold
-				ailmentToApply = UtilsGlobalFunctions.Run_AilmentCheck(UtilsGlobalEnums.elements.Cold, playerModifierID)
-		#Apply_Ailment(ailmentToApply, damage)
+				ailmentToApply = UtilsGlobalFunctions.Run_AilmentCheck(UtilsGlobalEnums.elements.Cold, modifierID)
+		Apply_Ailment(ailmentToApply, damageTaken, modifierID)
 		
 	#if currentHealth <= 0:
 	#	queue_free()
+
+func Apply_Ailment(ailment: UtilsGlobalEnums.ailments, hitDamage: float, modifierID: ModifiersResource) -> void:
+	match ailment:
+		UtilsGlobalEnums.ailments.None:
+			return
+		UtilsGlobalEnums.ailments.Ignite:
+			if !currentAilments.has(UtilsGlobalEnums.ailments.Ignite):
+				currentAilments.append(UtilsGlobalEnums.ailments.Ignite)
+				ignite_tick_timer.start()
+			ignite_duration_timer.start(modifierID.ailmentModifiersDict.igniteBaseDuration.Current * (modifierID.ailmentModifiersDict.igniteDurationIncrease.Current/100.0))
+			if strongestIgniteValue < hitDamage: 
+				strongestIgniteValue = hitDamage
+			igniteDamage = strongestIgniteValue * (modifierID.ailmentModifiersDict.igniteEffect.Current / 100.0) * (modifierID.ailmentModifiersDict.ignitePercentageOfHitDamage.Current / 100)
+		UtilsGlobalEnums.ailments.Shock:
+			if !currentAilments.has(UtilsGlobalEnums.ailments.Shock): 
+				currentAilments.append(UtilsGlobalEnums.ailments.Shock)
+			shockDamageInstanceCount = modifierID.ailmentModifiersDict.shockTriggerAmount.Current
+			shockAppliedBy = modifierID
+			
+		UtilsGlobalEnums.ailments.Chill:
+			if !currentAilments.has(UtilsGlobalEnums.ailments.Chill):
+				currentAilments.append(UtilsGlobalEnums.ailments.Chill)
+			chill_duration_timer.start(modifierID.ailmentModifiersDict.chillBaseDuration.Current * (modifierID.ailmentModifiersDict.chillDurationIncrease.Current/100.0))
+
 
 func Reset_HP() -> void:
 	currentHealth = UtilsGlobalVariables.BasePlayerHealth
@@ -78,12 +106,17 @@ func _on_ignite_duration_timer_timeout() -> void:
 	ignite_tick_timer.stop()
 
 
-func _on_ignite_tick_timer_timeout() -> void:
-	pass
-	#var damage = strongestIgniteValue * (playerModifiers.ailmentModifiersDict.igniteEffect.Current / 100.0) * (playerModifiers.ailmentModifiersDict.ignitePercentageOfHitDamage.Current / 100)
-	#damage = Apply_Shock(damage)
-	#Change_Health(-damage)
+func _on_ignite_tick_timer_timeout() -> void: 
+	var damage = Apply_Shock(igniteDamage)
+	Change_Health(-damage)
 
+func Apply_Shock(damage) -> float:
+	if currentAilments.has(UtilsGlobalEnums.ailments.Shock): 
+		damage = damage * ((shockAppliedBy.ailmentModifiersDict.shockBaseDamageIncrease.Current / 100.0) * (shockAppliedBy.ailmentModifiersDict.shockEffect.Current / 100.0))
+		shockDamageInstanceCount -= 1
+		if shockDamageInstanceCount <= 0:
+			currentAilments.erase(UtilsGlobalEnums.ailments.Shock)
+	return damage
 
 func _on_chill_duration_timer_timeout() -> void:
 	currentAilments.erase(UtilsGlobalEnums.ailments.Chill)
