@@ -29,6 +29,7 @@ func ResetDamageMultipliers() -> void:
 
 func RoundIncrease() -> void:
 	UtilsGlobalVariables.currentRoundValue += 1
+	UtilsGlobalVariables.currentEncountersValue +=1
 	if UtilsGlobalVariables.currentRoundValue == 9:
 		UtilsGlobalVariables.currentRoundValue = 1
 		UtilsGlobalVariables.currentStageValue += 1
@@ -47,6 +48,7 @@ func RoundDefeat() -> void:
 	UtilsSceneManager.switch_scene(UtilsSceneManager.TITLE_SCREEN_SCENE)
 	UtilsGlobalVariables.currentStageValue = 1
 	UtilsGlobalVariables.currentRoundValue = 1
+	UtilsGlobalVariables.currentEncountersValue =1
 
 func goToPlanning() -> void:
 	RoundIncrease()

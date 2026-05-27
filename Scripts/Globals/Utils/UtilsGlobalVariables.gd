@@ -10,6 +10,7 @@ var inCombat: bool
 var currentGameState: UtilsGlobalEnums.gameState
 var currentStageValue: int = 1
 var currentRoundValue: int = 1
+var currentEncountersValue: int = 1
 
 #Player stat variables
 var PlayerCastSpeed: float = 1 #Time in Seconds
