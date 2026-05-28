@@ -4,7 +4,7 @@ extends Node
 func _ready() -> void:
 	UtilsGlobalVariables.playerGrimoire = GrimoireResource.new()
 	UtilsGlobalVariables.playerGrimoire.CastSpeed = 1.0
-	UtilsGlobalVariables.BasePlayerCastSpeed = UtilsGlobalVariables.playerGrimoire.CastSpeed
+	UtilsGlobalVariables.BasePlayerCastSpeed = UtilsGlobalVariables.playerInstanceID.grimoireRef.CastSpeed #UtilsGlobalVariables.playerGrimoire.CastSpeed
 	SignalBus.Add_Page.connect(Add_Page)
 	SignalBus.Remove_Page.connect(Remove_Page)
 	SignalBus.Start_Combat.connect(Start_Combat)
@@ -14,10 +14,8 @@ func _ready() -> void:
 	initpages()
 
 func initpages() -> void:
-	SignalBus.Add_Page.emit(preload("uid://d28q6rox0ifqv")) #Ablaze
 	SignalBus.Add_Page.emit(preload("uid://bmvokbotxdoyw")) #Fireball
-	SignalBus.Add_Page.emit(preload("uid://7uy53ukryjia")) #Health Potion
-	#SignalBus.Add_Page.emit(preload("uid://fsehssw35cdq")) #Thunderbolt
+
 
 func Add_Page(Page: PageResource) -> void:
 	UtilsGlobalVariables.playerGrimoire.Pages.append(Page)
@@ -74,14 +72,14 @@ func Cycle_Pages() -> void:
 	for item in UtilsGlobalVariables.playerGrimoire.Pages:
 		if UtilsGlobalVariables.inCombat:
 			Cast_Page(item)
-			await get_tree().create_timer(UtilsGlobalVariables.playerGrimoire.CastSpeed).timeout
+			await get_tree().create_timer(UtilsGlobalVariables.playerInstanceID.grimoireRef.CastSpeed).timeout
 		else:
 			break
 	if UtilsGlobalVariables.inCombat:
 		Restart_Cycle()
 
 func Restart_Cycle() -> void:
-	await get_tree().create_timer(UtilsGlobalVariables.playerGrimoire.CastSpeed).timeout
+	await get_tree().create_timer(UtilsGlobalVariables.playerInstanceID.grimoireRef.CastSpeed).timeout
 	SignalBus.CyclePages.emit(UtilsGlobalVariables.playerInstanceID)
 	UtilsGlobalVariables.PLAYER_MODIFIERS_RESOURCE.miscModifiersDict.spellPagesCastInCycle = 0
 	Cycle_Pages()

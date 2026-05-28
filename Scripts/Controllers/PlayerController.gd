@@ -22,6 +22,7 @@ var lastElementalTag = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	UtilsGlobalVariables.playerInstanceID = self
 	grimoireRef = UtilsGlobalVariables.playerGrimoire
 	SignalBus.Ask_PlayerPos.connect(UpdatePlayerPos)
 	SignalBus.Start_Combat.connect(Reset_HP)
@@ -29,7 +30,6 @@ func _ready() -> void:
 	SignalBus.AddPlayerHealth.connect(Change_Health)
 	Reset_HP()
 	animated_sprite_2d.play()
-	UtilsGlobalVariables.playerInstanceID = self
 
 func UpdatePlayerPos() -> void:
 	UtilsGlobalVariables.playerPosition = global_position

@@ -24,14 +24,14 @@ func Remove_Page(pageToRemove: PanelContainer) -> void:
 			page.queue_free()
 
 func highlight() -> void:
-	await get_tree().create_timer(UtilsGlobalVariables.PlayerCastSpeed).timeout
+	await get_tree().create_timer(UtilsGlobalVariables.playerInstanceID.grimoireRef.CastSpeed).timeout
 	highlight_cycle()
 
 func highlight_cycle() -> void:
 	for child in pages_showcase.get_children():
 		if UtilsGlobalVariables.inCombat:
 			child.Highlight()
-			await get_tree().create_timer(UtilsGlobalVariables.PlayerCastSpeed).timeout
+			await get_tree().create_timer(UtilsGlobalVariables.playerInstanceID.grimoireRef.CastSpeed).timeout
 		else:
 			break
 	if UtilsGlobalVariables.inCombat:
