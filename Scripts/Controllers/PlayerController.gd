@@ -89,6 +89,7 @@ func Reset_HP() -> void:
 	currentHealth = UtilsGlobalVariables.BasePlayerHealth
 	health_bar.max_value = UtilsGlobalVariables.BasePlayerHealth
 	health_bar.value = health_bar.max_value
+	ignite_tick_timer.stop()
 
 func Change_Health(value: int) -> void:
 	value = roundi(value)

@@ -5,6 +5,7 @@ var modifiers: ModifiersResource = ModifiersResource.new()
 
 var currentHealth: int
 var maxHealth: int
+var additionalHealthFromDifficulty: int
 var spawnPos: Vector2 = Vector2(0, -360)
 var level: int = 1
 var awake: bool = false
@@ -23,6 +24,7 @@ var hovering: bool = false
 
 @onready var action_timer: Timer = $ActionTimer
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 @onready var health_bar: ProgressBar = $"Health Bar"
 @onready var mouse_area: PanelContainer = $MouseArea
@@ -41,7 +43,7 @@ func _ready() -> void:
 	SignalBus.Stop_Combat.connect(Sleep)
 	
 	grimoireRef = enemyResource.enemyGrimoire
-	maxHealth = int(enemyResource.baseHealth + (enemyResource.hpPerLevel * level))
+	maxHealth = int(enemyResource.baseHealth + additionalHealthFromDifficulty)
 	currentHealth = maxHealth
 	sprite_2d.texture = enemyResource.enemySprite
 	health_bar.max_value = currentHealth
@@ -56,6 +58,10 @@ func WakeUp() -> void:
 	awake = true
 	if currentHealth >= 1:
 		alive = true
+	
+	#Sets a small waking delay to prevent the same enemies attacking at the exact same timing
+	var wakingDelay = UtilsRngHandler.rng.randf_range(0, 0.02)
+	await get_tree().create_timer(wakingDelay).timeout
 	Restart_Cycle()
 	action_timer.start()
 
@@ -187,9 +193,11 @@ func Change_Health(damage) -> void:
 	
 	#If HP is below 0 or = 0, remove enemy from scene.
 	if currentHealth <= 0:
+		collision_shape_2d.set_deferred("disabled", true)
 		alive = false
 		self.visible = false
 		ignite_tick_timer.stop()
+		
 		#queue_free()
 
 func _input(event: InputEvent) -> void:
