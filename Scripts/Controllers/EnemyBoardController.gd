@@ -15,10 +15,6 @@ func _ready() -> void:
 
 func SpawnEnemies() -> void:
 	GenerateEncounter()
-	#InstanceEnemy(TRAINING_DUMMY_3, UtilsGlobalVariables.currentEnemyLevel, Vector2(150,-100))
-	#InstanceEnemy(TRAINING_DUMMY_2, UtilsGlobalVariables.currentEnemyLevel, Vector2(-150,-150))
-	#if UtilsGlobalVariables.currentEnemyLevel >= 9:
-		#InstanceEnemy(TRAINING_DUMMY, UtilsGlobalVariables.currentEnemyLevel, Vector2(-50,-200))
 
 func InstanceEnemy(enemyResource:BaseEnemyResource, additionalDifficulty: int, spawnPos: Vector2) -> void:
 	var instance = ENEMY_CHARACTER_SCENE.instantiate()
