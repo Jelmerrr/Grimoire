@@ -57,10 +57,24 @@ enum ailments{
 	None,
 	Ignite,
 	Shock,
-	Chill
+	Chill,
 }
 
 enum musicPlayerState{
 	MainMenu,
 	Stage1
+}
+
+enum nodeTypes{
+	Encounter,
+	Elite,
+	Event,
+	Shop,
+}
+
+enum nodeStatuses{
+	Invalid,
+	Selectable,
+	LastVisited,
+	Completed,
 }

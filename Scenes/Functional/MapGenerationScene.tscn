@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://datlx7pbihxpe"]
+
+[ext_resource type="Script" uid="uid://tdck2imhapaf" path="res://Scripts/Controllers/MapGenerationController.gd" id="1_8kf1s"]
+
+[node name="MapGenScene" type="Node2D"]
+script = ExtResource("1_8kf1s")
