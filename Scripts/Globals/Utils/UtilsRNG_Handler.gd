@@ -17,3 +17,11 @@ func random_seed(): #Generate a new random seed, should be called when no pre-de
 	var randomseed = seedrng.randi_range(1, 2147483647)
 	var randomized_seed = str(randomseed)
 	rng.seed = hash(randomized_seed)
+
+func shuffleArray(array: Array):
+	for i in array.size() - 2:
+		var j := rng.randi_range(i, array.size() - 1)
+		var tmp = array[i]
+		array[i] = array[j]
+		array[j] = tmp
+	return array

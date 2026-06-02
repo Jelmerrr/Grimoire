@@ -17,8 +17,15 @@ func PopulateMapData() -> void:
 	var currentNodeAttempt: Vector2 = Vector2(1,1)
 	var populating: bool = true
 	while populating:
+		var emptyNodesInRow: int = UtilsRngHandler.rng.randi_range(0, currentStageMap.maxRandomizedSize.y - 2)
+		var isNodeEmptyForStage: Array[bool] = PopulateEmptyNodeData(emptyNodesInRow)
 		while currentNodeAttempt.y <= currentStageMap.maxRandomizedSize.y:
-			currentStageMap.mapData[currentNodeAttempt] = SetNodeData(currentNodeAttempt)
+			var preliminaryNodeType: UtilsGlobalEnums.nodeTypes
+			if isNodeEmptyForStage[currentNodeAttempt.y - 1]:
+				preliminaryNodeType = UtilsGlobalEnums.nodeTypes.Empty
+			else:
+				preliminaryNodeType = UtilsGlobalEnums.nodeTypes.Encounter
+			currentStageMap.mapData[currentNodeAttempt] = SetNodeData(currentNodeAttempt, preliminaryNodeType)
 			currentNodeAttempt.y += 1
 		if currentNodeAttempt.x < currentStageMap.maxRandomizedSize.x:
 			currentNodeAttempt.x += 1
@@ -26,9 +33,23 @@ func PopulateMapData() -> void:
 			continue
 		populating = false
 		break
-	print(currentStageMap.mapData)
+	for item in currentStageMap.mapData:
+		print(currentStageMap.mapData[item].mapPosition)
+		print(UtilsGlobalEnums.nodeTypes.keys()[currentStageMap.mapData[item].nodeType])
 
-func SetNodeData(nodeLocation: Vector2) -> MapNodeResource:
+func SetNodeData(nodeLocation: Vector2, nodeType: UtilsGlobalEnums.nodeTypes) -> MapNodeResource:
 	var result: MapNodeResource = MapNodeResource.new()
+	result.nodeType = nodeType
 	result.mapPosition = nodeLocation
+	return result
+
+func PopulateEmptyNodeData(emptyNodesInRow: int) -> Array[bool]:
+	var result: Array[bool]
+	var tempCycleValue: int = 0
+	while tempCycleValue < emptyNodesInRow:
+		result.append(true)
+		tempCycleValue += 1
+	while result.size() < currentStageMap.maxRandomizedSize.y:
+		result.append(false)
+	UtilsRngHandler.shuffleArray(result)
 	return result
