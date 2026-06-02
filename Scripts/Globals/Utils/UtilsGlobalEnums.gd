@@ -66,10 +66,13 @@ enum musicPlayerState{
 }
 
 enum nodeTypes{
+	Empty,
 	Encounter,
 	Elite,
 	Event,
 	Shop,
+	Camp,
+	Boss,
 }
 
 enum nodeStatuses{
