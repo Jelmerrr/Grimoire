@@ -16,8 +16,9 @@ func ClearCurrentStageMap() -> void:
 func PopulateMapData() -> void:
 	var currentNodeAttempt: Vector2 = Vector2(1,1)
 	var populating: bool = true
-	var fullMapIsNodeEmptyArray: Array[Array]
+	var fullMapIsNodeEmptyArray: Array[Array] #For now used for debugging might be useful later
 	while populating:
+		#Populate a random amount of empty nodes 
 		var emptyNodesInRow: int = UtilsRngHandler.rng.randi_range(0, int(currentStageMap.maxRandomizedSize.y))
 		var isNodeEmptyForStage: Array[bool] = PopulateEmptyNodeData(emptyNodesInRow)
 		fullMapIsNodeEmptyArray.append(isNodeEmptyForStage)
@@ -35,6 +36,9 @@ func PopulateMapData() -> void:
 			continue
 		populating = false
 		break
+	#Force generation of starting node and boss node
+	currentStageMap.mapData[Vector2(0,3)] = SetNodeData(Vector2(0,3), UtilsGlobalEnums.nodeTypes.Camp)
+	currentStageMap.mapData[Vector2(9,3)] = SetNodeData(Vector2(9,3), UtilsGlobalEnums.nodeTypes.Boss)
 	print(fullMapIsNodeEmptyArray)
 	for item in currentStageMap.mapData:
 		print(currentStageMap.mapData[item].mapPosition)
